@@ -1,0 +1,247 @@
+:root{
+  --blueLight : #9cdcfe;
+  --blueDark  : #569cd6;
+  --yellowLight : #ffb517;
+  --yellowDark : #d7ba7d;
+  --yellow : rgba(230, 180, 18, 0.836);
+  --white85 : #d4d4d4;
+  --white94 : rgba(255, 255, 255, 0.938);
+  --orange : #ce9178;
+}
+body {
+  font-family: "Lato", sans-serif; 
+  background-color:#3b3b3b ;   
+  color: #aca7a7;
+}
+#searchbar{    
+  border-radius: 50px;
+  margin: 20px 20px 20px 0;
+  height: 40px; 
+  font-size: 25px;  
+  text-align: center;
+  background-color: var(--white85);
+  background-image: url(../img/search.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 15px;
+  background-position-y: 15px;
+  
+}
+input[type=text] {
+  width: 97%;
+  -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 98%;   
+}
+#searchbar:hover {
+  background-color: var(--white94);
+}
+#searchbar:focus{
+  border-color: var(--white94);
+  outline: var(--white94);
+}
+.container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.hr-line{
+  width: 80%;
+  margin: auto;  
+}
+.question {    
+  letter-spacing: 2px;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 30px 20px;
+  width: 80%;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin: auto;
+}
+span{
+  color:var(--blueLight);
+}
+.span{
+  color:var(--yellow);  
+  font-size:30px;
+  cursor:pointer;
+}
+.answer{
+  font-size: 28px; 
+  line-height: 1.6;   
+  margin: auto;        
+  width: 70%;     
+  padding: 18px;    
+  display: none;
+  overflow: hidden;  
+}
+
+.active,.question:hover {
+  background-color: #797070;
+  border-radius: 10px;
+}
+
+.question::after {
+  content: '\02795';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 13px;         
+  float: right;
+  margin-left: 5px;
+}
+.active::after {
+  content: "\2796";    
+  /* Unicode character for "minus" sign (-) */
+}
+.persian{    
+  text-align: right;    
+}
+.exercise{
+  width: 80%;
+  margin: auto;    
+  border: 1px solid black;
+  box-sizing: border-box;
+  box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, 0.25);
+  padding: 30px 20px;    
+  margin-top: 50px;    
+  transition: 0.4s;
+}
+.exercise:hover{
+  width: 81%;     
+  border: 2px solid black;  
+}
+h1{
+  letter-spacing: 2px;
+  font-size: 28px;    
+  padding: 30px 20px;        
+  transition: 0.4s;
+  margin: auto;
+}
+.a{
+  letter-spacing: 2px;
+  font-size: 28px;    
+  padding: 30px 20px;        
+  transition: 0.4s;
+  margin: auto;
+  text-decoration: none;
+  color:var(--yellowDark);
+}
+input{
+  font-family: tahoma; 
+  width: 3%;
+  text-align: right;    
+  padding: 5px;    
+}
+.input{
+  margin-left: 20px;
+  padding: 10px 20px;  
+  text-align: left;  
+  width: 30%;      
+}
+label{
+  font-family: tahoma; 
+  font-size: 20px;
+}
+.tahoma{
+  font-family: tahoma;
+}
+.btnAnswer{        
+  margin-left: 20px;
+  color:#8ab4f8;
+  text-decoration: none;
+  border: 1px solid #8ab4f8;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.btnAnswer:active{
+  color:#e8eaed;
+  background-color: #8ab4f8;
+}
+.btnAnswer:hover{
+  color:#e8eaed;
+  border: 1px solid #9aa0a6;    
+}
+.prompt{    
+  color:rgb(223, 201, 10);
+  font-size: 24px;
+  padding: 10px 20px;   
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 4px 8px 4px 32px;
+  text-decoration: none;  
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-width:1000px) {
+  input{             
+      width: 8%;                
+  }
+  .input{
+      width: 50%;
+  }
+  .question,.answer,label,.prompt,h1{
+      font-size: 20px;        
+  } 
+}
+
+@media screen and (max-width:700px) {  
+  .question,.answer,label,.prompt{
+      font-size: 16px;
+  }
+  .question,.hr-line,.exercise{
+      width: 90%;
+  }
+  .answer{
+      width: 85%;
+  } 
+  .input{
+      width: 70%;
+  }      
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="../css/main.css">
+    <title>JavaScript Class Exercise</title>    
+    <script src="../js/main.js"></script>
+    <script src="js/jsClassSession1.js"></script>
+    <script src="../js/menu.js"></script>
+</head>
+<body>
+
+  <aside id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <script>menuFilter(menuItem,"jsClass");</script>    
+  </aside>
+
+  <main id="main">
+    <span class="span" onclick="openNav()">&#9776; Menu</span>
+    <section class="container">            
+      <!------------------------------ Exercise1 --------------------------------------------------------->
+      <section class="exercise persian">
+          <input id="ageInput" name="ageInput">
+          <label for="ageInput">لطفا سن خودتان را بفرمایید؟</label>
+          <br><br><br>
+          <a class="btnAnswer tahoma" onclick="bookSelect()">انتخاب کتاب</a>
+          <br><br><br>
+          <p id="bookPrompt" class="prompt tahoma"></p>
+          <br>
+      </section>            
+      <!------------------------------ Exercise2 --------------------------------------------------------->
+      <section class="exercise">
+          <h1>Print odd numbers up to 100, excluding the user-entered odd number.</h1>
+          <input class="input" id="userInput" placeholder="Please type an odd number like 5">
+          <br><br><br>
+          <a class="btnAnswer" onclick="displayOddNumbers()">Show the result</a>
+          <br><br>
+          <p id="resultOdd" class="prompt"></p>
+          <br><br>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
