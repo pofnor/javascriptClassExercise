@@ -1,0 +1,85 @@
+:root{    
+    --background:#9bbacc;
+    --background-selected-item:#324f61;
+    --select-item:#ffffff;
+    --item:#9bbacc;
+  
+}
+.container{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+#searchbar{    
+    border-radius: 50px;
+    margin-top: 40px;
+    height: 70px; 
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;            
+    text-align: center;
+    background-color: var(--item);
+}
+body{
+    background-color:var(--background);
+}
+  
+input[type=text] {
+    width: 20%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+}
+  
+  /* When the input field gets focus,
+        change its width to 100% */
+input[type=text]:focus {
+    width: 30%;  
+}
+#searchbar:hover {
+    background-color: white;
+}
+#searchbar:focus{
+    border-color: white;
+    outline: white;
+}
+  
+#list {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#list td, #list th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#list tr:nth-child(even){background-color: #f2f2f2;}
+
+#list tr:hover {background-color: #ddd;}
+
+#list th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+.btn{        
+    margin-left: 20px;
+    color:#080808;
+    text-decoration: none;
+    border: 1px solid #171718;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.btn:active{
+    color:#000000;
+    background-color: #e7f1ee;
+}
+.btn:hover{
+    color:#ffffff;
+    border: 1px solid #04AA6D;    
+} 
