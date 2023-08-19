@@ -8,7 +8,7 @@
     <meta name="author" content="Ahmad Mokhtari">
     <link rel="shortcut icon" href="../img/icon-logo.ico" type="image/x-icon">  
     <title>Search</title>    
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/carSearch.css">
     <link rel="stylesheet" href="../css/main.css">    
     <script src="../js/main.js"></script> 
     <script src="../js/menu.js"></script>         
@@ -20,6 +20,7 @@
         <script>menuFilter(menuItem,"jsClass");</script>    
     </aside>
   <main id="main">
+    <span class="span" onclick="openNav()">&#9776; Menu</span>
     <section class="container">                  
         <input id="searchbar" onkeyup="search()" type="text"
         name="search" placeholder="Search on Company">
@@ -28,18 +29,18 @@
         <br>
         <table id='list'>        
             <tr id="tableHeader">
-                <th onclick="setSearchCategory('company')">Company</th>
-                <th onclick="setSearchCategory('model')">Model</th>
-                <th onclick="setSearchCategory('color')">Color</th>
-                <th onclick="setSearchCategory('capacity')">Capacity</th>
-                <th onclick="setSearchCategory('price')">Price</th>
-                <th onclick="setSearchCategory('year')">Year</th>
-                <th onclick="setSearchCategory('gear')">Gear</th>
-                <th onclick="setSearchCategory('fuel')">Fuel</th>
+                <th onclick="setSearchCategory('company',this)">Company</th>
+                <th onclick="setSearchCategory('model',this)">Model</th>
+                <th onclick="setSearchCategory('color',this)">Color</th>
+                <th onclick="setSearchCategory('capacity',this)">Capacity</th>
+                <th onclick="setSearchCategory('price',this)">Price</th>
+                <th onclick="setSearchCategory('year',this)">Year</th>
+                <th onclick="setSearchCategory('gear',this)">Gear</th>
+                <th onclick="setSearchCategory('fuel',this)">Fuel</th>
             </tr>            
         </table>
     </section>
   </main>
-  <script src="js/search.js"></script>    
+  <script src="js/carSearch.js"></script>    
 </body>
 </html>

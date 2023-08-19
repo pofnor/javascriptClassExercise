@@ -5,6 +5,7 @@ const menuItem = [
   {id:"jsClass"     , href:"regExp.html"           , text:"RegExp"},
   {id:"jsClass"     , href:"devTools.html"         , text:"DevTools"},
   {id:"jsClass"     , href:"jsClassQuestion.html"  , text:"Question"},
+  {id:"jsClass"     , href:"carSearch.html"        , text:"Cars Search"},  
   {id:"jsClass"     , href:"jsClassSession1.html"  , text:"JS Class Session 1"},
   {id:"jsClass"     , href:"jsClassSession2.html"  , text:"JS Class Session 2"},
   {id:"jsClass"     , href:"jsClassSession3.html"  , text:"JS Class Session 3"},

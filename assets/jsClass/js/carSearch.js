@@ -1,6 +1,7 @@
 "use strict";
 let isAscendingSort = true;
 let searchCategory = "company";
+let lastElement ;
 const cars = [
   {company : "Toyota"  , model : "Corolla" , color : "Blue"   , capacity : "4" , price : "22000$" , year : "2018" , gear : "Automatic" , fuel : "Gas"},
   {company : "Benz"    , model : "S500"    , color : "Black"  , capacity : "4" , price : "35000$" , year : "2023" , gear : "Automatic" , fuel : "Hybrid"},
@@ -36,9 +37,12 @@ function remove(){
   }
 }
 
-function setSearchCategory(category){  
+function setSearchCategory(category,element){  
   searchCategory = category;
   let searchbar = document.getElementById("searchbar");
+  if(lastElement) lastElement.classList.toggle("selectTh");
+  element.classList.toggle("selectTh");
+  lastElement = element;    
   searchbar.value = "";
   remove();
   showCars(cars);
@@ -58,6 +62,8 @@ function search(category = searchCategory) {
 }
 
 function sortPrice() {
+  let searchbar = document.getElementById("searchbar");
+  searchbar.value = "";
   let priceArrow = document.getElementById("priceBtn");
   if(isAscendingSort){
     isAscendingSort = false;
