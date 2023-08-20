@@ -8,6 +8,7 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
 }
+
 function load(){    
   let exam = document.getElementsByClassName("question");    
   for (let q of exam){    
@@ -25,4 +26,3 @@ function load(){
       });
   }
 }
-

@@ -7,11 +7,40 @@
   --white85 : #d4d4d4;
   --white94 : rgba(255, 255, 255, 0.938);
   --orange : #ce9178;
+  --background : #3b3b3b;
 }
+
+/* ----------------- Main -------------------------------------- */
+
 body {
   font-family: "Lato", sans-serif; 
-  background-color:#3b3b3b ;   
-  color: #aca7a7;
+  background-color: var(--background);  
+  /* color: #aca7a7; */
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+.span{
+  color:var(--yellow);  
+  font-size:30px;
+  cursor:pointer;
+}
+
+input{
+  font-family: 'Work Sans', sans-serif;
+  width: 3%;
+  text-align: right;    
+  padding: 5px;    
+  border: 1px solid transparent;
 }
 
 /* ----------------- AutoComplete -------------------------------------- */
@@ -21,43 +50,41 @@ body {
   position: relative;
   display: inline-block;
   width: 50%;
-  margin: auto;    
+  margin: auto;      
 }
-.autocomplete-items {
+.autocomplete-items {  
   position: absolute;      
-  border: 1px solid #d4d4d4;
+  border: 1px solid var(--white85);
   border-bottom: none;
   border-top: none;
   z-index: 99;    
-  /* width: 86%; */
-  /* margin-left: 85px;  */
   /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
-  left: 85px;
-  right: 0;
+  left: 9%;
+  right: 1%;
 }
-.autocomplete-items div {
+.autocomplete-items div {  
   padding: 10px;   
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
+  cursor: pointer;  
+  background-color: var(--white94);
+  border-bottom: 1px solid var(--white85);
 }
 .autocomplete-items div:hover {
   /*when hovering an item:*/
-  background-color: #e9e9e9;
+  background-color: var(--white85);
 }
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+  background-color: var(--blueLight) !important;     
 }
 
+/* ----------------- Search Bar -------------------------------------- */
 #searchbar{    
   border-radius: 50px;
   margin-left: 40px;
   margin-top: 20px;  
   height: 40px; 
-  font-size: 25px;  
+  font-size: 20px;  
   text-align: left;
   padding-left: 50px;
   background-color: var(--white85);
@@ -67,6 +94,7 @@ body {
   background-position-x: 15px;
   background-position-y: 15px;  
 }
+
 input[type=text] {
   width: 90%;
   -webkit-transition: width 0.15s ease-in-out;
@@ -76,21 +104,39 @@ input[type=text] {
 input[type=text]:focus {
   width: 92%;   
 }
+
 #searchbar:hover {
   background-color: var(--white94);
 }
+
 #searchbar:focus{
   border-color: var(--white94);
   outline: var(--white94);
 }
-.container{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
+
+/* ----------------- Question and Exercise --------------------------- */
+
 .hr-line{
   width: 80%;
   margin: auto;  
+}
+
+h1{
+  letter-spacing: 2px;
+  font-size: 28px;    
+  padding: 30px 20px;        
+  transition: 0.4s;
+  margin: auto;
+}
+
+.a{
+  letter-spacing: 2px;
+  font-size: 28px;    
+  padding: 30px 20px;        
+  transition: 0.4s;
+  margin: auto;
+  text-decoration: none;
+  color:var(--yellowDark);
 }
 .question {    
   letter-spacing: 2px;
@@ -103,14 +149,11 @@ input[type=text]:focus {
   transition: 0.4s;
   margin: auto;
 }
+
 span{
   color:var(--blueLight);
 }
-.span{
-  color:var(--yellow);  
-  font-size:30px;
-  cursor:pointer;
-}
+
 .answer{
   font-size: 28px; 
   line-height: 1.6;   
@@ -159,32 +202,6 @@ span{
   border: 2px solid black;  
 }
 
-h1{
-  letter-spacing: 2px;
-  font-size: 28px;    
-  padding: 30px 20px;        
-  transition: 0.4s;
-  margin: auto;
-}
-
-.a{
-  letter-spacing: 2px;
-  font-size: 28px;    
-  padding: 30px 20px;        
-  transition: 0.4s;
-  margin: auto;
-  text-decoration: none;
-  color:var(--yellowDark);
-}
-
-input{
-  font-family: 'Work Sans', sans-serif;
-  width: 3%;
-  text-align: right;    
-  padding: 5px;    
-  border: 1px solid transparent;
-}
-
 .inputFa{
   font-family: tahoma; 
   width: 3%;
@@ -208,7 +225,14 @@ input{
 .tahoma{
   font-family: tahoma;
 }
+/* Show the Result in html page */
+.prompt{      
+  color: var(--yellowLight);
+  font-size: 20px;
+  padding: 10px 20px;   
+}
 
+/* ----------------- Button -------------------------------------- */
 .btnAnswer{        
   margin-left: 20px;
   color:#8ab4f8;
@@ -229,12 +253,8 @@ input{
   color:#e8eaed;
   border: 1px solid #9aa0a6;    
 }
-.prompt{    
-  color:rgb(223, 201, 10);
-  font-size: 24px;
-  padding: 10px 20px;   
-}
 
+/* ----------------- Side Navigation Menu---------------------------- */
 .sidenav {
   height: 100%;
   width: 0;
@@ -269,39 +289,44 @@ input{
   margin-left: 50px;
 }
 
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-}
+/* ----------------- Responsive ---------------------------- */
 
 @media screen and (max-width:1000px) {
-  input{             
-      width: 8%;                
+  .autocomplete {
+    width: 80%;
+    padding-right: 80px;
   }
-  .input{
-      width: 50%;
+  .inputFa{             
+    width: 8%;                
   }
-  .question,.answer,label,.prompt,h1{
-      font-size: 20px;        
+  .inputEn{
+    width: 50%;
+  }
+  .question,.answer,label,.prompt,h1,.a{
+    font-size: 20px;        
   } 
 }
 
-@media screen and (max-width:700px) {  
-  .question,.answer,label,.prompt{
-      font-size: 16px;
+@media screen and (max-width:700px) {    
+  .question,.answer,label,.prompt,.a{
+    font-size: 16px;
   }
   .question,.hr-line,.exercise{
-      width: 90%;
+    width: 90%;
   }
   .answer{
-      width: 85%;
+    width: 85%;
   } 
   .input{
-      width: 70%;
+    width: 70%;
   }      
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }

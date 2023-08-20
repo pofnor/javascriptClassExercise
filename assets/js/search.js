@@ -2,6 +2,7 @@
 
 const myLibrary = [
   {subject : "array" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
+  {subject : "array1" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
   {subject : "function" , href : "assets/jsClass/jsClassSession2.html" , description : "this is function"},
   {subject : "function" , href : "assets/jsClass/jsClassSession3.html" , description : "33this is function"},
 ];
