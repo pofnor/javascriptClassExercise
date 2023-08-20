@@ -8,6 +8,7 @@
   --white94 : rgba(255, 255, 255, 0.938);
   --orange : #ce9178;
   --background : #3b3b3b;
+  --text : #aca7a7;
 }
 
 /* ----------------- Main -------------------------------------- */
@@ -15,7 +16,7 @@
 body {
   font-family: "Lato", sans-serif; 
   background-color: var(--background);  
-  /* color: #aca7a7; */
+  color: var(--text);
 }
 
 .container{

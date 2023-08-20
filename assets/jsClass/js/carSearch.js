@@ -88,5 +88,3 @@ function sortPrice() {
   remove();
   showCars(cars);  
 }
-
-showCars(cars);
