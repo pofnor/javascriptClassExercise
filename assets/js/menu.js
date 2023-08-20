@@ -10,6 +10,7 @@ const menuItem = [
   {id:"jsClass"     , href:"jsClassSession2.html"  , text:"JS Class Session 2"},
   {id:"jsClass"     , href:"jsClassSession3.html"  , text:"JS Class Session 3"},
   {id:"jsClass"     , href:"jsClassSession4.html"  , text:"JS Class Session 4"},  
+  {id:"jsClass"     , href:"jsClassSession5.html"  , text:"JS Class Session 5"},
 ]
 
 function menuFilter(menuItem,id,isHome){  
