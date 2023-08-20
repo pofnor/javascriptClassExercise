@@ -13,19 +13,28 @@ body {
   background-color:#3b3b3b ;   
   color: #aca7a7;
 }
+
+/* ----------------- AutoComplete -------------------------------------- */
+
+/*the container must be positioned relative:*/
 .autocomplete {
   position: relative;
-  display: inline-block;    
+  display: inline-block;
+  width: 50%;
+  margin: auto;    
 }
 .autocomplete-items {
-  /* position: absolute;       */
+  position: absolute;      
   border: 1px solid #d4d4d4;
   border-bottom: none;
   border-top: none;
-  z-index: 99;  
-  width: 86%;
-  margin-left: 85px; 
-  /* top:14%;  */
+  z-index: 99;    
+  /* width: 86%; */
+  /* margin-left: 85px;  */
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 85px;
+  right: 0;
 }
 .autocomplete-items div {
   padding: 10px;   
@@ -42,6 +51,7 @@ body {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
 #searchbar{    
   border-radius: 50px;
   margin-left: 40px;
@@ -123,13 +133,16 @@ span{
   float: right;
   margin-left: 5px;
 }
+
 .active::after {
   content: "\2796";    
   /* Unicode character for "minus" sign (-) */
 }
+
 .persian{    
   text-align: right;    
 }
+
 .exercise{
   width: 80%;
   margin: auto;    
@@ -140,10 +153,12 @@ span{
   margin-top: 50px;    
   transition: 0.4s;
 }
+
 .exercise:hover{
   width: 81%;     
   border: 2px solid black;  
 }
+
 h1{
   letter-spacing: 2px;
   font-size: 28px;    
@@ -151,6 +166,7 @@ h1{
   transition: 0.4s;
   margin: auto;
 }
+
 .a{
   letter-spacing: 2px;
   font-size: 28px;    
@@ -160,6 +176,7 @@ h1{
   text-decoration: none;
   color:var(--yellowDark);
 }
+
 input{
   font-family: 'Work Sans', sans-serif;
   width: 3%;
@@ -167,6 +184,7 @@ input{
   padding: 5px;    
   border: 1px solid transparent;
 }
+
 .inputFa{
   font-family: tahoma; 
   width: 3%;
@@ -174,19 +192,23 @@ input{
   padding: 5px;    
   border: 1px solid transparent;
 }
+
 .inputEn{
   margin-left: 20px;
   padding: 10px 20px;  
   text-align: left;  
   width: 30%;      
 }
-label{
+
+.labelFa{
   font-family: tahoma; 
   font-size: 20px;
 }
+
 .tahoma{
   font-family: tahoma;
 }
+
 .btnAnswer{        
   margin-left: 20px;
   color:#8ab4f8;

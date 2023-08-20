@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="assets/css/main.css">    
-    <title>JavaScript Class </title>   
+    <meta name="keywords" content="HTML, CSS, Responsive, JavaScript , JS, Exercise">
+    <meta name="description" content="Website for exercise JavaScript">
+    <meta name="author" content="Ahmad Mokhtari">       
+    <link rel="shortcut icon" href="assets/img/icon-logo.ico" type="image/x-icon">
+    <title>JavaScript Class</title>
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/menu.js"></script>
-    
+    <script src="assets/js/menu.js"></script>    
 </head>
 <body>
 
@@ -21,8 +26,10 @@
   <main id="main">
     <span class="span" onclick="openNav()">&#9776; Menu</span>
     <section class="container">
+      <div class="autocomplete">
       <input id="searchbar" onkeyup="search()" type="text"
         name="search" placeholder="Search...">
+      </div>
         <br>        
     </section>
     <section id="result" class="container">
