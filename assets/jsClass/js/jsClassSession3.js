@@ -1,40 +1,41 @@
 "use strict";
 
 // ---------------------------------------Object Exercise Begin-----------------------------------------
-// const user = {
-//     firstName : 'A',
-//     Sore : 100
-// };
+console.groupCollapsed("Lesson");
+const user = {
+    firstName : 'A',
+    Sore : 100
+};
 
-// const user2 = user; //Reference assignment
+const user2 = user; //Reference assignment
 
-// const user3 = {
-//     job : "programmer"
-// };
+const user3 = {
+    job : "programmer"
+};
 
-// console.log('are equal', user2 == user , user2 === user );
-// console.log('user reference',user);
-// console.log('user2 string',JSON.parse(JSON.stringify(user2)));
+console.log('are equal', user2 == user , user2 === user );
+console.log('user reference',user);
+console.log('user2 string',JSON.parse(JSON.stringify(user2)));
 
-// user.lastName = 'B';
-// user.age = 25;
-// user2.age = 45;
+user.lastName = 'B';
+user.age = 25;
+user2.age = 45;
 
-// const userAssign = Object.assign({},user);
-// const userAssign1 = Object.assign(user,user3);
-// const userAssign2 = Object.assign(user2,user3);
-// const userAssign3 = Object.assign({},user2,user3);
-// userAssign.lastName = 'D';
+const userAssign = Object.assign({},user);
+const userAssign1 = Object.assign(user,user3);
+const userAssign2 = Object.assign(user2,user3);
+const userAssign3 = Object.assign({},user2,user3);
+userAssign.lastName = 'D';
 
-// console.log('userAssign',userAssign);
-// console.log('userAssign1',userAssign1);
-// console.log('userAssign2',userAssign2);
-// console.log('userAssign3',userAssign3);
-// console.log('user reference',user);
-// console.log('user2 reference',user2);
-// console.log('user3 reference',user3);
+console.log('userAssign',userAssign);
+console.log('userAssign1',userAssign1);
+console.log('userAssign2',userAssign2);
+console.log('userAssign3',userAssign3);
+console.log('user reference',user);
+console.log('user2 reference',user2);
+console.log('user3 reference',user3);
 
-
+console.groupEnd("Lesson");
 // ---------------------------------------Object Exercise End-----------------------------------------
 
 
