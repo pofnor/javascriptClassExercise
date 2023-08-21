@@ -7,14 +7,59 @@ const indexDataBase = [
     description: "Regular Expression article with some practical examples",
   },  
   {
-    keyword: "function",
-    href: "assets/jsClass/jsClassSession2.html",
-    description: "this is function",
+    keyword: "Chrome,DevTools,DevTool,Performance,Memory,Leaks,Memory Leaks",
+    href: "assets/jsClass/devTools.html",
+    description: "The Chrome DevTools Tips with some practical examples",
+  },
+  {
+    keyword: "Equal,Double equals,Triple equals,=,==,===",
+    href: "assets/jsClass/jsClassQuestion.html#Q1",
+    description: "Difference Between =, == and === in JavaScript?",
+  },
+  {
+    keyword: "Object,Array",
+    href: "assets/jsClass/jsClassQuestion.html#Q2",
+    description: "Objects vs. Arrays ?",
+  },
+  {
+    keyword: "Statically,dynamically",
+    href: "assets/jsClass/jsClassQuestion.html#Q3",
+    description: "Statically vs. dynamically typed languages ?",
+  },
+  {
+    keyword: "JavaScript",
+    href: "assets/jsClass/jsClassQuestion.html#Q4",
+    description: "What does JavaScript do at web browser ?",
+  },
+  {
+    keyword: "Statement,Expression",
+    href: "assets/jsClass/jsClassQuestion.html#Q5",
+    description: "Statement vs Expression ?",
+  },
+  {
+    keyword: "Variable",
+    href: "assets/jsClass/jsClassQuestion.html#Q6",
+    description: "JavaScript Variables Identifiers ?",
   },
   {
     keyword: "function",
-    href: "assets/jsClass/jsClassSession3.html",
-    description: "33this is function",
+    href: "assets/jsClass/jsClassQuestion.html#Q7",
+    description: "What are the types of functions in JavaScript and why and when do we use functions?",
+  },
+  {
+    keyword: "Interpreter,Compiler",
+    href: "assets/jsClass/jsClassQuestion.html#Q8",
+    description: "Interpreter Vs Compiler ?",
+  },
+  {
+    keyword: "Iterate,Array",
+    href: "assets/jsClass/jsClassQuestion.html#Q9",
+    description: "Iterates Array",
+  },
+  {
+    keyword: "this",
+    href: "assets/jsClass/jsClassQuestion.html#Q10",
+    description: "What is this?",
   },
 ];
 
