@@ -44,7 +44,8 @@ const indexDataBase = [
   {
     keyword: "function",
     href: "assets/jsClass/jsClassQuestion.html#Q7",
-    description: "What are the types of functions in JavaScript and why and when do we use functions?",
+    description: "What are the types of functions in JavaScript and why " + 
+    "and when do we use functions?",
   },
   {
     keyword: "Interpreter,Compiler",
@@ -60,6 +61,60 @@ const indexDataBase = [
     keyword: "this",
     href: "assets/jsClass/jsClassQuestion.html#Q10",
     description: "What is this?",
+  },
+  {
+    keyword: "Search,Table,Sort,",
+    href: "assets/jsClass/carSearch.html",
+    description: "Cars Search at Table with some cool method",
+  },
+  {
+    keyword: "Ternary,if,else,number,digit,odd",
+    href: "assets/jsClass/jsClassSession1.html",
+    description: "<br>" + "1-Print odd numbers up to 100, excluding " + 
+    "the user-entered odd number. " + "<br>" + "2-Choose a specific book",
+  },
+  {
+    keyword: "Higher Order Function",
+    href: "assets/jsClass/jsClassSession2.html",
+    description: "In this exercise, we use Higher Order Function to display " + 
+    "the multiplication of two numbers.",
+  },
+  {
+    keyword: "Reference assignment,assignment,assign,Object.assign,JSON,number"+
+      ",digit,count,sum,multiply,print,2D,array,Biggest,max,reverse,repetition",
+    href: "assets/jsClass/jsClassSession3.html",
+    description: "Reference assignment , Object.assign , JSON and Functions : " + "<br>" +
+      "1-Takes a number as input and returns the number of digits. " + "<br>" + 
+      "2-Takes a number as input and returns the sum of digits." + "<br>" + 
+      "3-Takes an object as input and multiplies the numeric values by 2." + "<br>" + 
+      "4-Print each member of a 2D array" + "<br>" +
+      "5-Find the biggest number of a array" + "<br>" +
+      "6-Implement the reverse method of array" + "<br>" + 
+      "7-an array of numbers and a number as inputs, and then remove every " + 
+      "repetition of that number in the array" ,
+  },
+  {
+    keyword: "number,digit,sum,count,Regular Expression,RegEx,RegExp,odd,truthy" + 
+    "call,apply,bind",
+    href: "assets/jsClass/jsClassSession4.html",
+    description: "Functions :" + "<br>" +
+    "1-Takes a number as input and returns the number of digits" + "<br>" + 
+    "2-Takes a number as input and returns the sum of digits." + "<br>" + 
+    "3-Takes a number as input and returns the number of digits By RegExp" + "<br>" + 
+    "4-Takes a number as input and returns the sum of digits By regExp" + "<br>" + 
+    "5-Print odd numbers" + "<br>" + 
+    "6-Take an array and return just truthy" + "<br>" + 
+    "7-Call Apply Bind",
+  },
+  {
+    keyword: "Prototype,Freeze,Seal,Constructor,Accessors,Getters,Setters,get" + 
+    "defineProperties,defineProperty,Object.hasOwn(),hasOwn,hasOwnProperty,set" + 
+    "Object.setPrototypeOf,setPrototypeOf,Object.create,Create,isFrozen,isSealed" + 
+    "Object.isFrozen,Object.isSealed",
+    href: "assets/jsClass/jsClassSession5.html",
+    description: "Prototype,Freeze,Seal,Constructor,object Accessors (Getters and Setters) " + 
+    "defineProperties,defineProperty,Object.hasOwn(),hasOwnProperty" + 
+    "Object.setPrototypeOf,Object.create,Object.isFrozen,Object.isSealed",
   },
 ];
 
@@ -115,8 +170,8 @@ function search() {
     let a = document.createElement("a");
     a.className = "a";
     a.id = matchItem.keyword;
-    a.setAttribute("href",matchItem.href);
-    a.textContent = matchItem.description;      
+    a.setAttribute("href",matchItem.href);      
+    a.innerHTML = matchItem.description;      
     article.className = "exercise";
     article.appendChild(a);
     section.appendChild(article);      
