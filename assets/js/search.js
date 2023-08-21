@@ -1,21 +1,11 @@
 "use strict";
 
-const myLibrary = [
+const indexDataBase = [
   {
-    keyword: "Regular Expression",
-    href: "assets/jsClass/jsClassSession1.html",
-    description: "this is array",
-  },
-  {
-    keyword: "RegularExpression",
-    href: "assets/jsClass/jsClassSession1.html",
-    description: "this is array",
-  },
-  {
-    keyword: "array1",
-    href: "assets/jsClass/jsClassSession1.html",
-    description: "this is array",
-  },
+    keyword: "Regular Expression,RegEx,RegExp",
+    href: "assets/jsClass/regExp.html",
+    description: "Regular Expression article with some practical examples",
+  },  
   {
     keyword: "function",
     href: "assets/jsClass/jsClassSession2.html",
@@ -28,9 +18,32 @@ const myLibrary = [
   },
 ];
 
-const myLibKeyword = myLibrary.map(value => value.keyword);
+// ability to use multi words as keywords at indexDB
+function convertKeywordsToKeyword(indexDB){
+  let resultDB = [];  
+  for(let item of indexDB){
+    if(item.keyword.includes(",")){
+      let keywords = item.keyword.split(",");      
+      for(let key of keywords){
+        let tempObj = {};
+        tempObj.keyword = key;
+        tempObj.href = item.href;
+        tempObj.description = item.description;
+        resultDB.push(tempObj);
+      }      
+    } else {
+      resultDB.push(item);
+    }
+  }
+  return resultDB;
+}
+
+// make a new object without keywords
+const indexDB = convertKeywordsToKeyword(indexDataBase);
+
+const indexDBKey = indexDB.map(value => value.keyword);
 /// new set to remove duplicate and again convert to array by ...
-const myLibraryKeyword = [...new Set(myLibKeyword)];
+const indexDBKeyword = [...new Set(indexDBKey)];
 
 function remove(){  
   let elements = document.querySelectorAll("article.exercise");
@@ -44,7 +57,7 @@ function search() {
   let resultItems = searchItem.split("&");  
   let match = [];  
   for(let resultItem of resultItems){
-    for(let index of myLibrary){
+    for(let index of indexDB){
       if(resultItem.toLowerCase().trim() === index.keyword.toLowerCase()){        
         match.push(index);
       }
