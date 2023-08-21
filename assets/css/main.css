@@ -58,6 +58,7 @@ input{
   border: 1px solid var(--white85);
   border-bottom: none;
   border-top: none;
+  color:black;
   z-index: 99;    
   /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
@@ -291,11 +292,20 @@ span{
 }
 
 /* ----------------- Responsive ---------------------------- */
+@media screen and (max-width:1600px) {
+  .autocomplete-items{
+    right: 1%;
+    left: 11%;
+  }
+}
 
 @media screen and (max-width:1000px) {
   .autocomplete {
     width: 80%;
     padding-right: 80px;
+  }
+  .autocomplete-items{
+    right: 10%;
   }
   .inputFa{             
     width: 8%;                
