@@ -41,8 +41,7 @@ function remove(){
 
 function search() {
   const searchItem = document.getElementById("searchbar").value.toLowerCase(); 
-  let resultItems = searchItem.split("&");
-  console.log(resultItems);
+  let resultItems = searchItem.split("&");  
   let match = [];  
   for(let resultItem of resultItems){
     for(let index of myLibrary){
