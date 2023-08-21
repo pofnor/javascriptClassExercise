@@ -1,10 +1,31 @@
 "use strict";
 
 const myLibrary = [
-  {keyword : "array" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
-  {keyword : "array1" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
-  {keyword : "function" , href : "assets/jsClass/jsClassSession2.html" , description : "this is function"},
-  {keyword : "function" , href : "assets/jsClass/jsClassSession3.html" , description : "33this is function"},
+  {
+    keyword: "Regular Expression",
+    href: "assets/jsClass/jsClassSession1.html",
+    description: "this is array",
+  },
+  {
+    keyword: "RegularExpression",
+    href: "assets/jsClass/jsClassSession1.html",
+    description: "this is array",
+  },
+  {
+    keyword: "array1",
+    href: "assets/jsClass/jsClassSession1.html",
+    description: "this is array",
+  },
+  {
+    keyword: "function",
+    href: "assets/jsClass/jsClassSession2.html",
+    description: "this is function",
+  },
+  {
+    keyword: "function",
+    href: "assets/jsClass/jsClassSession3.html",
+    description: "33this is function",
+  },
 ];
 
 const myLibKeyword = myLibrary.map(value => value.keyword);
@@ -20,11 +41,12 @@ function remove(){
 
 function search() {
   const searchItem = document.getElementById("searchbar").value.toLowerCase(); 
-  let resultItems = searchItem.split(" ");
+  let resultItems = searchItem.split("&");
+  console.log(resultItems);
   let match = [];  
   for(let resultItem of resultItems){
     for(let index of myLibrary){
-      if(resultItem === index.keyword){        
+      if(resultItem.toLowerCase().trim() === index.keyword.toLowerCase()){        
         match.push(index);
       }
     }
@@ -100,9 +122,7 @@ function autocomplete(inp, arr) {
         currentFocus--;
         /*and and make the current item more visible:*/
         addActive(x);
-      } else if (e.keyCode == 13) {
-        /*If the ENTER key is pressed, prevent the form from being submitted,*/
-        // e.preventDefault();
+      } else if (e.keyCode == 13) {        
         if (currentFocus > -1) {
           /*and simulate a click on the "active" item:*/
           if (x) x[currentFocus].click();
