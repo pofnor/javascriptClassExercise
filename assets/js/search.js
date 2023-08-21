@@ -1,15 +1,15 @@
 "use strict";
 
 const myLibrary = [
-  {subject : "array" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
-  {subject : "array1" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
-  {subject : "function" , href : "assets/jsClass/jsClassSession2.html" , description : "this is function"},
-  {subject : "function" , href : "assets/jsClass/jsClassSession3.html" , description : "33this is function"},
+  {keyword : "array" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
+  {keyword : "array1" , href : "assets/jsClass/jsClassSession1.html", description : "this is array"},
+  {keyword : "function" , href : "assets/jsClass/jsClassSession2.html" , description : "this is function"},
+  {keyword : "function" , href : "assets/jsClass/jsClassSession3.html" , description : "33this is function"},
 ];
 
-const myLibSubject = myLibrary.map(value => value.subject);
+const myLibKeyword = myLibrary.map(value => value.keyword);
 /// new set to remove duplicate and again convert to array by ...
-const myLibrarySubject = [...new Set(myLibSubject)];
+const myLibraryKeyword = [...new Set(myLibKeyword)];
 
 function remove(){  
   let elements = document.querySelectorAll("article.exercise");
@@ -24,7 +24,7 @@ function search() {
   let match = [];  
   for(let resultItem of resultItems){
     for(let index of myLibrary){
-      if(resultItem === index.subject){        
+      if(resultItem === index.keyword){        
         match.push(index);
       }
     }
@@ -35,7 +35,7 @@ function search() {
     let article = document.createElement("article");      
     let a = document.createElement("a");
     a.className = "a";
-    a.id = matchItem.subject;
+    a.id = matchItem.keyword;
     a.setAttribute("href",matchItem.href);
     a.textContent = matchItem.description;      
     article.className = "exercise";
