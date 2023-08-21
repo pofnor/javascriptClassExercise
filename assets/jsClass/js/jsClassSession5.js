@@ -3,7 +3,7 @@
 console.groupCollapsed("Lesson");
 // ------------------------- Subject = Prototype ----------------
 const parent = {
-  name : "Ahmad" ,
+  name : "Martin" ,
 };
 const child = Object.create(parent);
 
@@ -16,7 +16,7 @@ console.log("parent.__proto__ = " , parent.__proto__);
 console.log("child.__proto__" , child.__proto__);
 
 const parent2 = {
-  lastname : "Mokhtari" ,
+  lastname : "Scorsese" ,
 };
 
 const child2 = Object.create(parent2);
