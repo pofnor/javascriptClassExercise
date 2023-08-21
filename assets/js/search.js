@@ -68,15 +68,16 @@ const indexDataBase = [
     description: "What is this?",
   },
   {
-    keyword: "Search,Table,Sort,",
+    keyword: "Search,Table,Sort",
     href: "assets/jsClass/carSearch.html",
     description: "Cars Search at Table with some cool method",
   },
   {
     keyword: "Ternary,if,else,number,digit,odd",
     href: "assets/jsClass/jsClassSession1.html",
-    description: "<br>" + "1-Print odd numbers up to 100, excluding " + 
-    "the user-entered odd number. " + "<br>" + "2-Choose a specific book",
+    description: "<ul>" +
+    "<li>" +"Print odd numbers up to 100, excluding the user-entered odd number."+ "</li>" +
+    "<li>" +"Choose a specific book"+ "</li>" + "<ul>",  
   },
   {
     keyword: "Higher Order Function",
@@ -85,41 +86,49 @@ const indexDataBase = [
     "the multiplication of two numbers.",
   },
   {
-    keyword: "Reference assignment,assignment,assign,Object.assign,JSON,number"+
-      ",digit,count,sum,multiply,print,2D,array,Biggest,max,reverse,repetition",
+    keyword: "Reference assignment,assignment,assign,Object.assign,JSON,number,"+
+      "digit,count,sum,multiply,print,2D,array,Biggest,max,reverse,repetition",
     href: "assets/jsClass/jsClassSession3.html",
-    description: "Reference assignment , Object.assign , JSON and Functions : " + "<br>" +
-      "1-Takes a number as input and returns the number of digits. " + "<br>" + 
-      "2-Takes a number as input and returns the sum of digits." + "<br>" + 
-      "3-Takes an object as input and multiplies the numeric values by 2." + "<br>" + 
-      "4-Print each member of a 2D array" + "<br>" +
-      "5-Find the biggest number of a array" + "<br>" +
-      "6-Implement the reverse method of array" + "<br>" + 
-      "7-an array of numbers and a number as inputs, and then remove every " + 
-      "repetition of that number in the array" ,
+    description: "<ul>" +
+      "Reference assignment , Object.assign , JSON and Functions : " + "<br>" +
+      "<li>" +"Takes a number as input and returns the number of digits."+ "</li>" +
+      "<li>" +"Takes a number as input and returns the sum of digits."+ "</li>" +
+      "<li>" +"Takes an object as input and multiplies the numeric values by 2"+ "</li>" +
+      "<li>" +"Print each member of a 2D array"+ "</li>" +
+      "<li>" +"Find the biggest number of a array"+ "</li>" +
+      "<li>" +"Implement the reverse method of array"+ "</li>" +
+      "<li>" +"remove every repetition of that number in the array"+ "</li>" + "<ul>",  
   },
   {
-    keyword: "number,digit,sum,count,Regular Expression,RegEx,RegExp,odd,truthy" + 
+    keyword: "number,digit,sum,count,Regular Expression,RegEx,RegExp,odd,truthy," + 
     "call,apply,bind",
     href: "assets/jsClass/jsClassSession4.html",
-    description: "Functions :" + "<br>" +
-    "1-Takes a number as input and returns the number of digits" + "<br>" + 
-    "2-Takes a number as input and returns the sum of digits." + "<br>" + 
-    "3-Takes a number as input and returns the number of digits By RegExp" + "<br>" + 
-    "4-Takes a number as input and returns the sum of digits By regExp" + "<br>" + 
-    "5-Print odd numbers" + "<br>" + 
-    "6-Take an array and return just truthy" + "<br>" + 
-    "7-Call Apply Bind",
+    description: "<ul>" +
+    "Functions :" + "<br>" +
+    "<li>" +"Takes a number as input and returns the number of digits"+ "</li>" +
+    "<li>" +"Takes a number as input and returns the sum of digits."+ "</li>" +
+    "<li>" +"Takes a number as input and returns the number of digits By RegExp"+ "</li>" +
+    "<li>" +"Takes a number as input and returns the sum of digits By regExp"+ "</li>" +
+    "<li>" +"Print odd numbers"+ "</li>" +
+    "<li>" +"Take an array and return just truthy"+ "</li>" +
+    "<li>" +"Call Apply Bind"+ "</li>" + "<ul>",    
   },
   {
-    keyword: "Prototype,Freeze,Seal,Constructor,Accessors,Getters,Setters,get" + 
-    "defineProperties,defineProperty,Object.hasOwn(),hasOwn,hasOwnProperty,set" + 
-    "Object.setPrototypeOf,setPrototypeOf,Object.create,Create,isFrozen,isSealed" + 
+    keyword: "Prototype,Freeze,Seal,Constructor,Accessors,Getters,Setters,get," + 
+    "defineProperties,defineProperty,Object.hasOwn(),hasOwn,hasOwnProperty,set," + 
+    "Object.setPrototypeOf,setPrototypeOf,Object.create,Create,isFrozen,isSealed," + 
     "Object.isFrozen,Object.isSealed",
     href: "assets/jsClass/jsClassSession5.html",
-    description: "Prototype,Freeze,Seal,Constructor,object Accessors (Getters and Setters) " + 
-    "defineProperties,defineProperty,Object.hasOwn(),hasOwnProperty" + 
-    "Object.setPrototypeOf,Object.create,Object.isFrozen,Object.isSealed",
+    description: "<ul>" +
+    "<li>" +"Prototype"+ "</li>" +
+    "<li>" +"Freeze,Seal"+ "</li>" +
+    "<li>" +"Constructor"+ "</li>" +
+    "<li>" +"object Accessors (Getters and Setters)"+ "</li>" +
+    "<li>" +"defineProperties and defineProperty"+ "</li>" +
+    "<li>" +"Object.hasOwn() and hasOwnProperty"+ "</li>" +
+    "<li>" +"Object.setPrototypeOf"+ "</li>" +
+    "<li>" +"Object.create"+ "</li>" +
+    "<li>" +"Object.isFrozen,Object.isSealed"+ "</li>" + "<ul>",    
   },
 ];
 
