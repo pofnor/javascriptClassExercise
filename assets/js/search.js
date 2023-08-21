@@ -2,6 +2,11 @@
 
 const indexDataBase = [
   {
+    keyword: "setTimeout,str.charAt,charAt,white-space,pre-wrap",
+    href: "assets/jsClass/board.html",
+    description: "The Board that Compelete with a function",
+  },
+  {
     keyword: "Regular Expression,RegEx,RegExp",
     href: "assets/jsClass/regExp.html",
     description: "Regular Expression article with some practical examples",
