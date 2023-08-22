@@ -68,26 +68,27 @@ const indexDataBase = [
     description: "What is this?",
   },
   {
-    keyword: "Search,Table,Sort",
+    keyword: "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll",
     href: "assets/jsClass/carSearch.html",
     description: "Cars Search at Table with some cool method",
   },
   {
-    keyword: "Ternary,if,else,Number,Digit,Odd",
+    keyword: "Ternary,if,else,Number,Digit,Odd,!!",
     href: "assets/jsClass/jsClassSession1.html",
     description: "<ul>" +
     "<li>" +"Print odd numbers up to 100, excluding the user-entered odd number."+ "</li>" +
     "<li>" +"Choose a specific book"+ "</li>" + "<ul>",  
   },
   {
-    keyword: "Higher Order Function",
+    keyword: "Higher Order Function,prompt,confirm",
     href: "assets/jsClass/jsClassSession2.html",
     description: "In this exercise, we use Higher Order Function to display " + 
     "the multiplication of two numbers.",
   },
   {
     keyword: "Reference assignment,Assignment,assign,Object.assign,JSON,Number,"+
-      "Digit,Count,Sum,Multiply,Print,2D,Array,Biggest,Max,Reverse,Repetition",
+      "Digit,Count,Sum,Multiply,Print,2D,Array,Biggest,Max,Reverse,Repetition," + 
+      "console.warn,console.groupCollapsed,console.groupEnd,Math.max.apply,apply",
     href: "assets/jsClass/jsClassSession3.html",
     description: "<ul>" +
       "Reference assignment , Object.assign , JSON and Functions : " + "<br>" +
@@ -101,7 +102,7 @@ const indexDataBase = [
   },
   {
     keyword: "Number,Digit,Array,Sum,Count,Regular Expression,RegEx,RegExp,Odd,Truthy," + 
-    "call,apply,bind,Spread",
+    "call,apply,bind,Spread,setTimeout,this,losing this",
     href: "assets/jsClass/jsClassSession4.html",
     description: "<ul>" +
     "Functions :" + "<br>" +
@@ -117,10 +118,12 @@ const indexDataBase = [
     keyword: "Prototype,Freeze,Seal,Constructor,Accessors,Getters,Setters,get," + 
     "defineProperties,defineProperty,Object.hasOwn(),hasOwn,hasOwnProperty,set," + 
     "Object.setPrototypeOf,setPrototypeOf,Object.create,Create,isFrozen,isSealed," + 
-    "Object.isFrozen,Object.isSealed,Sum,Rest,Number,Digit",
+    "Object.isFrozen,Object.isSealed,Sum,Rest,Number,Digit,console.groupCollapsed," +
+    "Object.keys,Object.values,Object.entries,console.groupEnd,Object.seal,Object.freeze",
     href: "assets/jsClass/jsClassSession5.html",
     description: "<ul>" +
     "<li>" +"Prototype"+ "</li>" +
+    "<li>" +"console.groupCollapsed,console.groupEnd"+ "</li>" +
     "<li>" +"Rest"+ "</li>" +
     "<li>" +"Freeze,Seal"+ "</li>" +
     "<li>" +"Constructor"+ "</li>" +
@@ -129,6 +132,7 @@ const indexDataBase = [
     "<li>" +"Object.hasOwn() and hasOwnProperty"+ "</li>" +
     "<li>" +"Object.setPrototypeOf"+ "</li>" +
     "<li>" +"Object.create"+ "</li>" +
+    "<li>" +"Object.keys,Object.values,Object.entries"+ "</li>" +
     "<li>" +"Object.isFrozen,Object.isSealed"+ "</li>" + "<ul>",    
   },
 ];
