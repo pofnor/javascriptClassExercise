@@ -81,7 +81,7 @@ console.groupEnd("ObjectSeal");
 console.groupEnd("Lesson");
 
 // ------------------------------------------ Exercise ------------------------------------------
-console.groupCollapsed("exercise");
+console.groupCollapsed("Exercise");
 
 // --------------------------Constructor---------------------------------
 console.groupCollapsed("Constructor");
@@ -206,4 +206,4 @@ function sum(...numbers){
 }
 console.log("sum = ",sum(8,2,4,11));
 console.groupEnd("Rest");
-console.groupEnd("exercise");
+console.groupEnd("Exercise");
