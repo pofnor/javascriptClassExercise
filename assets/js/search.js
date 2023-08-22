@@ -101,7 +101,7 @@ const indexDataBase = [
   },
   {
     keyword: "Number,Digit,Array,Sum,Count,Regular Expression,RegEx,RegExp,Odd,Truthy," + 
-    "call,apply,bind",
+    "call,apply,bind,Spread",
     href: "assets/jsClass/jsClassSession4.html",
     description: "<ul>" +
     "Functions :" + "<br>" +
