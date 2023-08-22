@@ -45,6 +45,9 @@
       * = Matches any string that contains zero or more <br>
       ? = Matches any string that contains zero or one<br>
       . = matches any character, except newline or other line terminators.<br>
+      (?! ) = Negative lookahead. Specifies a group that can not match after the main expression (if it matches, the result is discarded).<br>
+      Like <span>/inp+(?!u)/g</span> that find every "inp" which is not followed by "u"<br>
+      Like <span>/^((?!badword).)*$/gm</span> that Match string not containing "badword"<br>
 
     </section>
     <!------------------------------ Exercise2 --------------------------------------------------------->
