@@ -83,6 +83,7 @@ console.groupEnd("Lesson");
 // ------------------------------------------ Exercise ------------------------------------------
 console.groupCollapsed("exercise");
 
+// --------------------------Constructor---------------------------------
 console.groupCollapsed("Constructor");
 // make object without Constructor but has object Accessors (Getters and Setters)
 const ID = {
@@ -171,6 +172,7 @@ objectByID2.deposit = 30 ; //with Setters
 console.log(` balance = ${objectByID2.balance}$`);
 console.groupEnd("Constructor");
 
+// --------------------------Prototype---------------------------------
 console.groupCollapsed("Prototype");
 const grandpa = {
   name : "grandpa",  
@@ -192,4 +194,16 @@ console.log(neighbor.name);
 Object.setPrototypeOf(neighbor,son);
 console.log(neighbor.name);
 console.groupEnd("Prototype");
+
+// --------------------------Rest---------------------------------
+console.groupCollapsed("Rest");
+function sum(...numbers){
+  let result = 0;
+  for(let number of numbers){
+    result += number;
+  }
+  return result;
+}
+console.log("sum = ",sum(8,2,4,11));
+console.groupEnd("Rest");
 console.groupEnd("exercise");
