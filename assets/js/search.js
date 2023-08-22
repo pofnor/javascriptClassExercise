@@ -12,7 +12,7 @@ const indexDataBase = [
     description: "Regular Expression article with some practical examples",
   },  
   {
-    keyword: "Chrome,DevTools,DevTool,Performance,Memory,Leaks,Memory Leaks",
+    keyword: "Chrome,DevTools,Performance,Memory,Leaks,Memory Leaks",
     href: "assets/jsClass/devTools.html",
     description: "The Chrome DevTools Tips with some practical examples",
   },
@@ -27,7 +27,7 @@ const indexDataBase = [
     description: "Objects vs. Arrays ?",
   },
   {
-    keyword: "Statically,dynamically",
+    keyword: "Statically,Dynamically",
     href: "assets/jsClass/jsClassQuestion.html#Q3",
     description: "Statically vs. dynamically typed languages ?",
   },
@@ -73,7 +73,7 @@ const indexDataBase = [
     description: "Cars Search at Table with some cool method",
   },
   {
-    keyword: "Ternary,if,else,number,digit,odd",
+    keyword: "Ternary,if,else,Number,Digit,Odd",
     href: "assets/jsClass/jsClassSession1.html",
     description: "<ul>" +
     "<li>" +"Print odd numbers up to 100, excluding the user-entered odd number."+ "</li>" +
@@ -86,8 +86,8 @@ const indexDataBase = [
     "the multiplication of two numbers.",
   },
   {
-    keyword: "Reference assignment,assignment,assign,Object.assign,JSON,number,"+
-      "digit,count,sum,multiply,print,2D,array,Biggest,max,reverse,repetition",
+    keyword: "Reference assignment,Assignment,assign,Object.assign,JSON,Number,"+
+      "Digit,Count,Sum,Multiply,Print,2D,Array,Biggest,Max,Reverse,Repetition",
     href: "assets/jsClass/jsClassSession3.html",
     description: "<ul>" +
       "Reference assignment , Object.assign , JSON and Functions : " + "<br>" +
@@ -100,7 +100,7 @@ const indexDataBase = [
       "<li>" +"remove every repetition of that number in the array"+ "</li>" + "<ul>",  
   },
   {
-    keyword: "number,digit,sum,count,Regular Expression,RegEx,RegExp,odd,truthy," + 
+    keyword: "Number,Digit,Array,Sum,Count,Regular Expression,RegEx,RegExp,Odd,Truthy," + 
     "call,apply,bind",
     href: "assets/jsClass/jsClassSession4.html",
     description: "<ul>" +
@@ -166,8 +166,8 @@ function remove(){
   }
 }
 
-function search() {
-  const searchItem = document.getElementById("searchbar").value.toLowerCase(); 
+function search() {  
+  const searchItem = document.getElementById("searchbar").value.toLowerCase();   
   let resultItems = searchItem.split("&");  
   let match = [];  
   for(let resultItem of resultItems){
@@ -224,9 +224,10 @@ function autocomplete(inp, arr) {
               b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
+              search(); //run search for fixed the click problem
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
-              closeAllLists();
+              closeAllLists();              
           });
           a.appendChild(b);
         }
