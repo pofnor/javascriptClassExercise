@@ -117,10 +117,11 @@ const indexDataBase = [
     keyword: "Prototype,Freeze,Seal,Constructor,Accessors,Getters,Setters,get," + 
     "defineProperties,defineProperty,Object.hasOwn(),hasOwn,hasOwnProperty,set," + 
     "Object.setPrototypeOf,setPrototypeOf,Object.create,Create,isFrozen,isSealed," + 
-    "Object.isFrozen,Object.isSealed",
+    "Object.isFrozen,Object.isSealed,Sum,Rest,Number,Digit",
     href: "assets/jsClass/jsClassSession5.html",
     description: "<ul>" +
     "<li>" +"Prototype"+ "</li>" +
+    "<li>" +"Rest"+ "</li>" +
     "<li>" +"Freeze,Seal"+ "</li>" +
     "<li>" +"Constructor"+ "</li>" +
     "<li>" +"object Accessors (Getters and Setters)"+ "</li>" +
