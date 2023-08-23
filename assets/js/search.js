@@ -204,29 +204,29 @@ function autocomplete(searchbarElement, indexDBKeyword) {
   /*execute a function when someone writes in the search field:*/
   searchbarElement.addEventListener("input", function(e) {      
     let searchText = this.value;
-    let autocompleteItems, matchingItem;
+    let autocompleteItem, matchingItem;
     /*close any already open lists of autocompleted values*/
     closeAllLists();      
     if (!searchText) { return false;}
     currentFocus = -1;
     /*create a Section element that will contain the searchText(values):*/
-    autocompleteItems = document.createElement("section");      
-    autocompleteItems.setAttribute("id", this.id + "autocomplete-list");
-    autocompleteItems.setAttribute("class", "autocomplete-items");
+    autocompleteItem = document.createElement("section");      
+    autocompleteItem.setAttribute("id", this.id + "autocomplete-list");
+    autocompleteItem.setAttribute("class", "autocomplete-items");
     /*append the Section element as a child of the autocomplete container:*/
-    this.parentNode.appendChild(autocompleteItems);
+    this.parentNode.appendChild(autocompleteItem);
     /*for each item in the indexDBKeyword(array)...*/
     for (let keyword of indexDBKeyword) {
       /*check if the item starts with the same letters as the search field value:*/
-      if (keyword.substr(0, searchText.length).toUpperCase() == searchText.toUpperCase()) {          
+      if (keyword.substr(0, searchText.length).toUpperCase() === searchText.toUpperCase()) {          
         /*create a DIV element for each matching element:*/
         matchingItem = document.createElement("DIV");
         /*make the matching letters bold:*/
         matchingItem.innerHTML = "<strong>" + keyword.substr(0, searchText.length) + "</strong>";
         matchingItem.innerHTML += keyword.substr(searchText.length);          
-        /*insert a input field that will hold the current array item's value:*/          
+        /*insert a input field that will hold the current indexDBKeyword(array) item's value:*/          
         matchingItem.innerHTML += "<input type='hidden' value='" + keyword + "'>";          
-        /*execute a function when someone clicks on the item value (DIV element):*/
+        /*execute a function when someone clicks on the matchingItem (DIV element):*/
           matchingItem.addEventListener("click", function(e) {
           /*insert the value for the autocomplete search field:*/          
           searchbarElement.value = this.getElementsByTagName("input")[0].value;
@@ -235,61 +235,61 @@ function autocomplete(searchbarElement, indexDBKeyword) {
           (or any other open lists of autocompleted values:*/
           closeAllLists();              
         });
-        autocompleteItems.appendChild(matchingItem);
+        autocompleteItem.appendChild(matchingItem);
       }
     }
   });
   /*execute a function presses a key on the keyboard:*/
   searchbarElement.addEventListener("keydown", function(e) {
-      let x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
-        /*If the arrow DOWN key is pressed,
-        increase the currentFocus variable:*/
-        currentFocus++;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 38) { //up
-        /*If the arrow UP key is pressed,
-        decrease the currentFocus variable:*/
-        currentFocus--;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 13) {        
-        if (currentFocus > -1) {
-          /*and simulate a click on the "active" item:*/
-          if (x) x[currentFocus].click();
-        }
+    let autocompleteItem = document.getElementById(this.id + "autocomplete-list");      
+    let matchingItems;
+    if (autocompleteItem) matchingItems = autocompleteItem.getElementsByTagName("div");      
+    if (e.keyCode == 40) {
+      /*If the arrow DOWN key is pressed, increase the currentFocus variable:*/
+      currentFocus++;
+      /*and and make the current item more visible:*/        
+      addActive(matchingItems);
+    } else if (e.keyCode == 38) { //up
+      /*If the arrow UP key is pressed,decrease the currentFocus variable:*/
+      currentFocus--;
+      /*and and make the current item more visible:*/
+      addActive(matchingItems);
+    } else if (e.keyCode == 13) {  //Enter key
+      if (currentFocus > -1) {
+        /*and simulate a click on the "active" item:*/
+        if (matchingItems) matchingItems[currentFocus].click();
       }
+    }
   });
-  function addActive(x) {
+  function addActive(matchingItems) {
     /*a function to classify an item as "active":*/
-    if (!x) return false;
+    if (!matchingItems) return false;
     /*start by removing the "active" class on all items:*/
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
+    removeActive(matchingItems);    
+    if (currentFocus >= matchingItems.length) currentFocus = 0; //Rotate active item from down
+    if (currentFocus < 0) currentFocus = (matchingItems.length - 1); //Rotate active item from top
     /*add class "autocomplete-active":*/
-    x[currentFocus].classList.add("autocomplete-active");
+    matchingItems[currentFocus].classList.add("autocomplete-active");
   }
-  function removeActive(x) {
+  function removeActive(matchingItems) {
     /*a function to remove the "active" class from all autocomplete items:*/
-    for (let i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
+    for (let matchingItem of matchingItems) {
+      matchingItem.classList.remove("autocomplete-active");      
     }
   }
-  function closeAllLists(elmnt) {
+  function closeAllLists(element) {    
     /*close all autocomplete lists in the document,
     except the one passed as an argument:*/
-    let x = document.getElementsByClassName("autocomplete-items");    
-    for (let i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != searchbarElement) {
-      x[i].parentNode.removeChild(x[i]);
+    let autocompleteItems = document.getElementsByClassName("autocomplete-items");        
+    for (let autocompleteItem of autocompleteItems) {
+      autocompleteItem.remove();
+      // if (element != autocompleteItem && element != searchbarElement) {        
+      //   autocompleteItem.parentNode.removeChild(autocompleteItem);
+      // }
     }
   }
-}
-/*execute a function when someone clicks in the document:*/
-document.addEventListener("click", function (e) {
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
     closeAllLists(e.target);
-});
+  });
 }
