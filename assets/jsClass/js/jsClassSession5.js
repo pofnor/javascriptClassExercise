@@ -170,6 +170,11 @@ objectByID2.deposit = 20 ; //with Setters
 console.log(` balance = ${objectByID2.balance}$`);
 objectByID2.deposit = 30 ; //with Setters
 console.log(` balance = ${objectByID2.balance}$`);
+
+//The Problem of Declare a constructor with object Accessors
+console.log("ID.fullname= ",Object.hasOwn(ID,"fullname"));
+console.log("objectByID2.fullname= ",Object.hasOwn(objectByID2,"fullname"));
+
 console.groupEnd("Constructor");
 
 // --------------------------Prototype---------------------------------
