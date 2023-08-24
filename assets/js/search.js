@@ -88,7 +88,8 @@ const indexDataBase = [
   {
     keyword: "Reference assignment,Assignment,assign,Object.assign,JSON,Number,"+
       "Digit,Count,Sum,Multiply,Print,2D,Array,Biggest,Max,Reverse,Repetition," + 
-      "console.warn,console.groupCollapsed,console.groupEnd,Math.max.apply,apply",
+      "console.warn,console.groupCollapsed,console.groupEnd,Math.max.apply,apply," + 
+      "splice,push",
     href: "assets/jsClass/jsClassSession3.html",
     description: "<ul>" +
       "Reference assignment , Object.assign , JSON and Functions : " + "<br>" +
@@ -102,7 +103,7 @@ const indexDataBase = [
   },
   {
     keyword: "Number,Digit,Array,Sum,Count,Regular Expression,RegEx,RegExp,Odd,Truthy," + 
-    "call,apply,bind,Spread,setTimeout,this,losing this",
+    "call,apply,bind,spread,setTimeout,this,losing this",
     href: "assets/jsClass/jsClassSession4.html",
     description: "<ul>" +
     "Functions :" + "<br>" +
@@ -118,7 +119,7 @@ const indexDataBase = [
     keyword: "Prototype,Freeze,Seal,Constructor,Accessors,Getters,Setters,get," + 
     "defineProperties,defineProperty,Object.hasOwn(),hasOwn,hasOwnProperty,set," + 
     "Object.setPrototypeOf,setPrototypeOf,Object.create,Create,isFrozen,isSealed," + 
-    "Object.isFrozen,Object.isSealed,Sum,Rest,Number,Digit,console.groupCollapsed," +
+    "Object.isFrozen,Object.isSealed,Sum,rest,Number,Digit,console.groupCollapsed," +
     "Object.keys,Object.values,Object.entries,console.groupEnd,Object.seal,Object.freeze",
     href: "assets/jsClass/jsClassSession5.html",
     description: "<ul>" +
@@ -134,6 +135,14 @@ const indexDataBase = [
     "<li>" +"Object.create"+ "</li>" +
     "<li>" +"Object.keys,Object.values,Object.entries"+ "</li>" +
     "<li>" +"Object.isFrozen,Object.isSealed"+ "</li>" + "<ul>",    
+  },
+  {
+    keyword: "rest," + 
+    "spread",
+    href: "assets/jsClass/jsClassSession6.html",
+    description: "<ul>" +
+    "<li>" +"Rest parameters and Spread operator"+ "</li>" +    
+    "<li>" +"ooooooooooooooooooooooooooo"+ "</li>" + "<ul>",    
   },
 ];
 
