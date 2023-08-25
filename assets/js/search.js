@@ -137,8 +137,8 @@ const indexDataBase = [
     "<li>" +"Object.isFrozen,Object.isSealed"+ "</li>" + "<ul>",    
   },
   {
-    keyword: "rest," + 
-    "spread",
+    keyword: "rest,switch,Math.floor,Math.random,Destructuring," + 
+    "spread,slice",
     href: "assets/jsClass/jsClassSession6.html",
     description: "<ul>" +
     "<li>" +"Rest parameters and Spread operator"+ "</li>" +    

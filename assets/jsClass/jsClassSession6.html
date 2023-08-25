@@ -26,8 +26,58 @@
   <main id="main">
     <span class="span" onclick="openNav()">&#9776; Menu</span>
     <section class="container">      
-      <h1>Type <span>ctrl+shift+j</span> to see output</h1>      
-    </section>
+      <h1>Enter <span>ctrl+shift+j</span> to see output</h1>
+      <!------------------------------ Code Section ------------------------------>
+      <section class="code">
+        <p>Write a function that takes a number(n) and return an array that 
+          output values are from one to n.(while)</p>      
+        <p class="codeShow">
+          function makeArrayOfNumber(n){<br>  
+             &nbsplet i = 1;<br>
+             &nbsplet array = [];<br>
+             &nbspwhile(i<=n){<br>
+             &nbsp  array.push(i);<br>
+             &nbsp  i++;<br>
+             &nbsp}<br>
+             &nbspreturn array;<br>
+          }<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          makeArrayOfNumber(10) = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>      
+      <section class="code">
+        <p>Use the above output array and slice it by three and 
+          use rest and spread operator to move the pieces.</p>      
+        <p class="codeShow">
+          function slice3(result){<br>
+            &nbsplet sliceSize = Math.trunc(+(result.length) / 3);<br>
+            &nbsplet s1 = result.slice(0,sliceSize);<br>
+            &nbsplet s2 = result.slice(sliceSize,sliceSize*2);<br>
+            &nbsplet s3 = result.slice(sliceSize*2);<br>
+            &nbsp<br>
+            &nbsplet x = Math.floor((Math.random() * 3) + 1);<br>
+            &nbsplet output;<br>
+            &nbspswitch(x){<br>
+            &nbsp  case 1 : <br>
+            &nbsp&nbsp    output = [...s1,...s3,...s2];<br>
+            &nbsp&nbsp    break;<br>
+            &nbsp  case 2 :<br>
+            &nbsp&nbsp    output = [...s2,...s1,...s3];<br>
+            &nbsp&nbsp    break;<br>
+            &nbsp  case 3 :<br>
+            &nbsp&nbsp    output = [...s3,...s2,...s1];<br>
+            &nbsp}<br>
+            &nbspreturn output;<br>
+          }<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          [7, 8, 9, 10, 4, 5, 6, 1, 2, 3]
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>
+    </section>              
   </main>
   <script>load();</script>
 </body>
