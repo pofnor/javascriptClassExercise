@@ -8,7 +8,9 @@
   --white94 : rgba(255, 255, 255, 0.938);
   --orange : #ce9178;
   --background : #3b3b3b;
-  --text : #aca7a7;
+  --text : #aca7a7;  
+  --codeBackground : #1F1F1F;
+  --greenDark : #6A9955;
 }
 
 /* ----------------- Main -------------------------------------- */
@@ -116,6 +118,37 @@ input[type=text]:focus {
   outline: var(--white94);
 }
 
+/* ----------------- Show Code --------------------------- */
+.code{  
+  width: 80%;
+  margin: auto;    
+  border: 1px solid black;
+  box-sizing: border-box;
+  box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, 0.25);
+  padding: 30px 20px;    
+  margin-top: 50px;    
+  transition: 0.4s;
+  font-family: Consolas, Menlo, "courier new", monospace;
+}
+.code p{
+  
+  color: var(--white85);  
+}
+.code .codeShow{
+  font-size: 16px;
+  color: var(--blueLight);
+  box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, 0.25);
+  border: 2px solid black;
+  padding: 10px;    
+  box-sizing: border-box;
+  background-color: var(--codeBackground);
+}
+.code .question {      
+  font-size: 20px;
+  cursor: pointer;
+  padding: 1px;
+  width: 95%;  
+}
 /* ----------------- Question and Exercise --------------------------- */
 
 .hr-line{
