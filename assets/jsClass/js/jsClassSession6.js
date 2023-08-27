@@ -64,6 +64,22 @@ function randomColor(){
   color.style.color = colorValue;
 }
 
+// ------------------------------------------ addEventListener ---------------------------------
+function event(){
+  let element = document.getElementById("randomColor");  
+  element.addEventListener("click",() =>{
+    element.style.border = "1px solid white";
+    randomColor();
+  });
+  element.addEventListener("mouseout",() =>{
+    element.style.border = "";
+    element.style.background = "";
+  });
+  element.addEventListener("mouseover",() =>{
+    element.style.background = "black";
+  });
+  
+}
 // ------------------------------------------ Exercise ------------------------------------------
 console.groupCollapsed("Exercise");
 
