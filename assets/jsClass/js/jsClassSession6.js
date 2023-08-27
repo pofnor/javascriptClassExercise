@@ -76,7 +76,7 @@ function date(){
   } 
   dateH1.innerHTML = `Time is <span>${hour.toString().padStart(2,"0")}:${now.getMinutes().toString().padStart(2,"0")}`+
   `:${now.getSeconds().toString().padStart(2,"0")} ${amPM}</span> `+
-  `at ${now.getFullYear()}/${now.getMonth()}/${now.getDate()}` ;
+  `on ${now.getFullYear()}/${now.getMonth()}/${now.getDate()}` ;
   setTimeout(date,1000);
 }
 
