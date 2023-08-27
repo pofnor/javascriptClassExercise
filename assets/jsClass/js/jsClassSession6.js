@@ -45,6 +45,25 @@ console.groupEnd("Rest&Spread");
 
 console.groupEnd("Lesson");
 
+// ------------------------------------------ Function ------------------------------------------
+function randomHi(){
+  let hi = document.getElementById("randomHi");  
+  hi.src=`img/Hi${Math.floor((Math.random() * 4) + 1)}.png`;  
+}
+function randomColor(){
+  /* The value of the Hexadecimal can range from 00 to FF. So, the maximum value can be 
+  FFFFFF - white color, and the minimum value can be 000000 - black color.
+  How to calculate FFFFFF to 16777215 
+  let t = 0xFFFFFF; 
+  console.log(t.toString()); */  
+
+  // use padStart to ensure that the string length is at least 6
+  let colorValue =  "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6,"0").toUpperCase();  
+
+  let color = document.getElementById("randomColor");  
+  color.style.color = colorValue;
+}
+
 // ------------------------------------------ Exercise ------------------------------------------
 console.groupCollapsed("Exercise");
 
