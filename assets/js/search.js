@@ -137,12 +137,12 @@ const indexDataBase = [
     "<li>" +"Object.isFrozen,Object.isSealed"+ "</li>" + "<ul>",    
   },
   {
-    keyword: "rest,switch,Math.floor,Math.random,Destructuring," + 
+    keyword: "rest,switch,Math.floor,Math.random,Destructuring,Event," + 
     "spread,slice",
     href: "assets/jsClass/jsClassSession6.html",
     description: "<ul>" +
     "<li>" +"Rest parameters and Spread operator"+ "</li>" +    
-    "<li>" +"ooooooooooooooooooooooooooo"+ "</li>" + "<ul>",    
+    "<li>" +"HTML Event Attributes"+ "</li>" + "<ul>",    
   },
 ];
 
