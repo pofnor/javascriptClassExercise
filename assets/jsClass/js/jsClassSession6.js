@@ -50,6 +50,7 @@ function randomHi(){
   let hi = document.getElementById("randomHi");  
   hi.src=`img/Hi${Math.floor((Math.random() * 4) + 1)}.png`;  
 }
+
 function randomColor(){
   /* The value of the Hexadecimal can range from 00 to FF. So, the maximum value can be 
   FFFFFF - white color, and the minimum value can be 000000 - black color.
@@ -62,6 +63,21 @@ function randomColor(){
 
   let color = document.getElementById("randomColor");  
   color.style.color = colorValue;
+}
+
+function date(){
+  const now = new Date();
+  let dateH1 = document.getElementById("date");
+  let hour = now.getHours();
+  let amPM = "AM";
+  if(hour > 12){
+    amPM = "PM";
+    hour -= 12;
+  } 
+  dateH1.innerHTML = `Time is <span>${hour.toString().padStart(2,"0")}:${now.getMinutes().toString().padStart(2,"0")}`+
+  `:${now.getSeconds().toString().padStart(2,"0")} ${amPM}</span> `+
+  `at ${now.getFullYear()}/${now.getMonth()}/${now.getDate()}` ;
+  setTimeout(date,1000);
 }
 
 // ------------------------------------------ addEventListener ---------------------------------
