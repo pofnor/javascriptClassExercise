@@ -81,7 +81,190 @@
           [7, 8, 9, 10, 4, 5, 6, 1, 2, 3]
         </p>      
       </section>
+      <!------------------------------ Code Section ------------------------------>      
+      <section class="code">
+        <p>Determining <span>this</span> (call-site)<br>          
+          1. Is the function called with new (new binding)? If so, <span>this</span> is the newly constructed
+          object.<br>          
+        <p class="codeShow">
+          function foo(a) {<br>
+            &nbsp&nbspthis.a = a;<br>
+            }<br>
+            var bar = new foo( 2 );<br>
+            console.log( bar.a );<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          2
+        </p>      
+      </section>
       <!------------------------------ Code Section ------------------------------>
+      <section class="code">
+        <p>Determining <span>this</span> (call-site)<br>        
+          2. Is the function called with call or apply (explicit binding), even hidden inside a
+          bind hard binding? If so, <span>this</span> is the explicitly specified object.<br>
+        <p class="codeShow">
+          function foo() {<br>
+            &nbsp&nbspconsole.log( this.a );<br>
+            }<br>
+            var obj = {<br>
+              &nbsp&nbspa: 2<br>
+            };<br>
+            foo.call( obj );<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          2
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>  
+      <section class="code">
+        <p>Determining <span>this</span> (call-site)<br>        
+          2. Hard Binding
+        <p class="codeShow">
+          function foo(something) {<br>
+            &nbsp&nbspconsole.log( this.a, something );<br>
+            &nbsp&nbspreturn this.a + something;<br>
+            }<br>
+            var obj = {<br>
+              &nbsp&nbspa: 2<br>
+            };<br>
+            var bar = foo.bind( obj );<br>
+            var b = bar( 3 );<br>
+            console.log( b );<br> 
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          2  3<br>
+          5
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>  
+      <section class="code">
+        <p>Determining <span>this</span> (call-site)<br>                    
+          3. Is the function called with a context (implicit binding), otherwise known as an owning
+          or containing object? If so, <span>this</span> is that context object.<br>
+          Note:<br>
+          Whatever you choose to call this pattern, at the point that foo() is called, it's preceded by
+          an object reference to obj . When there is a context object for a function reference, the
+          implicit binding rule says that it's that object which should be used for the function call's
+          this binding.
+        <p class="codeShow">
+          function foo() {<br>
+            &nbsp &nbspconsole.log( this.a );<br>
+            }<br>
+            var obj = {<br>
+            &nbsp &nbspa: 2,<br>
+            &nbsp &nbspfoo: foo<br>
+            };<br>
+            obj.foo();<br><br><br>
+            function foo1() {<br>
+              &nbsp&nbspconsole.log( this.a );<br>
+              }<br>
+              var obj2 = {<br>
+                &nbsp&nbspa: 42,<br>
+                &nbsp&nbspfoo: foo1<br>
+              };<br>
+              var obj1 = {<br>
+                &nbsp&nbspa: 2,<br>
+                &nbsp&nbspobj2: obj2<br>
+              };<br>
+              obj1.obj2.foo();<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          2<br>
+          42
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>  
+      <section class="code">
+        <p>Determining <span>this</span> (call-site)<br>        
+          4. Otherwise, default the <span>this</span> (default binding). If in strict mode , pick undefined ,
+          otherwise pick the global object.<br>
+        <p class="codeShow">
+          function foo() {<br>
+            &nbsp&nbspconsole.log( this.a );<br>
+            }<br>
+            var a = 2;<br>
+            foo();<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          2
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>  
+      <section class="code">
+        <p>Determining <span>this</span> (call-site)<br>          
+          Exception :<br>
+          arrow-functions adopt the <span>this</span> binding from the enclosing (function or global) scope.</p>
+        <p class="codeShow">
+          function foo1() {<br>  
+            &nbsp&nbspreturn function (a) {<br>
+              &nbsp&nbsp&nbsp&nbspconsole.log( this.a );<br>
+              &nbsp&nbsp};<br>
+          }<br>
+          function foo() {<br>
+            &nbsp&nbsp// return an arrow function<br>
+            &nbsp&nbspreturn (a) => {<br>
+              &nbsp&nbsp&nbsp&nbsp// `this` here is lexically adopted from `foo()`<br>
+              &nbsp&nbsp&nbsp&nbspconsole.log( this.a );<br>
+              &nbsp&nbsp};<br>
+          }<br>
+          var obj1 = {<br>
+            &nbsp&nbspa: 2<br>
+          };<br>
+          var obj2 = {<br>
+            &nbsp&nbspa: 3<br>
+          };<br>
+          var bar = foo.call( obj1 );<br>
+          var bar1 = foo1.call( obj1 );<br>
+          bar.call( obj2 );<br>
+          bar1.call( obj2 );<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          2<br>
+          3
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>        
+      <section class="code">
+        <p>Losing <span>this</span><br>          
+          One of the most common frustrations that <span>this</span> binding creates is when an implicitly bound
+          function loses that binding, which usually means it falls back to the default binding, of either
+        the global object or "undefined" , depending on "strict mode" .
+        <p class="codeShow">
+          function foo() {<br>
+            &nbsp&nbspconsole.log( this.a );<br>
+            }<br>
+            var obj = {<br>
+              &nbsp&nbspa: 2,<br>
+              &nbsp&nbspfoo: foo<br>
+            };<br>
+            var bar = obj.foo; // function reference/alias!<br>
+            var a = "oops, global"; // `a` also property on global object<br>
+            bar(); 
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          "oops, global"
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>
+      <section class="code">
+        <p>Losing <span>this</span><br>          
+          Callback function
+        <p class="codeShow">
+          function foo() {<br>
+            &nbsp&nbspconsole.log( this.a );<br>
+            }<br>
+            var obj = {<br>
+              &nbsp&nbspa: 2,<br>
+              &nbsp&nbspfoo: foo<br>
+            };<br>
+            var a = "oops, global"; // `a` also property on global object<br>
+            setTimeout( obj.foo, 100 );<br>
+        <h1 class="question">Show Output</h1>      
+        <p class="output">
+          "oops, global"
+        </p>      
+      </section>
+      <!------------------------------ Code Section ------------------------------>   
     </section>              
   </main>
   <script>load();event()</script>
