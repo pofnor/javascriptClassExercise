@@ -1,4 +1,26 @@
 "use strict";
+// ------------------------------ Lesson --------------------------------------
+// Lexical Scope
+function B() {
+  console.log(x);
+}
+function A() {
+  var x = 2023;
+  B();
+}
+var x = 2022;
+A();
+// Dynamic Scope
+// function B() {
+//   console.log(this.x);
+// }
+// function A() {
+//   this.x = 2023;
+//   B();
+// }
+// this.x = 2022;
+// A();
+
 // ------------------------------ Exercise1 --------------------------------------
 
 function bookSelect() {

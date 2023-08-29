@@ -73,7 +73,7 @@ const indexDataBase = [
     description: "Cars Search at Table with some cool method",
   },
   {
-    keyword: "Ternary,if,else,Number,Digit,Odd,!!",
+    keyword: "Ternary,if,else,Number,Digit,Odd,Lexical,!!",
     href: "assets/jsClass/jsClassSession1.html",
     description: "<ul>" +
     "<li>" +"Print odd numbers up to 100, excluding the user-entered odd number."+ "</li>" +
@@ -138,7 +138,7 @@ const indexDataBase = [
   },
   {
     keyword: "rest,switch,Math.floor,Math.random,Destructuring,Event,Date," + 
-    "spread,slice,padStart,setTimeout,this,losing this",
+    "spread,slice,padStart,setTimeout,this,losing this,Lexical",
     href: "assets/jsClass/jsClassSession6.html",
     description: "<ul>" +
     "<li>" +"Rest parameters and Spread operator"+ "</li>" +    
