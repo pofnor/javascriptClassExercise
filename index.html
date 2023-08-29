@@ -27,15 +27,13 @@
     <span class="span" onclick="openNav()">&#9776; Menu</span>
     <section class="container">
       <section class="autocomplete">
-      <input id="searchbar" autocomplete="off" onkeyup="search()" 
-        type="text" name="search" placeholder="Search Topic ...">
-      </section>              
+      <input id="searchbar" autocomplete="off" type="text" name="search" placeholder="Search Topic ...">      
+      </section>
+      <br>
+      <p id="loading" style="margin: auto;text-align: center;">Loading...</p>              
     </section>
     <section id="result" class="container">
     </section>
   </main>    
-  <script>
-    autocomplete(document.getElementById("searchbar"), indexDBKeyword);
-  </script>
 </body>
 </html>
