@@ -138,7 +138,7 @@ const indexDataBase = [
   },
   {
     keyword: "rest,switch,Math.floor,Math.random,Destructuring,Event,Date," + 
-    "spread,slice,padStart,setTimeout",
+    "spread,slice,padStart,setTimeout,this,losing this",
     href: "assets/jsClass/jsClassSession6.html",
     description: "<ul>" +
     "<li>" +"Rest parameters and Spread operator"+ "</li>" +    
