@@ -15,8 +15,7 @@ async function fetchIndexDB(){
       const indexDBKey = indexDB.map(value => value.keyword);
       /// new set to remove duplicate and again convert to array by ...
       indexDBKeyword = [...new Set(indexDBKey)];
-      autocomplete(document.getElementById("searchbar"), indexDBKeyword);
-      document.getElementById("searchbar").addEventListener("keyup",search(indexDB));  
+      autocomplete(document.getElementById("searchbar"), indexDBKeyword);      
     } else {    
       loaderStatus(false,`${response.statusText} (${response.status})`);    
     }  
@@ -75,7 +74,7 @@ function search(indexDB) {
         match.push(index);
       }
     }
-  }
+  }  
   remove(); //remove all previous elements that contain from last search
   for(let matchItem of match){    
     let section = document.getElementById("result");
