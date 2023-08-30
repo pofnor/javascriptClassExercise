@@ -2,3 +2,4 @@
 ## Features
 * This project includes a website where all the pages are connected to each other and includes all the exercises and projects done during the JavaScript language training.
 * Through the main page, you can search for any topic you want to be directly transferred to the corresponding page or select from the side menu based on class sessions.
+* I use https://github.com/typicode/json-server as a full fake REST API
