@@ -193,7 +193,8 @@
       <section class="code">
         <p>Determining <span>this</span> (call-site)<br>          
           Exception :<br>
-          arrow-functions adopt the <span>this</span> binding from the enclosing (function or global) scope.</p>
+          arrow-functions adopt the <span>this</span> binding from the enclosing (function or global) scope.<br>
+          arrow functions do not have <span>this</span>. If <span>this</span> is accessed, it is taken from the outside.</p>
         <p class="codeShow">
           function foo1() {<br>  
             &nbsp&nbspreturn function (a) {<br>
