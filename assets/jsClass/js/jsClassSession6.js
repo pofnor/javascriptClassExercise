@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 // ------------------------------------------ Lesson ------------------------------------------
 console.groupCollapsed("Lesson");
 
@@ -99,6 +99,8 @@ function event(){
 // ------------------------------------------ Exercise ------------------------------------------
 console.groupCollapsed("Exercise");
 
+console.groupCollapsed("P1");
+
 /* Write a function that takes a number(n) and  
 return an array that output values are from 1 to n.(while) */
 function makeArrayOfNumber(n){  
@@ -141,5 +143,98 @@ function slice3(result){
 }
 
 console.log(slice3(result));
+console.groupEnd("P1");
+
+console.groupCollapsed("this");
+// ------------------------------------------------
+function foo(a) {
+  this.a = a;
+}
+var bar = new foo( 2 );
+console.log("1.new binding", bar.a );
+// ------------------------------------------------
+function fooo() {
+  console.log("2.explicit binding", this.a );
+}
+var obj = {
+  a: 2
+};
+fooo.call( obj );
+// ------------------------------------------------
+function foooo(something) {
+  console.log("2.Hard Binding(explicit binding)", this.a, something );
+  return this.a + something;
+}
+var obj = {
+  a: 2
+};
+var bar = foooo.bind( obj );
+var b = bar( 3 );
+console.log( b );
+// ------------------------------------------------
+function fo() {
+  console.log( "3.implicit binding",this.a );
+}
+var obj = {
+  a: 2,
+  fo: fo
+};
+obj.fo();
+
+
+function foo1() {
+ console.log( "3.implicit binding",this.a );
+}
+var obj2 = {
+ a: 42,
+ foo: foo1
+};
+var obj1 = {
+ a: 2,
+ obj2: obj2
+};
+obj1.obj2.foo();
+// ------------------------------------------------
+function boo() {
+  console.log( "4.default binding",this.a );
+}
+var a = 2;
+boo();
+// ------------------------------------------------
+function doo1() {
+  return function (a) {
+    console.log( "functions",this.a );
+  };
+}
+function doo() {
+  // return an arrow function
+  return (a) => {
+    // `this` here is lexically adopted from `foo()`
+    console.log( "arrow-functions",this.a );
+  };
+}
+var obj1 = {
+  a: 2
+};
+var obj2 = {
+  a: 3
+};
+var bar = doo.call( obj1 );
+var bar1 = doo1.call( obj1 );
+bar.call( obj2 );
+bar1.call( obj2 );
+// ------------------------------------------------
+function loo() {
+  console.log("Losing this", this.a );
+}
+var obj = {
+  a: 2,
+  foo: loo
+};
+var bar = obj.foo; // function reference/alias!
+var a = "oops, global"; // `a` also property on global object
+bar();
+// ------------------------------------------------
+console.groupEnd("this");
 
 console.groupEnd("Exercise");
