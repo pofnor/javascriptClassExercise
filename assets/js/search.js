@@ -15,6 +15,7 @@ async function fetchIndexDB(){
       const indexDBKey = indexDB.map(value => value.keyword);
       /// new set to remove duplicate and again convert to array by ...
       indexDBKeyword = [...new Set(indexDBKey)];
+      document.getElementById("searchbar").addEventListener("keyup",function(e){search(indexDB)});      
       autocomplete(document.getElementById("searchbar"), indexDBKeyword);      
     } else {    
       loaderStatus(false,`${response.statusText} (${response.status})`);    
