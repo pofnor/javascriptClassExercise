@@ -12,13 +12,13 @@
    align-items: center;
 }  
   
-#list {
+#list,#buyItem{
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#list td, #list th {
+#list td, #list th,#buyItem td,#buyItem th {
     border: 1px solid #ddd;
     padding: 8px;    
 }
@@ -26,12 +26,15 @@
 #list tr:nth-child(odd){background-color: #12334d;}
 #list tr:nth-child(even){background-color: #0c2233;}
 #list tr:hover {background-color: #1d547d;}
+#buyItem tr:nth-child(odd){background-color: #12334d;}
+#buyItem tr:nth-child(even){background-color: #0c2233;}
+#buyItem tr:hover {background-color: #1d547d;}
 
 tr{
     color:whitesmoke;
 }
 
-#list th {
+#list th,#buyItem th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
