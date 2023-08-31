@@ -36,26 +36,27 @@
       <section class="code">
         <p>Write a function that takes a number(n) and return an array that 
           output values are from one to n.(while)</p>      
-        <p class="codeShow">
+        <code class="codeShow">
           function makeArrayOfNumber(n){<br>  
-             &nbsplet i = 1;<br>
-             &nbsplet array = [];<br>
-             &nbspwhile(i<=n){<br>
-             &nbsp  array.push(i);<br>
-             &nbsp  i++;<br>
-             &nbsp}<br>
-             &nbspreturn array;<br>
+             &nbsp let i = 1;<br>
+             &nbsp let array = [];<br>
+             &nbsp while(i<=n){<br>
+             &nbsp&nbsp  array.push(i);<br>
+             &nbsp&nbsp  i++;<br>
+             &nbsp }<br>
+             &nbsp return array;<br>
           }<br>
+        </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           makeArrayOfNumber(10) = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>      
       <section class="code">
         <p>Use the above output array and slice it by three and 
           use rest and spread operator to move the pieces.</p>      
-        <p class="codeShow">
+        <code class="codeShow">
           function slice3(result){<br>
             &nbsplet sliceSize = Math.trunc(+(result.length) / 3);<br>
             &nbsplet s1 = result.slice(0,sliceSize);<br>
@@ -76,33 +77,35 @@
             &nbsp}<br>
             &nbspreturn output;<br>
           }<br>
+        </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           [7, 8, 9, 10, 4, 5, 6, 1, 2, 3]
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>      
       <section class="code">
         <p>Determining <span>this</span> (call-site)<br>          
           1. Is the function called with new (new binding)? If so, <span>this</span> is the newly constructed
           object.<br>          
-        <p class="codeShow">
+        <code class="codeShow">
           function foo(a) {<br>
             &nbsp&nbspthis.a = a;<br>
             }<br>
             var bar = new foo( 2 );<br>
             console.log( bar.a );<br>
+          </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           2
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>
       <section class="code">
         <p>Determining <span>this</span> (call-site)<br>        
           2. Is the function called with call or apply (explicit binding), even hidden inside a
           bind hard binding? If so, <span>this</span> is the explicitly specified object.<br>
-        <p class="codeShow">
+        <code class="codeShow">
           function foo() {<br>
             &nbsp&nbspconsole.log( this.a );<br>
             }<br>
@@ -110,16 +113,17 @@
               &nbsp&nbspa: 2<br>
             };<br>
             foo.call( obj );<br>
+          </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           2
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>  
       <section class="code">
         <p>Determining <span>this</span> (call-site)<br>        
           2. Hard Binding
-        <p class="codeShow">
+        <code class="codeShow">
           function foo(something) {<br>
             &nbsp&nbspconsole.log( this.a, something );<br>
             &nbsp&nbspreturn this.a + something;<br>
@@ -130,11 +134,12 @@
             var bar = foo.bind( obj );<br>
             var b = bar( 3 );<br>
             console.log( b );<br> 
+          </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           2  3<br>
           5
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>  
       <section class="code">
@@ -146,7 +151,7 @@
           an object reference to obj . When there is a context object for a function reference, the
           implicit binding rule says that it's that object which should be used for the function call's
           this binding.
-        <p class="codeShow">
+        <code class="codeShow">
           function foo() {<br>
             &nbsp &nbspconsole.log( this.a );<br>
             }<br>
@@ -167,27 +172,29 @@
                 &nbsp&nbspobj2: obj2<br>
               };<br>
               obj1.obj2.foo();<br>
+          </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           2<br>
           42
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>  
       <section class="code">
         <p>Determining <span>this</span> (call-site)<br>        
           4. Otherwise, default the <span>this</span> (default binding). If in strict mode , pick undefined ,
           otherwise pick the global object.<br>
-        <p class="codeShow">
+        <code class="codeShow">
           function foo() {<br>
             &nbsp&nbspconsole.log( this.a );<br>
             }<br>
             var a = 2;<br>
             foo();<br>
+          </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           2
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>  
       <section class="code">
@@ -195,7 +202,7 @@
           Exception :<br>
           arrow-functions adopt the <span>this</span> binding from the enclosing (function or global) scope.<br>
           arrow functions do not have <span>this</span>. If <span>this</span> is accessed, it is taken from the outside.</p>
-        <p class="codeShow">
+        <code class="codeShow">
           function foo1() {<br>  
             &nbsp&nbspreturn function (a) {<br>
               &nbsp&nbsp&nbsp&nbspconsole.log( this.a );<br>
@@ -218,11 +225,12 @@
           var bar1 = foo1.call( obj1 );<br>
           bar.call( obj2 );<br>
           bar1.call( obj2 );<br>
+        </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           2<br>
           3
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>        
       <section class="code">
@@ -230,7 +238,7 @@
           One of the most common frustrations that <span>this</span> binding creates is when an implicitly bound
           function loses that binding, which usually means it falls back to the default binding, of either
         the global object or "undefined" , depending on "strict mode" .
-        <p class="codeShow">
+        <code class="codeShow">
           function foo() {<br>
             &nbsp&nbspconsole.log( this.a );<br>
             }<br>
@@ -241,16 +249,17 @@
             var bar = obj.foo; // function reference/alias!<br>
             var a = "oops, global"; // `a` also property on global object<br>
             bar(); 
+        </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           "oops, global"
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>
       <section class="code">
         <p>Losing <span>this</span><br>          
           Callback function
-        <p class="codeShow">
+        <code class="codeShow">
           function foo() {<br>
             &nbsp&nbspconsole.log( this.a );<br>
             }<br>
@@ -260,10 +269,11 @@
             };<br>
             var a = "oops, global"; // `a` also property on global object<br>
             setTimeout( obj.foo, 100 );<br>
+          </code>
         <h1 class="question">Show Output</h1>      
-        <p class="output">
+        <samp class="output">
           "oops, global"
-        </p>      
+        </samp>      
       </section>
       <!------------------------------ Code Section ------------------------------>   
     </section>              
