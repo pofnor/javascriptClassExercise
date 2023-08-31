@@ -99,6 +99,11 @@
       "keyword": "rest,switch,Math.floor,Math.random,Destructuring,Event,Date,spread,slice,padStart,setTimeout,this,losing this,Lexical,Math.trunc",
       "href": "assets/jsClass/jsClassSession6.html",
       "description": "<ul> <li> Rest parameters and Spread operator </li> <li> Date </li> <li> this </li> <li> HTML Event Attributes </li> <ul>"
+    },
+    {
+      "keyword": "addEventListener,Capture,Bubble",
+      "href": "assets/jsClass/jsClassSession7.html",
+      "description": "<ul> <li> addEventListener(type, listener, useCapture) </li> <ul>"
     }
   ]
 }
