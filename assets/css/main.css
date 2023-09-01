@@ -130,6 +130,10 @@ input[type=text]:focus {
   transition: 0.4s;
   font-family: Consolas, Menlo, "courier new", monospace;
 }
+.code:hover{
+  width: 81%;     
+  border: 1px solid #CD853F;  
+}
 .code p{
   
   color: var(--white85);  
@@ -246,7 +250,7 @@ span{
 
 .exercise:hover{
   width: 81%;     
-  border: 2px solid black;  
+  border: 1px solid #CD853F;
 }
 
 .inputFa{
