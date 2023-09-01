@@ -66,9 +66,14 @@
       "description": "What is this?"
     },
     {
+      "keyword": "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll,addEventListener,push,slice,this,splice,appendChild,createElement,toLocaleString,toLowerCase,includes,confirm,alert,window.location.reload,location.reload,reload",
+      "href": "assets/jsClass/carShop.html",
+      "description": "A car store where you can buy cars and search according to the properties of each car and sort the price in ascending or descending order."      
+    },
+    {
       "keyword": "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll",
       "href": "assets/jsClass/carSearch.html",
-      "description": "Cars Search at Table with some cool method"
+      "description": "We can search for cars according to the properties of each car and sort the price in ascending or descending order."
     },
     {
       "keyword": "Ternary,if,else,Number,Digit,Odd,Lexical,!!",
