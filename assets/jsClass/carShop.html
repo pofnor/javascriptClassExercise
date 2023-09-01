@@ -28,6 +28,30 @@
         <input id="searchbar" autocomplete="off" onkeyup="search()" 
             type="text" name="search" placeholder="Search on Company">
         <br>
+        <a id="addBtn" class="btn" onclick="addCar()">Add New Car</a>
+        <br>
+        <form id="addCarForm" class="formHide">
+            <label for="formCompany" style="font-size: 16px;">Company:</label>
+            <input type="text" style="text-align: left;" id="formCompany" name="formCompany" value="Toyota"><br>
+            <br><label for="formModel" style="font-size: 16px;">Model:</label>
+            <input type="text" style="text-align: left;" id="formModel" name="formModel" value="Corolla"><br>
+            <br><label for="formColor" style="font-size: 16px;">Color:</label>
+            <input type="text" style="text-align: left;" id="formColor" name="formColor" value="Blue"><br>
+            <br><label for="formCapacity" style="font-size: 16px;">Capacity:</label>
+            <input type="text" style="text-align: left;" id="formCapacity" name="formCapacity" value="4"><br>
+            <br><label for="formPrice" style="font-size: 16px;">Price:</label>
+            <input type="text" onkeyup="priceCheck()" style="text-align: left;" id="formPrice" name="formPrice" value="22000$"><br>
+            <br><label for="formYear" style="font-size: 16px;">Year:</label>
+            <input type="text" style="text-align: left;" id="formYear" name="formYear" value="2018"><br>
+            <br><label for="formGear" style="font-size: 16px;">Gear:</label>
+            <input type="text" style="text-align: left;" id="formGear" name="formGear" value="Automatic"><br>
+            <br><label for="formFuel" style="font-size: 16px;">Fuel:</label>
+            <input type="text" style="text-align: left;" id="formFuel" name="formFuel" value="Gas"><br>
+            <br><span id="formError" style="color:red"></span>
+            <br><input type="submit" id="formSubmit" style="width: 100px;text-align: center;display: block;margin: auto;" value="Submit">
+            
+        </form>
+        <br>
         <a id="priceBtn" class="btn" onclick="sortPrice()">Price Sort</a>  
         <br>
         <table id='list'>        
@@ -52,6 +76,6 @@
         </section>        
     </section>    
   </main>
-  <script>showCars(carsDB);buyHeader();</script>
+  <script>showCars(carsDB);buyHeader();submitButton();</script>
 </body>
 </html>

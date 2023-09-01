@@ -69,4 +69,8 @@ tr{
 .btn:hover{    
     color: var(--white);
     border: 1px solid var(--yellowDark);    
+}
+
+.formHide{
+    display: none;
 } 

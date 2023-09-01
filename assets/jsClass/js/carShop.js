@@ -5,8 +5,20 @@ let lastElement ;
 let buyElement = [];
 let result = [];
 let sumPrice = 0;
+let isShowFormAddCar = false;
+const priceRegExp = /^\d+(?:\.\d+)?\$$/;
+/*   
+^    Matches the beginning of the string, or the beginning of a line if the multiline flag (m) is enabled. This matches a position, not a character.
+\d   Matches any digit character (0-9). Equivalent to [0-9].
++    Matches 1 or more of the preceding token.
+(?:) Groups multiple tokens together without creating a capture group.
+?    Matches 0 or 1 of the preceding token, effectively making it optional.
+\.   Escaped character. Matches a "." character
+\$   Escaped character. Matches a "$" character
+$    Matches the end of the string, or the end of a line if the multiline flag (m) is enabled. This matches a position, not a character.
+*/
 
-const carsDB = [
+let carsDB = [
   {company : "Toyota"  , model : "Corolla" , color : "Blue"   , capacity : "4" , price : "22000$" , year : "2018" , gear : "Automatic" , fuel : "Gas"},
   {company : "Benz"    , model : "S500"    , color : "Black"  , capacity : "4" , price : "35000$" , year : "2023" , gear : "Automatic" , fuel : "Hybrid"},
   {company : "Ford"    , model : "Mustang" , color : "Silver" , capacity : "2" , price : "45000$" , year : "2002" , gear : "manual"    , fuel : "Gas"},
@@ -149,7 +161,7 @@ function sortPrice() {
   showCars(carsDB);
   showCars(buyElement,true);  
 }
-// shop
+// ------------------------- shop
 function buyHeader(){
   let table = document.getElementById("buyItem");
   let tr = document.createElement("tr");
@@ -170,5 +182,80 @@ function checkout(){
     } else {
     window.location.reload();
     }
+  }
+}
+
+//---------------------- add new car
+
+// Hide or Show Add New Car Form
+function showFormAddCar(isShow){
+  if(isShow){
+    document.getElementById("addCarForm").classList.remove("formHide");    
+  } else {
+    document.getElementById("addCarForm").classList.add("formHide");
+  }
+}
+
+// Disable default action of submit button and add submitCar() 
+function submitButton(){
+  document.getElementById("formSubmit").addEventListener("click", function(event){
+    event.preventDefault();
+    submitCar();
+  });
+}
+
+// Manage when the Add New Car Form is displayed or not
+function addCar(){
+  if(!isShowFormAddCar){
+    showFormAddCar(true);
+    isShowFormAddCar = true;
+  } else {
+    showFormAddCar(false);
+    isShowFormAddCar = false;
+  }  
+}
+
+// function for submit button of Add New Car Form
+function submitCar(){
+  document.getElementById("formPrice").style.backgroundColor = "";
+  document.getElementById("formError").textContent = "";
+  let company = document.getElementById("formCompany").value;
+  let model = document.getElementById("formModel").value;
+  let color = document.getElementById("formColor").value;
+  let capacity = document.getElementById("formCapacity").value;
+  let price = document.getElementById("formPrice").value;  
+  let year = document.getElementById("formYear").value;
+  let gear = document.getElementById("formGear").value;
+  let fuel = document.getElementById("formFuel").value;  
+  const priceMatches = price.match(priceRegExp);
+  if(priceMatches){
+    let tempObj = {
+      company : company ,
+      model : model ,
+      color : color ,
+      capacity : capacity,
+      price : price ,
+      year : year ,
+      gear : gear ,
+      fuel : fuel,
+    };          
+    carsDB.push(tempObj);
+    remove();
+    showCars(carsDB);
+    showCars(buyElement,true);
+  } else {
+    document.getElementById("formPrice").style.backgroundColor = "red";
+    document.getElementById("formError").textContent = "Car price must be a number with dollars sign";
+  }
+}
+
+function priceCheck(){
+  let price = document.getElementById("formPrice").value;
+  const priceMatches = price.match(priceRegExp);
+  if(priceMatches){
+    document.getElementById("formPrice").style.backgroundColor = "";
+    document.getElementById("formError").textContent = "";
+  } else {
+    document.getElementById("formPrice").style.backgroundColor = "red";
   }
 }
