@@ -162,7 +162,7 @@ function buyHeader(){
   table.appendChild(tr);  
 }
 
-function buyFinished(){
+function checkout(){
   let text = "Click OK to confirm the shopping cart and transfer to the payment page, otherwise click Cancel to continue shopping.";
   if(confirm(text)){
     if(sumPrice === 0){
