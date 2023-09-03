@@ -10,6 +10,7 @@
     <title>JavaScript Class Exercise</title>    
     <!-- css -->  
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/clock.css">        
     <!-- JavaScript -->
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
@@ -26,7 +27,14 @@
   <main id="main">
     <span class="span" onclick="openNav()">&#9776; Menu</span>
     <section class="container">       
-      <h1>Enter <span>ctrl+shift+j</span> to see output</h1>      
+      <!-- <h1>Enter <span>ctrl+shift+j</span> to see output</h1>       -->
+      <!-- Analog Clock -->
+      <section class="clock">        
+          <section class="hour"   id="hour"></section>                
+          <section class="minute" id="minute"></section>        
+          <section class="second" id="second"></section>
+      </section>
+      <script>clock()</script>    
       <!------------------------------ Code Section ------------------------------>
       <section class="code">
         <img src="img/eventflow.svg" style="margin-left:200px;width:40%;" alt="Event Flow">
