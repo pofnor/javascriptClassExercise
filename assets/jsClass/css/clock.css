@@ -30,6 +30,19 @@
   z-index: 10000;
 } */
 
+/* circle of center of clock */
+.clock::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #c0b5b5;
+  border-radius: 50%;
+  top: 45%;
+  left: 46%;
+  z-index: 1;  
+}
+
 .hour, .minute, .second {
   position: absolute;  
   border-radius: 10px;
@@ -43,8 +56,8 @@
 .clock .hour {
   background: #ff105e;  
   width: 1.8%;
-  height: 25%;
-  top: 25%;
+  height: 20%;
+  top: 29%;
   left: 48.85%;
   opacity: 0.8;
 }
