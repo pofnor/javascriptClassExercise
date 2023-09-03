@@ -67,7 +67,7 @@ function clock(){
   const second = document.getElementById('second');
   setInterval(() => {
   let day = new Date();
-  let hr_rotation = 30 * (day.getHours()-1) + day.getMinutes() / 2; //converting current time
+  let hr_rotation = 30 * day.getHours() + day.getMinutes() / 2; //converting current time
   let min_rotation = 6 * day.getMinutes();
   let sec_rotation = 6 * day.getSeconds(); 
   hour.style.transform = `rotate(${hr_rotation}deg)`;
