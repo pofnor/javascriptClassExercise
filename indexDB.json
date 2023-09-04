@@ -63,7 +63,12 @@
     {
       "keyword": "this",
       "href": "assets/jsClass/jsClassQuestion.html#Q10",
-      "description": "What is this?"
+      "description": "What is this ?"
+    },
+    {
+      "keyword": "Merge Sort,Sort",
+      "href": "assets/jsClass/jsClassQuestion.html#Q11",
+      "description": "Merge Sort Algorithm ?"
     },
     {
       "keyword": "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll,addEventListener,push,slice,this,splice,appendChild,createElement,toLocaleString,toLowerCase,includes,confirm,alert,window.location.reload,location.reload,reload,Regular Expression,RegEx,RegExp,form,submit,match,Event,preventDefault",
