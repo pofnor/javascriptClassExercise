@@ -109,6 +109,21 @@
       "keyword": "addEventListener,Capture,Bubble",
       "href": "assets/jsClass/jsClassSession7.html",
       "description": "<ul> <li> addEventListener(type, listener, useCapture) </li> <ul>"
+    },
+    {
+      "keyword": "animate.css,wow.js,Animation,mouseover,switch,Math.floor,Math.random,addEventListener,appendChild",
+      "href": "assets/jsClass/animation.html",
+      "description": "<ul> <li> animate.css </li> <li> wow.js </li> <ul>"
+    },
+    {
+      "keyword": "window.innerWidth,innerWidth,split,window.location.reload,location.reload,reload,switch",
+      "href": "assets/jsClass/gameCatMouse.html",
+      "description": "<ul> <li> Cat & Mouse Game </li><ul>"
+    },
+    {
+      "keyword": "window.innerWidth,innerWidth",
+      "href": "assets/jsClass/gameTreasureIsland.html",
+      "description": "<ul> <li> Treasure Island Game </li><ul>"
     }
   ]
 }
