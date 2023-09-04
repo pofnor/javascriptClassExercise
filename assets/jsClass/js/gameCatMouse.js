@@ -4,12 +4,13 @@ let destination = 70;
 let isFinished = false;
 
 // first position
-function initiate(){
+function initiate(){  
+  let clientW = window.innerWidth;  
   let cat = document.getElementById("cat");
   let mouse = document.getElementById("mouse");     
-  cat.style.left = move(cat.style.left,300,350);  
+  cat.style.left = move(cat.style.left,clientW/4,50);  
   cat.style.top = move(cat.style.top,100,50);
-  mouse.style.left = move(mouse.style.left,100,250);
+  mouse.style.left = move(mouse.style.left,clientW/4,50);
   mouse.style.top = move(mouse.style.top,100,250);  
 }
 // make random move
