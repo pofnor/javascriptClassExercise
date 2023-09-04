@@ -6,8 +6,9 @@ let clickCount = 0;
 
 // first position
 function initiate(){
+  let clientW = window.innerWidth;  
   let treasureIsland = document.getElementById("treasureIsland");
-  treasureX =  250 + Math.floor(Math.random()*400);
+  treasureX =  250 + Math.floor(Math.random()*(clientW/2));
   treasureY = 50 + Math.floor(Math.random()*500);
   let locationLeft = (treasureX).toString() + "px";
   let locationTop = (treasureY).toString() + "px";
