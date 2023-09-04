@@ -106,9 +106,9 @@
       "description": "<ul> <li> Rest parameters and Spread operator </li> <li> Date </li> <li> this </li> <li> HTML Event Attributes </li> <ul>"
     },
     {
-      "keyword": "addEventListener,Capture,Bubble",
+      "keyword": "addEventListener,Capture,Bubble,window,document,window.location.hostname,location.hostname,window.location.href,location.href,href,hostname,window.location,screen.width,screen.height,document.documentElement.clientWidth,documentElement.clientWidth,clientWidth,rotate,clock,Date,setInterval",
       "href": "assets/jsClass/jsClassSession7.html",
-      "description": "<ul> <li> addEventListener(type, listener, useCapture) </li> <ul>"
+      "description": "<ul> <li> addEventListener(type, listener, useCapture) </li> <li> Analog Clock </li> <li> Window & Document </li> <ul>"
     },
     {
       "keyword": "animate.css,wow.js,Animation,mouseover,switch,Math.floor,Math.random,addEventListener,appendChild",
