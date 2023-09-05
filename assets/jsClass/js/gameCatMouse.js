@@ -1,6 +1,6 @@
 "use strict";
 
-let destination = 70;
+let destination = 150; //Distance Between Cat and Mouse, When the Game Start
 let isFinished = false;
 
 // first position
@@ -8,7 +8,7 @@ function initiate(){
   let clientW = window.innerWidth;  
   let cat = document.getElementById("cat");
   let mouse = document.getElementById("mouse");     
-  cat.style.left = move(cat.style.left,clientW/4,50);  
+  cat.style.left = move(cat.style.left,clientW/4,150);  
   cat.style.top = move(cat.style.top,100,50);
   mouse.style.left = move(mouse.style.left,clientW/4,50);
   mouse.style.top = move(mouse.style.top,100,250);  
@@ -32,6 +32,8 @@ function start(){
   if (checkResult < 7){
     result.innerHTML = "The Cat caught The Mouse, You " + "<span>"+"LOOOSE"+"</span>"
     mouse.style.display = "none";
+    cat.setAttribute("src","img/CatWin.webp");
+    cat.style.width = "200px";
     isFinished = true;
     document.getElementById("btnStart").textContent = "Start Again";
   } else {
