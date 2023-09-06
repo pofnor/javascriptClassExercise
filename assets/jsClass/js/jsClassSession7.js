@@ -75,3 +75,23 @@ function clock(){
   second.style.transform = `rotate(${sec_rotation}deg)`;
   },1000);  
 }
+
+// addRemoveEvent
+let move = 30;
+function moveMargin(){    
+  let margin = ((this.style.margin).split(" ")[3]);
+  if(margin){
+    let marginNumber = margin.split("px")[0];
+    move += 30;
+  } 
+  this.style.margin = `0 0 0 ${move}px`;
+}
+function addEvent(){
+  let element = document.getElementById("addRemoveEvent");
+  
+  element.addEventListener("click",moveMargin);
+}
+function removeEvent(){
+  let element = document.getElementById("addRemoveEvent");
+  element.removeEventListener("click",moveMargin);
+}
