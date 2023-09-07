@@ -33,6 +33,7 @@ body {
 }
 
 .span{
+  font-family: 'Salsa', cursive;
   color:var(--yellow);  
   font-size:30px;
   cursor:pointer;
@@ -307,6 +308,7 @@ span{
 
 /* ----------------- Side Navigation Menu---------------------------- */
 .sidenav {
+  font-family: 'Salsa', cursive;
   height: 100%;
   width: 0;
   position: fixed;
