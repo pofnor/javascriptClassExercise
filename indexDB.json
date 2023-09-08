@@ -129,6 +129,11 @@
       "keyword": "window.innerWidth,innerWidth",
       "href": "assets/jsClass/gameTreasureIsland.html",
       "description": "<ul> <li> Treasure Island Game </li><ul>"
+    },
+    {
+      "keyword": "getElementsByClassName,Gallery,SlideShow,className.replace,modal",
+      "href": "assets/jsClass/slideShow.html",
+      "description": "<ul> <li> Slide Show </li><ul>"
     }
   ]
 }
