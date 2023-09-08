@@ -37,7 +37,7 @@ function currentSlide(n) {
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("Slides");  
-  let dots = document.getElementsByClassName("dot");
+  let dots = document.getElementsByClassName("dot");  
   
   // Rotate
   if (n > slides.length) {slideIndex = 1}

@@ -18,6 +18,11 @@
   display: none;
 }
 
+.slideImage{
+  width:100%;
+}
+
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
