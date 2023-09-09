@@ -1,2 +1,2 @@
 cd node_modules\.bin
-json-server --watch ../../indexDB.json
+json-server --watch ..\..\assets\DB\indexDB.json

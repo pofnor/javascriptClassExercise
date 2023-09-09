@@ -25,7 +25,7 @@ catch{
   const errorMessage = "Can't Find the 'http://localhost:3000/indexDB'<br>"+
     "Please goto 'node_modules\\.bin'<br>"+
     "and"+
-    "<br>run 'json-server --watch ../../indexDB.json' ";
+    "<br>run 'json-server --watch ..\\..\\assets\\DB\\indexDB.json' ";
   loaderStatus(false,errorMessage);
 }
 }
