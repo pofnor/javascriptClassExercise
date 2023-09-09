@@ -1,0 +1,65 @@
+:root{
+  --gold : rgb(237, 167, 32);
+  --gold70 : rgba(237, 169, 32, 0.7);
+}
+
+.loginContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;    
+  border: 1px solid black;
+  box-sizing: border-box;
+  box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, 0.25);
+  padding: 30px 20px;    
+  margin-top: 50px;    
+  transition: 0.4s;
+}
+
+.loginContainer:hover{
+  width: 41%;     
+  border: 1px solid #CD853F;
+}
+
+.loginHeader{
+  font-family: 'Salsa', cursive;  
+  color:var(--gold);
+}
+
+.inputText{
+  margin: auto;
+  padding: 10px 20px;  
+  text-align: left;  
+  width: 70%;
+  margin-top: 20px;      
+}
+
+.loginBtn{
+  font-family: 'Salsa', cursive;  
+  font-size: 16px; 
+  color:var(--gold);
+  text-decoration: none;
+  border: 1px solid black;
+  background-color: #202020;  
+  text-align: center;
+  padding: 10px;  
+  cursor: pointer;
+  margin-left: 20px; 
+  transition: 0.4s; 
+}
+.loginBtn:active {  
+  background-color: #101010;  
+  padding: 12px;
+}
+.loginBtn:hover {
+  color:#e8eaed;
+  border: 1px solid #9aa0a6;    
+  font-size: 18px; 
+}
+.result{
+  font-family: 'Salsa', cursive;  
+  font-size: 16px; 
+  color:whitesmoke;
+  text-align: center;
+}
