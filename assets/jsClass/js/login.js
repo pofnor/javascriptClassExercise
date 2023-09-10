@@ -1,5 +1,7 @@
 "use strict";
 
+let isSignup = false;
+
 function login(){
   const result = document.getElementById("result");
   const username = document.getElementById("username");
@@ -33,32 +35,131 @@ function login(){
   .catch(error => {
     result.innerHTML = error.message + "<br>" + error.config.url;
   })
-
-
-  // result.textContent = "You click on Login button";
 }
+
+// make it with .then and axios
+function post1(name,mobile,username,password){
+  const result = document.getElementById("result");  
+    // get last ID from database
+    axios.get("http://localhost:3000/account")
+    .then((response)=>{
+      return response.data[response.data.length-1].id;      
+    })
+    .then((lastId)=>{
+      // Add new user
+      const newId = +lastId + 1;
+      axios.post("http://localhost:3000/account",{
+      "id": String(newId),
+      "name": String(name),
+      "mobile": String(mobile),
+      "username": String(username),
+      "password": String(password)
+    })
+    .then((response) => {      
+      if(response.status === 201){
+        result.textContent = "Your Account have successfully created";
+      } else {
+        result.textContent = "Error = " + response.status;
+      }
+    }, (error) => {
+      result.textContent = "Error" + error.message;
+    })
+    });   
+}  
+
+// make it with async and await and axios
+async function post2(name,mobile,username,password){
+  const result = document.getElementById("result");
+  try{
+    // get last ID from database
+    const id = await axios.get("http://localhost:3000/account");      
+    const lastId = id.data[id.data.length-1].id;      
+    // Add new user
+    const newId = +lastId + 1;
+    axios.post("http://localhost:3000/account",{
+      "id": String(newId),
+      "name": String(name),
+      "mobile": String(mobile),
+      "username": String(username),
+      "password": String(password)
+    })
+    .then((response) => {      
+      if(response.status === 201){
+        result.textContent = "Your Account have successfully created";
+      } else {
+        result.textContent = "Error = " + response.status;
+      }
+    }, (error) => {
+      result.textContent = "Error" + error.message;
+    });            
+  }
+  catch(error){
+    console.log("Error on getLastID()",error.message);
+  }
+}  
+
+// make it with async and await and fetch
+async function post3(name,mobile,username,password){
+  const result = document.getElementById("result");
+  try{
+    // get last ID from database
+    const id = await fetch("http://localhost:3000/account");
+    let idJson = await id.json();          
+    const lastId = idJson[idJson.length-1].id;      
+    // Add new user
+    const newId = +lastId + 1;
+    console.log(newId);
+  //   axios.post("http://localhost:3000/account",{
+  //     "id": String(newId),
+  //     "name": String(name),
+  //     "mobile": String(mobile),
+  //     "username": String(username),
+  //     "password": String(password)
+  //   })
+  //   .then((response) => {      
+  //     if(response.status === 201){
+  //       result.textContent = "Your Account have successfully created";
+  //     } else {
+  //       result.textContent = "Error = " + response.status;
+  //     }
+  //   }, (error) => {
+  //     result.textContent = "Error" + error.message;
+  //   });            
+  }
+  catch(error){
+    console.log("Error on getLastID()",error.message);
+  }
+}  
 
 function signup(){
   const loginHeader = document.getElementById("loginHeader");
   const username = document.getElementById("username");
   const password = document.getElementById("password");
   const loginBtn = document.getElementById("loginBtn");
-  const signupBtn = document.getElementById("signupBtn");
-  const result = document.getElementById("result");    
-  let nameInput = document.createElement("input");
-  let mobileInput = document.createElement("input");
-  const loginContainer = document.getElementById("loginContainer");  
-  nameInput.className="inputText";
-  nameInput.id="name";
-  nameInput.placeholder="Name and Family";
-  mobileInput.className="inputText";
-  mobileInput.id="mobile";
-  mobileInput.placeholder="Mobile Number";  
-  loginContainer.insertBefore(mobileInput,username);
-  let mobile = document.getElementById("mobile");
-  loginContainer.insertBefore(nameInput,mobile);
-  loginBtn.style.display = "none" ;
-  loginHeader.textContent = "Create New Account";
-  signupBtn.textContent = "Sign up";  
-  result.textContent = "You click on signup button";
+  const signupBtn = document.getElementById("signupBtn");      
+  const loginContainer = document.getElementById("loginContainer");    
+  if (!isSignup){
+    isSignup = true;    
+    let nameInput = document.createElement("input");
+    let mobileInput = document.createElement("input");
+    nameInput.className="inputText";
+    nameInput.id="name";
+    nameInput.placeholder="Name and Family";
+    mobileInput.className="inputText";
+    mobileInput.id="mobile";
+    mobileInput.placeholder="Mobile Number";  
+    loginContainer.insertBefore(mobileInput,username);
+    let mobile = document.getElementById("mobile");
+    loginContainer.insertBefore(nameInput,mobile);
+    loginBtn.style.display = "none" ;
+    loginHeader.textContent = "Create New Account";
+    signupBtn.textContent = "Sign up";    
+  } else if (isSignup){
+    isSignup = false;
+    let name = document.getElementById("name");
+    let mobile = document.getElementById("mobile");
+    // post1(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+    // post2(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+    post3(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+  } 
 }
