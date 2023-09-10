@@ -37,34 +37,51 @@ function login(){
   })
 }
 
+
+
 // make it with .then and axios
-function post1(name,mobile,username,password){
+function post1(name,mobile,username,password){  
   const result = document.getElementById("result");  
-    // get last ID from database
-    axios.get("http://localhost:3000/account")
-    .then((response)=>{
-      return response.data[response.data.length-1].id;      
-    })
-    .then((lastId)=>{
+  let isUnique = true;
+  // check the username is unique  
+  axios.get("http://localhost:3000/account")
+  .then((response)=>{
+    for(let data of response.data){
+      if (data.username === username) {
+        result.textContent = "username is already taken";
+        isUnique = false;
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("mobile").value = "";        
+        isSignup = true;
+        break;
+      }       
+    }
+    if(isUnique){
+      // get last ID from database
+      let lastId = response.data[response.data.length-1].id;                
       // Add new user
       const newId = +lastId + 1;
       axios.post("http://localhost:3000/account",{
-      "id": String(newId),
-      "name": String(name),
-      "mobile": String(mobile),
-      "username": String(username),
-      "password": String(password)
-    })
-    .then((response) => {      
-      if(response.status === 201){
-        result.textContent = "Your Account have successfully created";
-      } else {
-        result.textContent = "Error = " + response.status;
-      }
-    }, (error) => {
-      result.textContent = "Error" + error.message;
-    })
-    });   
+        "id": String(newId),
+        "name": String(name),
+        "mobile": String(mobile),
+        "username": String(username),
+        "password": String(password)
+      })
+      .then((response) => {      
+        if(response.status === 201){
+          result.textContent = "Your Account have successfully created";
+          setTimeout(()=>{document.location.reload()},3000);
+        } else {
+          result.textContent = "Error = " + response.status;
+        }
+      }, (error) => {
+        result.textContent = "Error" + error.message;
+      });  
+    } 
+  });
 }  
 
 // make it with async and await and axios
@@ -173,10 +190,10 @@ function signup(){
     signupBtn.textContent = "Sign up";    
   } else if (isSignup){
     isSignup = false;
-    let name = document.getElementById("name");
-    let mobile = document.getElementById("mobile");
-    // post1(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+    const name = document.getElementById("name");
+    const mobile = document.getElementById("mobile");
+    post1(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
     // post2(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
-    post3(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+    // post3(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
   } 
 }
