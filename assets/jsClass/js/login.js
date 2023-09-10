@@ -94,28 +94,45 @@ async function post2(name,mobile,username,password){
     });            
   }
   catch(error){
-    console.log("Error on getLastID()",error.message);
+    console.log("Error on post2()",error.message);
   }
 }  
 
 // make it with async and await and fetch
+async function postJSON(data) {
+  try {
+    const response = await fetch("http://localhost:3000/account", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log("Success:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+ 
 async function post3(name,mobile,username,password){
   const result = document.getElementById("result");
   try{
     // get last ID from database
-    const id = await fetch("http://localhost:3000/account");
-    let idJson = await id.json();          
-    const lastId = idJson[idJson.length-1].id;      
+    const accounts = await fetch("http://localhost:3000/account");
+    let accountsJson = await accounts.json();          
+    const lastId = accountsJson[accountsJson.length-1].id;      
     // Add new user
-    const newId = +lastId + 1;
-    console.log(newId);
-  //   axios.post("http://localhost:3000/account",{
-  //     "id": String(newId),
-  //     "name": String(name),
-  //     "mobile": String(mobile),
-  //     "username": String(username),
-  //     "password": String(password)
-  //   })
+    const newId = +lastId + 1;    
+    const data = {
+        "id": String(newId),
+        "name": String(name),
+        "mobile": String(mobile),
+        "username": String(username),
+        "password": String(password)        
+      };
+    postJSON(data);  
   //   .then((response) => {      
   //     if(response.status === 201){
   //       result.textContent = "Your Account have successfully created";
@@ -127,7 +144,7 @@ async function post3(name,mobile,username,password){
   //   });            
   }
   catch(error){
-    console.log("Error on getLastID()",error.message);
+    console.log("Error on post3()",error.message);
   }
 }  
 
