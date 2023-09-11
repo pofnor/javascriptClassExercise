@@ -10,7 +10,7 @@ let postMethod = 0;  // 1 for axios, 2 for async and 3 for fetch
 
 // --------------------- Hide and Show input element to force user for select Post method ----------
 function hide(){
-  document.getElementById("postMethodButton").style.visibility="hidden";  
+  document.getElementById("postMethodButton").style.visibility="hidden";
 }
 function show(state){
   if(state===1){    

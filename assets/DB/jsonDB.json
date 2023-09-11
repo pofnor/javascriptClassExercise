@@ -9,7 +9,7 @@
       "keyword": "Regular Expression,RegEx,RegExp",
       "href": "assets/jsClass/regExp.html",
       "description": "Regular Expression article with some practical examples"
-    },  
+    },
     {
       "keyword": "Chrome,DevTools,Performance,Memory,Leaks,Memory Leaks",
       "href": "assets/jsClass/devTools.html",
@@ -47,7 +47,7 @@
     },
     {
       "keyword": "function",
-      "href": "assets/jsClass/jsClassQuestion.html#Q7",      
+      "href": "assets/jsClass/jsClassQuestion.html#Q7",
       "description": "What are the types of functions in JavaScript and why and when do we use functions?"
     },
     {
@@ -73,7 +73,7 @@
     {
       "keyword": "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll,addEventListener,push,slice,this,splice,appendChild,createElement,toLocaleString,toLowerCase,includes,confirm,alert,window.location.reload,location.reload,reload,Regular Expression,RegEx,RegExp,form,submit,match,Event,preventDefault",
       "href": "assets/jsClass/carShop.html",
-      "description": "A car store where you can buy cars and search according to the properties of each car and sort the price in ascending or descending order."      
+      "description": "A car store where you can buy cars and search according to the properties of each car and sort the price in ascending or descending order."
     },
     {
       "keyword": "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll",
@@ -83,7 +83,7 @@
     {
       "keyword": "Ternary,if,else,Number,Digit,Odd,Lexical,!!",
       "href": "assets/jsClass/jsClassSession1.html",
-      "description": "<ul> <li> Print odd numbers up to 100, excluding the user-entered odd number. </li> <li> Choose a specific book </li> <ul>" 
+      "description": "<ul> <li> Print odd numbers up to 100, excluding the user-entered odd number. </li> <li> Choose a specific book </li> <ul>"
     },
     {
       "keyword": "Higher Order Function,prompt,confirm",
@@ -93,12 +93,12 @@
     {
       "keyword": "Reference assignment,Assignment,assign,Object.assign,JSON,Number,Digit,Count,Sum,Multiply,Print,2D,Array,Biggest,Max,Reverse,Repetition,console.warn,console.groupCollapsed,console.groupEnd,Math.max.apply,apply,splice,push",
       "href": "assets/jsClass/jsClassSession3.html",
-      "description": "<ul> Reference assignment , Object.assign , JSON and Functions : <br> <li> Takes a number as input and returns the number of digits. </li> <li> Takes a number as input and returns the sum of digits. </li> <li> Takes an object as input and multiplies the numeric values by 2 </li> <li> Print each member of a 2D array </li> <li> Find the biggest number of a array </li> <li> Implement the reverse method of array </li> <li> remove every repetition of that number in the array </li> <ul>"  
+      "description": "<ul> Reference assignment , Object.assign , JSON and Functions : <br> <li> Takes a number as input and returns the number of digits. </li> <li> Takes a number as input and returns the sum of digits. </li> <li> Takes an object as input and multiplies the numeric values by 2 </li> <li> Print each member of a 2D array </li> <li> Find the biggest number of a array </li> <li> Implement the reverse method of array </li> <li> remove every repetition of that number in the array </li> <ul>"
     },
     {
       "keyword": "Number,Digit,Array,Sum,Count,Regular Expression,RegEx,RegExp,Odd,Truthy,call,apply,bind,spread,setTimeout,this,losing this",
       "href": "assets/jsClass/jsClassSession4.html",
-      "description": "<ul> Functions <br> <li> Takes a number as input and returns the number of digits </li> <li> Takes a number as input and returns the sum of digits. </li> <li> Takes a number as input and returns the number of digits By RegExp </li> <li> Takes a number as input and returns the sum of digits By regExp </li> <li> Print odd numbers </li> <li> Take an array and return just truthy </li> <li> Call Apply Bind </li> <ul>"   
+      "description": "<ul> Functions <br> <li> Takes a number as input and returns the number of digits </li> <li> Takes a number as input and returns the sum of digits. </li> <li> Takes a number as input and returns the number of digits By RegExp </li> <li> Takes a number as input and returns the sum of digits By regExp </li> <li> Print odd numbers </li> <li> Take an array and return just truthy </li> <li> Call Apply Bind </li> <ul>"
     },
     {
       "keyword": "Prototype,Freeze,Seal,Constructor,Accessors,Getters,Setters,get,defineProperties,defineProperty,Object.hasOwn(),hasOwn,hasOwnProperty,set,Object.setPrototypeOf,setPrototypeOf,Object.create,Create,isFrozen,isSealed,Object.isFrozen,Object.isSealed,Sum,rest,Number,Digit,console.groupCollapsed,Object.keys,Object.values,Object.entries,console.groupEnd,Object.seal,Object.freeze",
@@ -134,6 +134,22 @@
       "keyword": "getElementsByClassName,Gallery,SlideShow,className.replace,modal",
       "href": "assets/jsClass/slideShow.html",
       "description": "<ul> <li> Slide Show </li><ul>"
+    }
+  ],
+  "account": [
+    {
+      "id": "1",
+      "name": "Katheryn Shaw",
+      "mobile": "09121000935",
+      "username": "shaw",
+      "password": "sS@12345"
+    },
+    {
+      "id": "2",
+      "name": "Leo Simpson",
+      "mobile": "09353300330",
+      "username": "leo",
+      "password": "lL@12345"
     }
   ]
 }
