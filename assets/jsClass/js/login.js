@@ -1,31 +1,74 @@
 "use strict";
 
-let isSignup = false;
+let isSignup = false; //is the user goto Create account page or not
+let validateName = false; //Validate name
+let validateMobile = false; //Validate mobile number
+let validateUsername = false; //Validate username
+let validatePassword = false; //Validate password 
+let isUnique = true; //Unique ID for post into Database
+let postMethod = 0;  // 1 for axios, 2 for async and 3 for fetch
 
+// --------------------- Hide and Show input element to force user for select Post method ----------
+function hide(){
+  document.getElementById("postMethodButton").style.visibility="hidden";  
+}
+function show(state){
+  if(state===1){    
+    document.getElementById("postMethodButton").style.visibility="visible";
+    document.getElementById("name").style.visibility="hidden";
+    document.getElementById("mobile").style.visibility="hidden";
+    document.getElementById("username").style.visibility="hidden";
+    document.getElementById("password").style.visibility="hidden";
+  }
+  if(state===2){
+    document.getElementById("postMethodButton").style.visibility="hidden";
+    document.getElementById("name").style.visibility="visible";
+    document.getElementById("mobile").style.visibility="visible";
+    document.getElementById("username").style.visibility="visible";
+    document.getElementById("password").style.visibility="visible";
+   }
+}
+
+// ------------------------------------------- Select Post Method ---------------------------------
+function selectPostMethod(name){
+  if(name==='axios'){
+    postMethod = 1;
+    document.getElementById("postMethod").textContent = "((Axios))";
+    document.getElementById("postMethodButton").style.display="none"; 
+    show(2);
+  }
+  if(name==='async'){
+    postMethod = 2;
+    document.getElementById("postMethod").textContent = "((Axios with Async))";
+    document.getElementById("postMethodButton").style.display="none";   
+    show(2);
+  }
+  if(name==='fetch'){
+    postMethod = 3;
+    document.getElementById("postMethod").textContent = "((Fetch with Async))";
+    document.getElementById("postMethodButton").style.display="none";   
+    show(2);
+  }
+}
+
+// ----------------------------------------------- Login ------------------------------------------
 function login(){
   const result = document.getElementById("result");
   const username = document.getElementById("username");
   const password = document.getElementById("password");
-  const signupBtn = document.getElementById("signupBtn");
-  const loginBtn = document.getElementById("loginBtn");
-  const loginHeader = document.getElementById("loginHeader");
 
   axios.get("http://localhost:3000/account")
   .then((response) => {
-    // console.log(response.data);
-    // console.log(response.status);
-    // console.log(response.statusText);
-    // console.log(response.headers);
-    // console.log(response.config);
     for (let index in response.data){
       if ((response.data[index].username === username.value.trim()) &&
       (response.data[index].password === password.value)){
         result.innerHTML = "Welcome <span>" + response.data[index].name + "</span><br>" + "You have successfully logged in";
-        signupBtn.style.display = "none";
-        loginBtn.style.display = "none";
         username.style.display = "none";
         password.style.display = "none";
-        loginHeader.style.display = "none";
+        document.getElementById("signupBtn").style.display = "none";
+        document.getElementById("loginBtn").style.display = "none";
+        document.getElementById("loginHeader").style.display = "none";
+        document.getElementById("postMethod").style.display = "none";
         break;
       } else {
         result.textContent = "Wrong Username or Password";
@@ -37,27 +80,23 @@ function login(){
   })
 }
 
-
-
-// make it with .then and axios
+// ----------------------------------------------- POST1 ------------------------------------------
+// make it by axios with .then and .catch 
 function post1(name,mobile,username,password){  
   const result = document.getElementById("result");  
-  let isUnique = true;
+  isUnique = true; //for run again the function, set it again to true
+  
   // check the username is unique  
   axios.get("http://localhost:3000/account")
   .then((response)=>{
     for(let data of response.data){
       if (data.username === username) {
-        result.textContent = "username is already taken";
-        isUnique = false;
-        document.getElementById("username").value = "";
-        document.getElementById("password").value = "";
-        document.getElementById("name").value = "";
-        document.getElementById("mobile").value = "";        
+        result.innerHTML = "username " + "<span>" + username + "</span>" + " is already taken";        
+        isUnique = false;                
         isSignup = true;
         break;
       }       
-    }
+    }  
     if(isUnique){
       // get last ID from database
       let lastId = response.data[response.data.length-1].id;                
@@ -72,51 +111,72 @@ function post1(name,mobile,username,password){
       })
       .then((response) => {      
         if(response.status === 201){
-          result.textContent = "Your Account have successfully created";
+          result.textContent = "Your Account has successfully created";
           setTimeout(()=>{document.location.reload()},3000);
         } else {
-          result.textContent = "Error = " + response.status;
+          result.innerHTML = "<span>" + "Error :" + "</span><br>" + response.message + "<br>" + response.config.url;
         }
-      }, (error) => {
-        result.textContent = "Error" + error.message;
+      }, (reject) => {
+        result.innerHTML = "<span>" + "Error :" + "</span><br>" + reject.message + "<br>" + reject.config.url;
+        document.getElementById("buttonContainer").style.display="none";
+        setTimeout(()=>{document.location.reload()},5000);
       });  
     } 
+  })
+  .catch((reject)=>{
+    result.innerHTML = "<span>" + "Error :" + "</span><br>" + reject.message + "<br>" + reject.config.url;
+    document.getElementById("buttonContainer").style.display="none";
+    setTimeout(()=>{document.location.reload()},5000);
   });
 }  
 
-// make it with async and await and axios
+// ----------------------------------------------- POST2 ------------------------------------------
+// make it by async and await and axios
 async function post2(name,mobile,username,password){
   const result = document.getElementById("result");
+  isUnique = true; //for run again the function, set it again to true  
   try{
-    // get last ID from database
-    const id = await axios.get("http://localhost:3000/account");      
-    const lastId = id.data[id.data.length-1].id;      
-    // Add new user
-    const newId = +lastId + 1;
-    axios.post("http://localhost:3000/account",{
-      "id": String(newId),
-      "name": String(name),
-      "mobile": String(mobile),
-      "username": String(username),
-      "password": String(password)
-    })
-    .then((response) => {      
-      if(response.status === 201){
-        result.textContent = "Your Account have successfully created";
+    // check the username is unique  
+    const datas = await axios.get("http://localhost:3000/account");
+    for(let data of datas.data){
+      if (data.username === username) {
+        result.innerHTML = "username " + "<span>" + username + "</span>" + " is already taken";        
+        isUnique = false;                
+        isSignup = true;
+        break;
+      } 
+    }
+    if(isUnique){
+      // get last ID from database
+      const lastId = datas.data[datas.data.length-1].id;      
+      // Add new user
+      const newId = +lastId + 1;
+      const post = await axios.post("http://localhost:3000/account",{
+        "id": String(newId),
+        "name": String(name),
+        "mobile": String(mobile),
+        "username": String(username),
+        "password": String(password)
+      });
+      if(post.status === 201){
+        result.textContent = "Your Account has successfully created";
+        setTimeout(()=>{document.location.reload()},3000);
       } else {
-        result.textContent = "Error = " + response.status;
-      }
-    }, (error) => {
-      result.textContent = "Error" + error.message;
-    });            
+        result.innerHTML = "<span>" + "Error :" + "</span><br>" + response.message + "<br>" + response.config.url;
+        setTimeout(()=>{document.location.reload()},5000);
+      }      
+    }                  
   }
   catch(error){
-    console.log("Error on post2()",error.message);
+    result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
+    setTimeout(()=>{document.location.reload()},5000);
   }
 }  
 
-// make it with async and await and fetch
+// ----------------------------------------------- POST3 ------------------------------------------
+// make it by fetch with async and await
 async function postJSON(data) {
+  const result = document.getElementById("result");
   try {
     const response = await fetch("http://localhost:3000/account", {
       method: "POST", // or 'PUT'
@@ -126,46 +186,62 @@ async function postJSON(data) {
       body: JSON.stringify(data),
     });
 
-    const result = await response.json();
-    console.log("Success:", result);
+    // const result1 = await response.json();
+    if(response.status===201){
+      result.textContent = "Your Account has successfully created";
+      document.getElementById("buttonContainer").style.display="none";
+      setTimeout(()=>{document.location.reload()},5000);
+    } else {
+      result.innerHTML = "<span>" + "Error :" + "</span><br>" + response.statusText + "<br>" + response.status + "<br>" + response.url;
+      document.getElementById("buttonContainer").style.display="none";
+      setTimeout(()=>{document.location.reload()},5000);
+    }
   } catch (error) {
-    console.error("Error:", error);
+    result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
+    document.getElementById("buttonContainer").style.display="none";
+    setTimeout(()=>{document.location.reload()},5000);
   }
 }
  
 async function post3(name,mobile,username,password){
   const result = document.getElementById("result");
+  isUnique = true; //for run again the function, set it again to true  
   try{
-    // get last ID from database
+    // check the username is unique  
     const accounts = await fetch("http://localhost:3000/account");
     let accountsJson = await accounts.json();          
-    const lastId = accountsJson[accountsJson.length-1].id;      
-    // Add new user
-    const newId = +lastId + 1;    
-    const data = {
-        "id": String(newId),
-        "name": String(name),
-        "mobile": String(mobile),
-        "username": String(username),
-        "password": String(password)        
-      };
-    postJSON(data);  
-  //   .then((response) => {      
-  //     if(response.status === 201){
-  //       result.textContent = "Your Account have successfully created";
-  //     } else {
-  //       result.textContent = "Error = " + response.status;
-  //     }
-  //   }, (error) => {
-  //     result.textContent = "Error" + error.message;
-  //   });            
+    for(let account of accountsJson){
+      if (account.username === username) {
+        result.innerHTML = "username " + "<span>" + username + "</span>" + " is already taken";        
+        isUnique = false;                
+        isSignup = true;
+        break;
+      } 
+    }
+    if(isUnique){
+      // get last ID from database
+      const lastId = accountsJson[accountsJson.length-1].id;      
+      // Add new user
+      const newId = +lastId + 1;    
+      const data = {
+          "id": String(newId),
+          "name": String(name),
+          "mobile": String(mobile),
+          "username": String(username),
+          "password": String(password)        
+        };
+        postJSON(data);
+    }
   }
   catch(error){
-    console.log("Error on post3()",error.message);
+    result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
+    document.getElementById("buttonContainer").style.display="none";
+    setTimeout(()=>{document.location.reload()},5000);
   }
-}  
+}          
 
-function signup(){
+// ----------------------------------------------- Sign up ------------------------------------------
+function signup(){  
   const loginHeader = document.getElementById("loginHeader");
   const username = document.getElementById("username");
   const password = document.getElementById("password");
@@ -179,21 +255,105 @@ function signup(){
     nameInput.className="inputText";
     nameInput.id="name";
     nameInput.placeholder="Name and Family";
+    nameInput.setAttribute("autocomplete","off");
     mobileInput.className="inputText";
     mobileInput.id="mobile";
     mobileInput.placeholder="Mobile Number";  
+    mobileInput.setAttribute("autocomplete","off");
     loginContainer.insertBefore(mobileInput,username);
-    let mobile = document.getElementById("mobile");
+    let mobile = document.getElementById("mobile");    
     loginContainer.insertBefore(nameInput,mobile);
     loginBtn.style.display = "none" ;
     loginHeader.textContent = "Create New Account";
-    signupBtn.textContent = "Sign up";    
+    signupBtn.textContent = "Sign up";
+    document.getElementById("buttonContainer").style.visibility="hidden";
+    document.getElementById("result").textContent = "Complete all the Items to create an Account";
+
+    // AddEventListener for validate
+    document.getElementById("name").addEventListener("keyup",function(e){validate(e)});
+    mobile.addEventListener("keyup",function(e){validate(e)});
+    username.addEventListener("keyup",function(e){validate(e)});
+    password.addEventListener("keyup",function(e){validate(e)});        
+
+    // wait for select post method
+    show(1);
+
   } else if (isSignup){
     isSignup = false;
     const name = document.getElementById("name");
     const mobile = document.getElementById("mobile");
-    post1(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
-    // post2(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
-    // post3(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+    switch (postMethod){
+      case 1:
+        post1(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+        break;
+      case 2:
+        post2(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+        break;
+      case 3:
+        post3(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+    }
   } 
+}
+
+// ---------------------------------------- Validate ------------------------------------------------
+function validate(element){  
+  if(element.target.id === "name"){
+    if(element.target.value.length===0){
+      validateName = false;      
+      document.getElementById("buttonContainer").style.visibility="hidden";
+      document.getElementById("result").textContent = "Complete all the Items to create an Account";
+    } else {
+      validateName = true;
+    };
+  }
+  if(element.target.id === "mobile"){
+    if(element.target.value.length===0){
+      validateMobile = false;
+      document.getElementById("buttonContainer").style.visibility="hidden";
+      document.getElementById("result").textContent = "Complete all the Items to create an Account";
+    } else {
+      const mobileRegExp = /^\d+$/;
+      if(element.target.value.match(mobileRegExp)){
+        element.target.style.backgroundColor = "";
+        validateMobile = true;
+      } else {
+        validateMobile = false;
+        element.target.style.backgroundColor = "red";
+        document.getElementById("buttonContainer").style.visibility="hidden";
+        document.getElementById("result").textContent = "Just Numbers are Allowed";
+      }         
+    };
+  }
+  if(element.target.id === "username"){
+    if(element.target.value.length===0){
+      validateUsername = false;
+      document.getElementById("buttonContainer").style.visibility="hidden";
+      document.getElementById("result").textContent = "Complete all the Items to create an Account";
+    } else {
+      validateUsername = true;
+    };
+  }
+  if(element.target.id === "password"){
+    if(element.target.value.length===0){
+      validatePassword = false;      
+      document.getElementById("buttonContainer").style.visibility="hidden";
+      document.getElementById("result").textContent = "Complete all the Items to create an Account";
+    } else {
+      const passRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$/g ;
+      if(element.target.value.match(passRegExp)){
+        element.target.style.backgroundColor = "";
+        validatePassword = true;
+      } else {
+        validatePassword = false; 
+        element.target.style.backgroundColor = "red";
+        document.getElementById("buttonContainer").style.visibility="hidden";
+        document.getElementById("result").innerHTML = "Your password must have at least 8 characters,"+ "<br>"
+                    +"at least an upper case letter, an lowercase letter, a number and a symbol";
+      }      
+    };
+  }
+  if(validateName && validateMobile && validateUsername && validatePassword){
+    document.getElementById("buttonContainer").style.visibility="visible";
+    document.getElementById("result").textContent = "";
+  }  
 }
