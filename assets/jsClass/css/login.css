@@ -61,5 +61,22 @@
   font-family: 'Salsa', cursive;  
   font-size: 16px; 
   color:whitesmoke;
-  text-align: center;
+  text-align: center;  
+}
+
+@media screen and (max-width: 1180px) {
+  .loginContainer{
+    width: 80%;
+  }
+  .loginContainer:hover{
+    width: 81%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .loginBtn{
+    font-size: 12px;
+    padding: 5px;
+    margin-left: 5px; 
+  }
 }

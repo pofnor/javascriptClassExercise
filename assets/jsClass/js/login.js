@@ -19,6 +19,7 @@ function show(state){
     document.getElementById("mobile").style.visibility="hidden";
     document.getElementById("username").style.visibility="hidden";
     document.getElementById("password").style.visibility="hidden";
+    document.getElementById("result").style.visibility="hidden";
   }
   if(state===2){
     document.getElementById("postMethodButton").style.visibility="hidden";
@@ -26,6 +27,7 @@ function show(state){
     document.getElementById("mobile").style.visibility="visible";
     document.getElementById("username").style.visibility="visible";
     document.getElementById("password").style.visibility="visible";
+    document.getElementById("result").style.visibility="visible";
    }
 }
 
