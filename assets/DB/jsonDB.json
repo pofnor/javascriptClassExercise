@@ -134,6 +134,16 @@
       "keyword": "getElementsByClassName,Gallery,SlideShow,className.replace,modal",
       "href": "assets/jsClass/slideShow.html",
       "description": "<ul> <li> Slide Show </li><ul>"
+    },
+    {
+      "keyword": "Ajax,XMLHttpRequest,setRequestHeader,onreadystatechange,JSON,Promise,Promise.all,setTimeout,Promise.allSettled,Promise.any,fetch,HTTP Status Codes",
+      "href": "assets/jsClass/jsClassSession8.html",
+      "description": "<ul> <li> AJAX </li> <li> Promise </li> <li> HTTP Status Codes </li> <ul>"
+    },
+    {
+      "keyword": "style.visibility,visibility,hidden,axios,axios.get,get,trim,axios.post,post,async,await,document.location.reload,location.reload,reload,fetch,JSON,validate,Regular Expression,RegEx,RegExp",
+      "href": "assets/jsClass/login.html",
+      "description": "<ul> <li> Login and Sign Up </li><ul>"
     }
   ],
   "account": [
@@ -142,14 +152,14 @@
       "name": "Katheryn Shaw",
       "mobile": "09121000935",
       "username": "shaw",
-      "password": "sS@12345"
+      "password": "Ss@12345"
     },
     {
       "id": "2",
       "name": "Leo Simpson",
       "mobile": "09353300330",
       "username": "leo",
-      "password": "lL@12345"
+      "password": "Ll@12345"
     }
   ]
 }
