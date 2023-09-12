@@ -245,15 +245,15 @@ async function post3(name,mobile,username,password){
 // ----------------------------------------------- Sign up ------------------------------------------
 function signup(){  
   const loginHeader = document.getElementById("loginHeader");
-  const username = document.getElementById("username");
-  username.value = ""  ;
-  const password = document.getElementById("password");  
-  password.value = ""  ;
+  const username = document.getElementById("username");  
+  const password = document.getElementById("password");
   const loginBtn = document.getElementById("loginBtn");
   const signupBtn = document.getElementById("signupBtn");      
   const loginContainer = document.getElementById("loginContainer");    
   if (!isSignup){
-    isSignup = true;    
+    isSignup = true;
+    username.value = ""  ;
+    password.value = ""  ;    
     let nameInput = document.createElement("input");
     let mobileInput = document.createElement("input");
     nameInput.className="inputText";
