@@ -71,7 +71,7 @@
       "description": "Merge Sort Algorithm ?"
     },
     {
-      "keyword": "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll,addEventListener,push,slice,this,splice,appendChild,createElement,toLocaleString,toLowerCase,includes,confirm,alert,window.location.reload,location.reload,reload,Regular Expression,RegEx,RegExp,form,submit,match,Event,preventDefault",
+      "keyword": "Search,Table,Sort,classList.toggle,Toggle,setAttribute,querySelectorAll,addEventListener,push,slice,this,splice,appendChild,createElement,toLocaleString,toLowerCase,includes,confirm,alert,window.location,location.reload,reload,Regular Expression,RegEx,RegExp,form,submit,match,Event,preventDefault",
       "href": "assets/jsClass/carShop.html",
       "description": "A car store where you can buy cars and search according to the properties of each car and sort the price in ascending or descending order."
     },
@@ -106,12 +106,12 @@
       "description": "<ul> <li> Prototype </li> <li> console.groupCollapsed,console.groupEnd </li> <li> Rest </li> <li> Freeze,Seal </li> <li> Constructor </li> <li> object Accessors (Getters and Setters) </li> <li>defineProperties and defineProperty </li> <li> Object.hasOwn() and hasOwnProperty </li> <li> Object.setPrototypeOf </li> <li> Object.create </li> <li> Object.keys,Object.values,Object.entries </li> <li> Object.isFrozen,Object.isSealed </li> <ul>"
     },
     {
-      "keyword": "rest,switch,Math.floor,Math.random,Destructuring,Event,Date,spread,slice,padStart,setTimeout,this,losing this,Lexical,Math.trunc",
+      "keyword": "rest,switch,Math.floor,Math.random,Destructuring,Object Destructuring,Event,Date,spread,slice,padStart,setTimeout,this,losing this,Lexical,Math.trunc",
       "href": "assets/jsClass/jsClassSession6.html",
       "description": "<ul> <li> Rest parameters and Spread operator </li> <li> Date </li> <li> this </li> <li> HTML Event Attributes </li> <ul>"
     },
     {
-      "keyword": "addEventListener,Capture,Bubble,window,document,window.location.hostname,location.hostname,window.location.href,location.href,href,hostname,window.location,screen.width,screen.height,document.documentElement.clientWidth,documentElement.clientWidth,clientWidth,rotate,clock,Date,setInterval",
+      "keyword": "addEventListener,Capture,Bubble,window,document,location.hostname,location.href,href,hostname,window.location,screen.width,screen.height,document.documentElement.clientWidth,documentElement.clientWidth,clientWidth,rotate,clock,Date,setInterval",
       "href": "assets/jsClass/jsClassSession7.html",
       "description": "<ul> <li> addEventListener(type, listener, useCapture) </li> <li> Analog Clock </li> <li> Window & Document </li> <ul>"
     },
@@ -121,7 +121,7 @@
       "description": "<ul> <li> animate.css </li> <li> wow.js </li> <ul>"
     },
     {
-      "keyword": "window.innerWidth,innerWidth,split,window.location.reload,location.reload,reload,switch",
+      "keyword": "window.innerWidth,innerWidth,split,window.location,location.reload,reload,switch",
       "href": "assets/jsClass/gameCatMouse.html",
       "description": "<ul> <li> Cat & Mouse Game </li><ul>"
     },
@@ -136,9 +136,9 @@
       "description": "<ul> <li> Slide Show </li><ul>"
     },
     {
-      "keyword": "Ajax,XMLHttpRequest,setRequestHeader,onreadystatechange,JSON,Promise,Promise.all,setTimeout,Promise.allSettled,Promise.any,fetch,HTTP Status Codes",
+      "keyword": "Ajax,XMLHttpRequest,setRequestHeader,onreadystatechange,JSON,Promise,Promise.all,setTimeout,Promise.allSettled,Promise.any,fetch,HTTP Status Codes,window.location,window.navigator,window.history,Destructuring,Object Destructuring",
       "href": "assets/jsClass/jsClassSession8.html",
-      "description": "<ul> <li> AJAX </li> <li> Promise </li> <li> HTTP Status Codes </li> <ul>"
+      "description": "<ul> <li> Object Destructuring </li> <li> window.location and window.navigator and window.history </li> <li> AJAX </li> <li> Promise </li> <li> HTTP Status Codes </li> <ul>"
     },
     {
       "keyword": "style.visibility,visibility,hidden,axios,axios.get,get,trim,axios.post,post,async,await,document.location.reload,location.reload,reload,fetch,JSON,validate,Regular Expression,RegEx,RegExp",

@@ -1,4 +1,49 @@
 "use strict";
+// ----------------------------- Lesson -----------------------------------------------
+console.groupCollapsed("Lesson");
+console.log(window.location.protocol);
+console.log(document.location.protocol);
+console.log("window.location.hash",window.location.hash);
+console.log("window.location.search",window.location.search);
+// setTimeout(()=> window.location.assign("http://127.0.0.1:5501/index.html"),2000);
+// setTimeout(()=> window.history.forward(),2000);
+// setTimeout(()=> window.history.back(),2000);
+console.log("window.navigator.userAgent",window.navigator.userAgent);
+console.log("window.navigator.appName",window.navigator.appName);
+console.log("window.navigator.appCodeName",window.navigator.appCodeName);
+console.log("window.navigator.platform",window.navigator.platform);
+console.log("window.navigator.cookieEnabled",window.navigator.cookieEnabled);
+console.log("window.navigator.appVersion",window.navigator.appVersion);
+// window.history.pushState();
+// window.history.replaceState();
+
+// ----- Object Destructuring ------
+let numbers = [1,2,3,4,5,6,7];
+function printNumber([first]){
+  console.log(first);
+}
+printNumber(numbers);
+
+const person = {
+  firstName : "Maryam",
+  lastName : "Alishahi",
+  city : "Tehran",
+  printName() {
+    console.log("I am Function");
+  }
+};
+function printPeopleCity({city}){
+  console.log(city);  
+}
+function printNames({printName}){
+  printName();
+}
+printPeopleCity(person);
+printNames(person);
+
+console.groupEnd("Lesson");
+
+// ----------------------------- Exercise -----------------------------------------------
 
 // ---------------------- AJAX ----------------------------------------
 function ajax(){
