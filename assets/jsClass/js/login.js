@@ -246,7 +246,9 @@ async function post3(name,mobile,username,password){
 function signup(){  
   const loginHeader = document.getElementById("loginHeader");
   const username = document.getElementById("username");
-  const password = document.getElementById("password");
+  username.value = ""  ;
+  const password = document.getElementById("password");  
+  password.value = ""  ;
   const loginBtn = document.getElementById("loginBtn");
   const signupBtn = document.getElementById("signupBtn");      
   const loginContainer = document.getElementById("loginContainer");    
