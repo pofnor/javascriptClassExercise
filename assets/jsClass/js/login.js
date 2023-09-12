@@ -58,7 +58,7 @@ function login(){
   const result = document.getElementById("result");
   const username = document.getElementById("username");
   const password = document.getElementById("password");
-
+  result.textContent = "Loading...";
   axios.get("http://localhost:3000/account")
   .then((response) => {
     for (let index in response.data){
@@ -243,7 +243,8 @@ async function post3(name,mobile,username,password){
 }          
 
 // ----------------------------------------------- Sign up ------------------------------------------
-function signup(){  
+function signup(){
+  result.textContent = "Loading...";  
   const loginHeader = document.getElementById("loginHeader");
   const username = document.getElementById("username");  
   const password = document.getElementById("password");
