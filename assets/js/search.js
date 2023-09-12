@@ -2,14 +2,15 @@
 
 let indexDBKeyword;
 let indexDB;
-fetchIndexDB();
+axiosJsonDB();
+// fetchIndexDB(); //  Old function that works by fetch
 
-async function fetchIndexDB(){
+async function axiosJsonDB(){
   try{
-    let response = await fetch('http://localhost:3000/indexDB');    
+    let response = await axios.get('http://localhost:3000/indexDB');    
     if (response.status === 200) {
       loaderStatus(true);
-      let indexDataBase = await response.json(); 
+      let indexDataBase = response.data;
       // make a new object without keywords
       indexDB = convertKeywordsToKeyword(indexDataBase);
       const indexDBKey = indexDB.map(value => value.keyword);
@@ -20,15 +21,42 @@ async function fetchIndexDB(){
     } else {    
       loaderStatus(false,`${response.statusText} (${response.status})`);    
     }  
-}
+  }
 catch{
   const errorMessage = "Can't Find the 'http://localhost:3000/indexDB'<br>"+
     "Please goto 'node_modules\\.bin'<br>"+
     "and"+
     "<br>run 'json-server --watch ..\\..\\assets\\DB\\jsonDB.json' ";
   loaderStatus(false,errorMessage);
+  }
 }
-}
+
+//  Old function that works by fetch
+// async function fetchIndexDB(){
+//   try{
+//     let response = await fetch('http://localhost:3000/indexDB');    
+//     if (response.status === 200) {
+//       loaderStatus(true);
+//       let indexDataBase = await response.json(); 
+//       // make a new object without keywords
+//       indexDB = convertKeywordsToKeyword(indexDataBase);
+//       const indexDBKey = indexDB.map(value => value.keyword);
+//       /// new set to remove duplicate and again convert to array by ...
+//       indexDBKeyword = [...new Set(indexDBKey)];
+//       document.getElementById("searchbar").addEventListener("keyup",function(e){search(indexDB)});      
+//       autocomplete(document.getElementById("searchbar"), indexDBKeyword);      
+//     } else {    
+//       loaderStatus(false,`${response.statusText} (${response.status})`);    
+//     }  
+//   }
+// catch{
+//   const errorMessage = "Can't Find the 'http://localhost:3000/indexDB'<br>"+
+//     "Please goto 'node_modules\\.bin'<br>"+
+//     "and"+
+//     "<br>run 'json-server --watch ..\\..\\assets\\DB\\jsonDB.json' ";
+//   loaderStatus(false,errorMessage);
+//   }
+// }
 
 // ability to use multi words as keywords at indexDB
 function convertKeywordsToKeyword(indexDB){
