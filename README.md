@@ -21,6 +21,6 @@ npm install
 Start JSON Server
 
 ```
-javascriptClassExercise\node_modules\.bin\json-server --watch ../../indexDB.json
+javascriptClassExercise\node_modules\.bin\json-server --watch ..\..\assets\DB\jsonDB.json
 ```
 Without closing the above command, open the "index.html" by your favorite browser ✅
