@@ -131,9 +131,9 @@
       "description": "<ul> <li> Treasure Island Game </li><ul>"
     },
     {
-      "keyword": "getElementsByClassName,Gallery,SlideShow,className.replace,modal",
+      "keyword": "getElementsByClassName,Gallery,SlideShow,className.replace,modal,replace",
       "href": "assets/jsClass/slideShow.html",
-      "description": "<ul> <li> Slide Show </li><ul>"
+      "description": "<ul> <li> Slide Show with Modal</li><ul>"
     },
     {
       "keyword": "Ajax,XMLHttpRequest,setRequestHeader,onreadystatechange,JSON,Promise,Promise.all,setTimeout,Promise.allSettled,Promise.any,fetch,HTTP Status Codes,window.location,window.navigator,window.history,Destructuring,Object Destructuring",
