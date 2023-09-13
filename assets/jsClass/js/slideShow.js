@@ -48,12 +48,12 @@ function showSlides(n) {
     slide.style.display = "none";
   }
   for (let dot of dots) {
-    dot.className = dot.className.replace(" dotactive", "");
+    dot.className = dot.className.replace(" dotActive", "");
   }
 
   // Show the Selected Slide
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " dotactive";
+  dots[slideIndex-1].className += " dotActive";
 }
 
 // Modal
