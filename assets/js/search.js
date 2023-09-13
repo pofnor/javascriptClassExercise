@@ -80,9 +80,10 @@ function convertKeywordsToKeyword(indexDB){
 
 function loaderStatus(status,statusText) {
   if(status){
-    document.getElementById('loading').style.display = 'none';
+    document.getElementById('loader').style.display = 'none';
   } else {
-    document.getElementById('loading').innerHTML = statusText;
+    document.getElementById('loaderIcon').style.display = 'none';
+    document.getElementById('loaderText').innerHTML = statusText;
   }
 }
 

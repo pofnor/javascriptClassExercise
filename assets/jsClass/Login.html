@@ -43,7 +43,12 @@
           <a id="signupBtn"class="loginBtn" onclick="signup()" style="transition: none;">Create account</a>
         </div>
         <br>
-        <p id="result" class="result"></p>      
+        <!-- Loader -->
+        <div id="loader" style="display:none;margin: auto;text-align: center;">
+        <div id="loaderIcon" class="loaderIcon"><div></div><div></div><div></div><div></div></div>
+        <p id="loaderText" class="loaderText">Loading...</p>              
+        </div>
+        <p id="result" class="loaderText"></p>      
     </section>              
   </main>
   <script>hide();</script>  

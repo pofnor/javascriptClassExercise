@@ -8,6 +8,12 @@ let validatePassword = false; //Validate password
 let isUnique = true; //Unique ID for post into Database
 let postMethod = 0;  // 1 for axios, 2 for async and 3 for fetch
 
+// --------------------- Hide and Show Loader ------------------------------------------------------
+function showLoader(isShow){
+  if(isShow) document.getElementById("loader").style.display="block"; // Show Loader
+  else document.getElementById("loader").style.display="none"; // Hide Loader
+}
+
 // --------------------- Hide and Show input element to force user for select Post method ----------
 function hide(){
   document.getElementById("postMethodButton").style.visibility="hidden";
@@ -58,12 +64,13 @@ function login(){
   const result = document.getElementById("result");
   const username = document.getElementById("username");
   const password = document.getElementById("password");
-  result.textContent = "Loading...";
+  showLoader(true);
   axios.get("http://localhost:3000/account")
   .then((response) => {
     for (let index in response.data){
       if ((response.data[index].username === username.value.trim()) &&
       (response.data[index].password === password.value)){
+        showLoader(false);
         result.innerHTML = "Welcome <span>" + response.data[index].name + "</span><br>" + "You have successfully logged in";
         username.style.display = "none";
         password.style.display = "none";
@@ -73,24 +80,28 @@ function login(){
         document.getElementById("postMethod").style.display = "none";
         break;
       } else {
+        showLoader(false);
         result.textContent = "Wrong Username or Password";
       }
     }
   })
   .catch(error => {
+    showLoader(false);
     result.innerHTML = error.message + "<br>" + error.config.url;
   })
 }
 
 // ----------------------------------------------- POST1 ------------------------------------------
 // make it by axios with .then and .catch 
-function post1(name,mobile,username,password){  
+function post1(name,mobile,username,password){
+  showLoader(true);
   const result = document.getElementById("result");  
   isUnique = true; //for run again the function, set it again to true
   
   // check the username is unique  
   axios.get("http://localhost:3000/account")
   .then((response)=>{
+    showLoader(false);
     for(let data of response.data){
       if (data.username === username) {
         result.innerHTML = "username " + "<span>" + username + "</span>" + " is already taken";        
@@ -104,6 +115,7 @@ function post1(name,mobile,username,password){
       let lastId = response.data[response.data.length-1].id;                
       // Add new user
       const newId = +lastId + 1;
+      showLoader(true);
       axios.post("http://localhost:3000/account",{
         "id": String(newId),
         "name": String(name),
@@ -111,7 +123,8 @@ function post1(name,mobile,username,password){
         "username": String(username),
         "password": String(password)
       })
-      .then((response) => {      
+      .then((response) => {
+        showLoader(false);
         if(response.status === 201){
           result.textContent = "Your Account has successfully created";
           setTimeout(()=>{document.location.reload()},3000);
@@ -119,6 +132,7 @@ function post1(name,mobile,username,password){
           result.innerHTML = "<span>" + "Error :" + "</span><br>" + response.message + "<br>" + response.config.url;
         }
       }, (reject) => {
+        showLoader(false);
         result.innerHTML = "<span>" + "Error :" + "</span><br>" + reject.message + "<br>" + reject.config.url;
         document.getElementById("buttonContainer").style.display="none";
         setTimeout(()=>{document.location.reload()},5000);
@@ -126,6 +140,7 @@ function post1(name,mobile,username,password){
     } 
   })
   .catch((reject)=>{
+    showLoader(false);
     result.innerHTML = "<span>" + "Error :" + "</span><br>" + reject.message + "<br>" + reject.config.url;
     document.getElementById("buttonContainer").style.display="none";
     setTimeout(()=>{document.location.reload()},5000);
@@ -135,11 +150,13 @@ function post1(name,mobile,username,password){
 // ----------------------------------------------- POST2 ------------------------------------------
 // make it by async and await and axios
 async function post2(name,mobile,username,password){
+  showLoader(true);
   const result = document.getElementById("result");
   isUnique = true; //for run again the function, set it again to true  
   try{
     // check the username is unique  
     const datas = await axios.get("http://localhost:3000/account");
+    showLoader(false);
     for(let data of datas.data){
       if (data.username === username) {
         result.innerHTML = "username " + "<span>" + username + "</span>" + " is already taken";        
@@ -153,6 +170,7 @@ async function post2(name,mobile,username,password){
       const lastId = datas.data[datas.data.length-1].id;      
       // Add new user
       const newId = +lastId + 1;
+      showLoader(true);
       const post = await axios.post("http://localhost:3000/account",{
         "id": String(newId),
         "name": String(name),
@@ -160,6 +178,7 @@ async function post2(name,mobile,username,password){
         "username": String(username),
         "password": String(password)
       });
+      showLoader(false);
       if(post.status === 201){
         result.textContent = "Your Account has successfully created";
         setTimeout(()=>{document.location.reload()},3000);
@@ -170,6 +189,7 @@ async function post2(name,mobile,username,password){
     }                  
   }
   catch(error){
+    showLoader(false);
     result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
     setTimeout(()=>{document.location.reload()},5000);
   }
@@ -178,6 +198,7 @@ async function post2(name,mobile,username,password){
 // ----------------------------------------------- POST3 ------------------------------------------
 // make it by fetch with async and await
 async function postJSON(data) {
+  showLoader(true);
   const result = document.getElementById("result");
   try {
     const response = await fetch("http://localhost:3000/account", {
@@ -187,6 +208,7 @@ async function postJSON(data) {
       },
       body: JSON.stringify(data),
     });
+    showLoader(false);
 
     // const result1 = await response.json();
     if(response.status===201){
@@ -199,6 +221,7 @@ async function postJSON(data) {
       setTimeout(()=>{document.location.reload()},5000);
     }
   } catch (error) {
+    showLoader(false);
     result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
     document.getElementById("buttonContainer").style.display="none";
     setTimeout(()=>{document.location.reload()},5000);
@@ -206,11 +229,13 @@ async function postJSON(data) {
 }
  
 async function post3(name,mobile,username,password){
+  showLoader(true);
   const result = document.getElementById("result");
   isUnique = true; //for run again the function, set it again to true  
   try{
     // check the username is unique  
     const accounts = await fetch("http://localhost:3000/account");
+    showLoader(false);
     let accountsJson = await accounts.json();          
     for(let account of accountsJson){
       if (account.username === username) {
@@ -236,6 +261,7 @@ async function post3(name,mobile,username,password){
     }
   }
   catch(error){
+    showLoader(false);
     result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
     document.getElementById("buttonContainer").style.display="none";
     setTimeout(()=>{document.location.reload()},5000);
@@ -243,8 +269,7 @@ async function post3(name,mobile,username,password){
 }          
 
 // ----------------------------------------------- Sign up ------------------------------------------
-function signup(){
-  result.textContent = "Loading...";  
+function signup(){  
   const loginHeader = document.getElementById("loginHeader");
   const username = document.getElementById("username");  
   const password = document.getElementById("password");

@@ -15,6 +15,10 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/search.js"></script>
+    <!-- Google Fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet"> -->
 </head>
 <body>
 
@@ -32,7 +36,11 @@
       name="search" placeholder="Search Topic ...">      
       </section>
       <br>
-      <p id="loading" style="margin: auto;text-align: center;">Loading...</p>              
+      <!-- Loader -->
+      <div id="loader" style="margin: auto;text-align: center;">
+      <div id="loaderIcon" class="loaderIcon"><div></div><div></div><div></div><div></div></div>
+      <p id="loaderText" class="loaderText">Loading...</p>              
+      </div>
     </section>
     <section id="result" class="container">
     </section>
