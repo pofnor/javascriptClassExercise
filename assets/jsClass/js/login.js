@@ -69,10 +69,11 @@ function login(){
   showLoader(true);
   axios.get("http://localhost:3000/account")
   .then((response) => {
+    showLoader(false);
+    // check if the username and password is correct
     for (let index in response.data){
       if ((response.data[index].username === username.value.trim()) &&
-      (response.data[index].password === password.value)){
-        showLoader(false);
+      (response.data[index].password === password.value)){        
         result.innerHTML = "Welcome <span>" + response.data[index].name + "</span><br>" + "You have successfully logged in";
         username.style.display = "none";
         password.style.display = "none";
@@ -277,11 +278,13 @@ function signup(){
   const password = document.getElementById("password");
   const loginBtn = document.getElementById("loginBtn");
   const signupBtn = document.getElementById("signupBtn");      
-  const loginContainer = document.getElementById("loginContainer");    
+  const loginContainer = document.getElementById("loginContainer");
+  // run if the first time click on "Create account" button, after that this button change name to "Sign up"
   if (!isSignup){
     isSignup = true;
     username.value = ""  ;
     password.value = ""  ;    
+    // add 2 input element for name and mobile number
     let nameInput = document.createElement("input");
     let mobileInput = document.createElement("input");
     nameInput.className="inputText";
@@ -298,6 +301,7 @@ function signup(){
     loginBtn.style.display = "none" ;
     loginHeader.textContent = "Create New Account";
     signupBtn.textContent = "Sign up";
+    // hide "sign up" button so that the user completes all the Items first.
     document.getElementById("buttonContainer").style.visibility="hidden";
     document.getElementById("result").textContent = "Complete all the Items to create an Account";
 
@@ -309,7 +313,8 @@ function signup(){
 
     // wait for select post method
     showCreateNewAccount(2);
-
+    
+    // click on "sign up" button after that select the Post Method
   } else if (isSignup){
     isSignup = false;
     const name = document.getElementById("name");
@@ -344,7 +349,7 @@ function validate(element){
       document.getElementById("buttonContainer").style.visibility="hidden";
       document.getElementById("result").textContent = "Complete all the Items to create an Account";
     } else {
-      const mobileRegExp = /^\d+$/;
+      const mobileRegExp = /^\d+$/; // Just Numbers Allowed
       if(element.target.value.match(mobileRegExp)){
         element.target.style.backgroundColor = "";
         validateMobile = true;
