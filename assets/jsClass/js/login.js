@@ -15,26 +15,27 @@ function showLoader(isShow){
 }
 
 // --------------------- Hide and Show input element to force user for select Post method ----------
-function hide(){
-  document.getElementById("postMethodButton").style.visibility="hidden";
-}
-function show(state){
-  if(state===1){    
-    document.getElementById("postMethodButton").style.visibility="visible";
-    document.getElementById("name").style.visibility="hidden";
-    document.getElementById("mobile").style.visibility="hidden";
-    document.getElementById("username").style.visibility="hidden";
-    document.getElementById("password").style.visibility="hidden";
-    document.getElementById("result").style.visibility="hidden";
+function showCreateNewAccount(state){
+  switch (state){
+    case 1: //Hide postMethodButton
+      document.getElementById("postMethodButton").style.visibility="hidden";
+      break;
+    case 2: //Show postMethodButton and Hide all elements of Create New Account
+      document.getElementById("postMethodButton").style.visibility="visible";
+      document.getElementById("name").style.visibility="hidden";
+      document.getElementById("mobile").style.visibility="hidden";
+      document.getElementById("username").style.visibility="hidden";
+      document.getElementById("password").style.visibility="hidden";
+      document.getElementById("result").style.visibility="hidden";
+      break;
+    case 3: //Hide postMethodButton and Show all elements of Create New Account
+      document.getElementById("postMethodButton").style.visibility="hidden";
+      document.getElementById("name").style.visibility="visible";
+      document.getElementById("mobile").style.visibility="visible";
+      document.getElementById("username").style.visibility="visible";
+      document.getElementById("password").style.visibility="visible";
+      document.getElementById("result").style.visibility="visible";
   }
-  if(state===2){
-    document.getElementById("postMethodButton").style.visibility="hidden";
-    document.getElementById("name").style.visibility="visible";
-    document.getElementById("mobile").style.visibility="visible";
-    document.getElementById("username").style.visibility="visible";
-    document.getElementById("password").style.visibility="visible";
-    document.getElementById("result").style.visibility="visible";
-   }
 }
 
 // ------------------------------------------- Select Post Method ---------------------------------
@@ -43,25 +44,26 @@ function selectPostMethod(name){
     postMethod = 1;
     document.getElementById("postMethod").textContent = "((Axios))";
     document.getElementById("postMethodButton").style.display="none"; 
-    show(2);
+    showCreateNewAccount(3);
   }
   if(name==='async'){
     postMethod = 2;
     document.getElementById("postMethod").textContent = "((Axios with Async))";
     document.getElementById("postMethodButton").style.display="none";   
-    show(2);
+    showCreateNewAccount(3);
   }
   if(name==='fetch'){
     postMethod = 3;
     document.getElementById("postMethod").textContent = "((Fetch with Async))";
     document.getElementById("postMethodButton").style.display="none";   
-    show(2);
+    showCreateNewAccount(3);
   }
 }
 
 // ----------------------------------------------- Login ------------------------------------------
 function login(){
   const result = document.getElementById("result");
+  result.textContent=""; //Clear previous content, if we click again on sign in button
   const username = document.getElementById("username");
   const password = document.getElementById("password");
   showLoader(true);
@@ -306,7 +308,7 @@ function signup(){
     password.addEventListener("keyup",function(e){validate(e)});        
 
     // wait for select post method
-    show(1);
+    showCreateNewAccount(2);
 
   } else if (isSignup){
     isSignup = false;
