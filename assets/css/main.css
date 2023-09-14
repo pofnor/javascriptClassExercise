@@ -108,16 +108,6 @@ input{
   background-position-y: 15px;  
 }
 
-/* input[type=text] {
-  width: 90%;
-  -webkit-transition: width 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out;
-}
-
-input[type=text]:focus {
-  width: 92%;   
-} */
-
 #searchbar:hover {
   background-color: var(--white94);
 }
