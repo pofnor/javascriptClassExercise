@@ -53,20 +53,26 @@ input{
 .autocomplete {
   position: relative;
   display: inline-block;
-  width: 50%;
-  margin: auto;      
+  /* width: 50%; */  
+  margin: auto;
+  max-height: 800px;
+  overflow-y: scroll;      
 }
 .autocomplete-items {  
-  position: absolute;      
+  /* position: absolute;       */
+  position: relative;      
+  width: 655px;
+  border-radius: 3px;  
+  margin: auto;  
   border: 1px solid var(--white85);
   border-bottom: none;
   border-top: none;
-  color:black;
-  z-index: 99;    
+  color:black;  
+  /* z-index: 99;     */
   /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 9%;
-  right: 1%;
+  /* top: 100%; */
+  /* left: 9%; */
+  /* right: 1%; */
 }
 .autocomplete-items div {  
   padding: 10px;   
@@ -84,9 +90,11 @@ input{
 }
 
 /* ----------------- Search Bar -------------------------------------- */
-#searchbar{    
-  border-radius: 50px;
+#searchbar{  
+  width: 600px;
+  border-radius: 4px;
   margin-left: 40px;
+  margin-right: 40px;
   margin-top: 20px;  
   height: 40px; 
   font-size: 20px;  
@@ -100,7 +108,7 @@ input{
   background-position-y: 15px;  
 }
 
-input[type=text] {
+/* input[type=text] {
   width: 90%;
   -webkit-transition: width 0.15s ease-in-out;
   transition: width 0.15s ease-in-out;
@@ -108,7 +116,7 @@ input[type=text] {
 
 input[type=text]:focus {
   width: 92%;   
-}
+} */
 
 #searchbar:hover {
   background-color: var(--white94);
@@ -387,21 +395,8 @@ span{
 }
 
 /* ----------------- Responsive ---------------------------- */
-@media screen and (max-width:1600px) {
-  .autocomplete-items{
-    right: 1%;
-    left: 11%;
-  }
-}
 
-@media screen and (max-width:1000px) {
-  .autocomplete {
-    width: 80%;
-    padding-right: 80px;
-  }
-  .autocomplete-items{
-    right: 10%;
-  }
+@media screen and (max-width:1000px) {  
   .inputFa{             
     width: 8%;                
   }
@@ -414,6 +409,12 @@ span{
 }
 
 @media screen and (max-width:700px) {    
+  .autocomplete-items{
+    width: 355px;
+  }
+  #searchbar{
+    width: 300px;
+  }
   .question,.answer,label,.prompt,.a{
     font-size: 16px;
   }
@@ -426,6 +427,15 @@ span{
   .input{
     width: 70%;
   }      
+}
+
+@media screen and (max-width:550px) {    
+  .autocomplete-items{
+    width: 255px;
+  }
+  #searchbar{
+    width: 200px;
+  }
 }
 
 @media screen and (max-height: 450px) {
