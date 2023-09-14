@@ -55,8 +55,8 @@ input{
   display: inline-block;
   /* width: 50%; */  
   margin: auto;
-  max-height: 800px;
-  overflow-y: scroll;      
+  /* max-height: 600px; */
+  /* overflow-y: scroll;       */  
 }
 .autocomplete-items {  
   /* position: absolute;       */
