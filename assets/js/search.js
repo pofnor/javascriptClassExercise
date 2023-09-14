@@ -2,8 +2,22 @@
 
 let indexDBKeyword;
 let indexDB;
+let isExactSearchMethod = true; //
 axiosJsonDB();
 // fetchIndexDB(); //  Old function that works by fetch
+
+function searchMethod(method){
+  if(method==="Exact") {
+    isExactSearchMethod=true;
+    document.getElementById("exact").style.fontSize = "22px";
+    document.getElementById("anywhere").style.fontSize = "16px";
+  }
+  if(method==="Anywhere") {
+    isExactSearchMethod=false;  
+    document.getElementById("anywhere").style.fontSize = "22px";
+    document.getElementById("exact").style.fontSize = "16px";
+  }
+}
 
 async function axiosJsonDB(){
   try{
@@ -140,16 +154,17 @@ function autocomplete(searchbarElement, indexDBKeyword) {
     this.parentNode.appendChild(autocompleteItem);
     /*for each item in the indexDBKeyword(array)...*/
     for (let keyword of indexDBKeyword) {
-      /*check if the item starts with the same letters as the search field value:*/
-      if (keyword.substr(0, searchText.length).toUpperCase() === searchText.toUpperCase()) {          
-        /*create a DIV element for each matching element:*/
-        matchingItem = document.createElement("DIV");
-        /*make the matching letters bold:*/
-        matchingItem.innerHTML = "<strong>" + keyword.substr(0, searchText.length) + "</strong>";
-        matchingItem.innerHTML += keyword.substr(searchText.length);          
-        /*insert a input field that will hold the current indexDBKeyword(array) item's value:*/          
-        matchingItem.innerHTML += "<input type='hidden' value='" + keyword + "'>";          
-        /*execute a function when someone clicks on the matchingItem (DIV element):*/
+      if(isExactSearchMethod){
+        /*check if the item starts with the same letters as the search field value:*/
+        if (keyword.substr(0, searchText.length).toUpperCase() === searchText.toUpperCase()) {          
+          /*create a DIV element for each matching element:*/
+          matchingItem = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          matchingItem.innerHTML = "<strong>" + keyword.substr(0, searchText.length) + "</strong>";
+          matchingItem.innerHTML += keyword.substr(searchText.length);          
+          /*insert a input field that will hold the current indexDBKeyword(array) item's value:*/          
+          matchingItem.innerHTML += "<input type='hidden' value='" + keyword + "'>";          
+          /*execute a function when someone clicks on the matchingItem (DIV element):*/
           matchingItem.addEventListener("click", function(e) {
           /*insert the value for the autocomplete search field:*/          
           searchbarElement.value = this.getElementsByTagName("input")[0].value;
@@ -157,8 +172,27 @@ function autocomplete(searchbarElement, indexDBKeyword) {
           /*close the list of autocompleted values,
           (or any other open lists of autocompleted values:*/
           closeAllLists();              
-        });
-        autocompleteItem.appendChild(matchingItem);
+          });
+          autocompleteItem.appendChild(matchingItem);
+        }
+      } else { //Anywhere search method
+        /*check if the item contains with the same letters as the search field value:*/
+        if (keyword.toLowerCase().includes(searchText.toLowerCase())) {          
+          /*create a DIV element for each matching element:*/
+          matchingItem = document.createElement("DIV");          
+          matchingItem.innerHTML = keyword;          
+          matchingItem.innerHTML += "<input type='hidden' value='" + keyword + "'>";          
+          /*execute a function when someone clicks on the matchingItem (DIV element):*/
+          matchingItem.addEventListener("click", function(e) {
+          /*insert the value for the autocomplete search field:*/          
+          searchbarElement.value = this.getElementsByTagName("input")[0].value;
+          search(indexDB); //run search for fixed the click problem and show the result
+          /*close the list of autocompleted values,
+          (or any other open lists of autocompleted values:*/
+          closeAllLists();              
+          });
+          autocompleteItem.appendChild(matchingItem);
+        }
       }
     }
   });
