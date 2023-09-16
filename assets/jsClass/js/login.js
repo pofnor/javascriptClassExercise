@@ -445,7 +445,16 @@ function validate(element){
       document.getElementById("buttonContainer").style.visibility="hidden";
       document.getElementById("result").textContent = "Complete all the Items to create an Account";
     } else {
-      validateUsername = true;
+      const mailRegExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/;
+      if(element.target.value.match(mailRegExp)){
+        element.target.style.backgroundColor = "";
+        validateUsername = true;
+      } else {
+        validateUsername = false;
+        element.target.style.backgroundColor = "red";
+        document.getElementById("buttonContainer").style.visibility="hidden";
+        document.getElementById("result").innerHTML = "Your username must be a Valid e-mail Address";      
+      }
     };
   }
   if(element.target.id === "password"){
