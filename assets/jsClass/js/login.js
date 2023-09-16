@@ -45,16 +45,19 @@ function selectPostMethod(name){
     document.getElementById("postMethod").textContent = "((Axios))";
     document.getElementById("postMethodButton").style.display="none"; 
     showCreateNewAccount(3);
-  }
-  if(name==='async'){
+  } else if(name==='axiosAsync'){  
     postMethod = 2;
     document.getElementById("postMethod").textContent = "((Axios with Async))";
     document.getElementById("postMethodButton").style.display="none";   
     showCreateNewAccount(3);
-  }
-  if(name==='fetch'){
+  } else if(name==='fetchAsync'){  
     postMethod = 3;
     document.getElementById("postMethod").textContent = "((Fetch with Async))";
+    document.getElementById("postMethodButton").style.display="none";   
+    showCreateNewAccount(3);
+  } else if(name==='fetch'){  
+    postMethod = 4;
+    document.getElementById("postMethod").textContent = "((Fetch))";
     document.getElementById("postMethodButton").style.display="none";   
     showCreateNewAccount(3);
   }
@@ -200,7 +203,7 @@ async function post2(name,mobile,username,password){
 
 // ----------------------------------------------- POST3 ------------------------------------------
 // make it by fetch with async and await
-async function postJSON(data) {
+async function post3JSON(data) {
   showLoader(true);
   const result = document.getElementById("result");
   try {
@@ -260,7 +263,7 @@ async function post3(name,mobile,username,password){
           "username": String(username),
           "password": String(password)        
         };
-        postJSON(data);
+        post3JSON(data);
     }
   }
   catch(error){
@@ -270,6 +273,78 @@ async function post3(name,mobile,username,password){
     setTimeout(()=>{document.location.reload()},5000);
   }
 }          
+
+// ----------------------------------------------- POST4 ------------------------------------------
+// make it by pure fetch 
+function post4JSON(data) {
+  showLoader(true);
+  const result = document.getElementById("result");  
+  fetch("http://localhost:3000/account", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+  .then((response)=>{
+    showLoader(false);
+    if(response.status===201){
+      result.textContent = "Your Account has successfully created";
+      document.getElementById("buttonContainer").style.display="none";
+      setTimeout(()=>{document.location.reload()},5000);
+    } else {
+      result.innerHTML = "<span>" + "Error :" + "</span><br>" + response.statusText + "<br>" + response.status + "<br>" + response.url;
+      document.getElementById("buttonContainer").style.display="none";
+      setTimeout(()=>{document.location.reload()},5000);
+    }
+  })
+  .catch((error)=>{
+    showLoader(false);
+    result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
+    document.getElementById("buttonContainer").style.display="none";
+    setTimeout(()=>{document.location.reload()},5000);
+  });
+}
+ 
+function post4(name,mobile,username,password){
+  showLoader(true);
+  const result = document.getElementById("result");
+  isUnique = true; //for run again the function, set it again to true  
+    // check the username is unique  
+  fetch("http://localhost:3000/account")
+  .then((response)=> response.json())
+  .then((accountsJson) => {
+    showLoader(false);
+    for(let account of accountsJson){
+      if (account.username === username) {
+        result.innerHTML = "username " + "<span>" + username + "</span>" + " is already taken";        
+        isUnique = false;                
+        isSignup = true;
+        break;
+      } 
+    }
+    if(isUnique){
+      // get last ID from database
+      const lastId = accountsJson[accountsJson.length-1].id;      
+      // Add new user
+      const newId = +lastId + 1;    
+      const data = {
+        "id": String(newId),
+        "name": String(name),
+        "mobile": String(mobile),
+        "username": String(username),
+        "password": String(password)        
+        };
+      post4JSON(data);
+    }
+  })
+  .catch((error)=>{
+    showLoader(false);
+    result.innerHTML = "<span>" + "Error :" + "</span><br>" + error.message + "<br>";
+    document.getElementById("buttonContainer").style.display="none";
+    setTimeout(()=>{document.location.reload()},5000);
+  });  
+}        
 
 // ----------------------------------------------- Sign up ------------------------------------------
 function signup(){  
@@ -328,6 +403,9 @@ function signup(){
         break;
       case 3:
         post3(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
+        break;
+      case 4:
+        post4(name.value.trim(),mobile.value.trim(),username.value.trim(),password.value.trim());
     }
   } 
 }
