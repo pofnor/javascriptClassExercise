@@ -141,7 +141,7 @@
       "description": "<ul> <li> Object Destructuring </li> <li> window.location and window.navigator and window.history </li> <li> AJAX </li> <li> Promise </li> <li> HTTP Status Codes </li> <ul>"
     },
     {
-      "keyword": "style.visibility,visibility,hidden,axios,axios.get,get,trim,axios.post,post,async,await,document.location.reload,location.reload,reload,fetch,JSON,validate,Regular Expression,RegEx,RegExp,event.target,target",
+      "keyword": "style.visibility,visibility,hidden,axios,axios.get,get,trim,axios.post,post,async,await,document.location.reload,location.reload,reload,fetch,JSON,validate,Regular Expression,RegEx,RegExp,event.target,target,Toast,Snackbar",
       "href": "assets/jsClass/login.html",
       "description": "<ul> <li> Login and Sign Up </li><ul>"
     }
