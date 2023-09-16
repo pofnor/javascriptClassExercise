@@ -38,6 +38,17 @@ function showCreateNewAccount(state){
   }
 }
 
+// ------------------------------------------- Snackbar / Toast ---------------------------
+function toast(message) {  
+  var toastDiv = document.getElementById("toast");
+  toastDiv.innerHTML = message;
+  toastDiv.className = "show";
+  // After 3 seconds, remove the show class
+  setTimeout(function(){
+    toastDiv.className = toastDiv.className.replace("show", ""); 
+  }, 3000);
+}
+
 // ------------------------------------------- Select Post Method ---------------------------------
 function selectPostMethod(name){
   if(name==='axios'){
@@ -77,23 +88,20 @@ function login(){
     for (let index in response.data){
       if ((response.data[index].username === username.value.trim()) &&
       (response.data[index].password === password.value)){        
-        result.innerHTML = "Welcome <span>" + response.data[index].name + "</span><br>" + "You have successfully logged in";
-        username.style.display = "none";
-        password.style.display = "none";
-        document.getElementById("signupBtn").style.display = "none";
-        document.getElementById("loginBtn").style.display = "none";
-        document.getElementById("loginHeader").style.display = "none";
-        document.getElementById("postMethod").style.display = "none";
+        toast(`Welcome <span> ${response.data[index].name} </span><br> You have successfully logged in`);
+        setTimeout(()=>{document.location.href="../../index.html"},3000);        
+        document.getElementById("loginContainer").style.display = "none";        
         break;
       } else {
         showLoader(false);
-        result.textContent = "Wrong Username or Password";
+        toast("Wrong Username or Password");        
       }
     }
   })
   .catch(error => {
     showLoader(false);
-    result.innerHTML = error.message + "<br>" + error.config.url;
+    result.innerHTML = error.message ;
+    // result.innerHTML = error.message + "<br>" + error.config.url;
   })
 }
 
@@ -132,7 +140,8 @@ function post1(name,mobile,username,password){
       .then((response) => {
         showLoader(false);
         if(response.status === 201){
-          result.textContent = "Your Account has successfully created";
+          toast("Your Account has successfully created");
+          // result.textContent = "Your Account has successfully created";
           setTimeout(()=>{document.location.reload()},3000);
         } else {
           result.innerHTML = "<span>" + "Error :" + "</span><br>" + response.message + "<br>" + response.config.url;
@@ -186,7 +195,8 @@ async function post2(name,mobile,username,password){
       });
       showLoader(false);
       if(post.status === 201){
-        result.textContent = "Your Account has successfully created";
+        toast("Your Account has successfully created");
+        // result.textContent = "Your Account has successfully created";
         setTimeout(()=>{document.location.reload()},3000);
       } else {
         result.innerHTML = "<span>" + "Error :" + "</span><br>" + response.message + "<br>" + response.config.url;
@@ -218,7 +228,8 @@ async function post3JSON(data) {
 
     // const result1 = await response.json();
     if(response.status===201){
-      result.textContent = "Your Account has successfully created";
+      toast("Your Account has successfully created");
+      // result.textContent = "Your Account has successfully created";
       document.getElementById("buttonContainer").style.display="none";
       setTimeout(()=>{document.location.reload()},5000);
     } else {
@@ -289,7 +300,8 @@ function post4JSON(data) {
   .then((response)=>{
     showLoader(false);
     if(response.status===201){
-      result.textContent = "Your Account has successfully created";
+      toast("Your Account has successfully created");
+      // result.textContent = "Your Account has successfully created";
       document.getElementById("buttonContainer").style.display="none";
       setTimeout(()=>{document.location.reload()},5000);
     } else {
