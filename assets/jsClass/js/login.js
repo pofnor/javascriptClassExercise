@@ -75,7 +75,7 @@ function selectPostMethod(name){
 }
 
 // ----------------------------------------------- Login ------------------------------------------
-function login(){
+function login(){  
   const result = document.getElementById("result");
   result.textContent=""; //Clear previous content, if we click again on sign in button
   const username = document.getElementById("username");
@@ -87,7 +87,8 @@ function login(){
     // check if the username and password is correct
     for (let index in response.data){
       if ((response.data[index].username === username.value.trim()) &&
-      (response.data[index].password === password.value)){        
+      (response.data[index].password === password.value)){
+        createLoginCookie(username.value.trim(),password.value);
         toast(`Welcome <span> ${response.data[index].name} </span><br> You have successfully logged in`);
         setTimeout(()=>{document.location.href="../../index.html"},3000);        
         document.getElementById("loginContainer").style.display = "none";        
@@ -492,4 +493,39 @@ function validate(element){
     document.getElementById("buttonContainer").style.visibility="visible";
     document.getElementById("result").textContent = "";
   }  
+}
+
+// --------------------------- Cookie ---------------------------------------------
+function createLoginCookie(username,password){
+  // The setTime() method sets a date and time by adding or subtracting 
+  // a specified number of milliseconds to/from midnight January 1, 1970.
+  // getTime() , Calculate the number of years since January 1, 1970:
+  const d = new Date();
+  d.setTime(d.getTime() + (24*60*60*1000)); // set time to 24 hours later
+  let expires = d.toUTCString();    
+  document.cookie = `username=${username}; expires=${expires};path=/assets/jsClass`;
+  document.cookie = `password=${password}; expires=${expires};path=/assets/jsClass`;  
+}
+function getLoginCookie(){
+  let user = {};
+  const cookie = document.cookie;  
+  const c1 = cookie.split(";");
+  for(let c of c1){    
+    if(c.includes("username=")){
+      user.username = c.split("=")[1];
+    }
+    if(c.includes("password=")){
+      user.password = c.split("=")[1];
+    }
+  }
+  return user;
+}
+// --------------------- check Cookie ---------------------
+function checkCookieStatus(){  
+  const user = getLoginCookie();
+  if(user.username){
+    document.getElementById("username").value = user.username;
+    document.getElementById("password").value = user.password;
+    setTimeout(login,500);
+  } 
 }
