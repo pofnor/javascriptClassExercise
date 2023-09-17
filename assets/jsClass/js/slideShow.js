@@ -1,6 +1,15 @@
 let slideIndex = 1;
+let isAutoSlide = false; // Auto Show Status
 
 let slideSource = [
+  {
+    src : "img/shakira-healing.jpg",    
+    caption : "Shakira Is Making New Music, Healing",
+    modal : "Global pop superstar Shakira’s unique blend of Latin pop music infused with the dance moves of her Arabic heritage has blazed a trail in the music industry, bringing joy to millions of her fans around the world and heralding the boom in Latin music.",
+    modalText : "More...",
+    link : "https://www.elle.com/culture/celebrities/a41296977/shakira-elle-digital-cover-october-2022",
+    linkText : "Read News"    
+  },
   {
     isVideo : true,
     src : "video/TAYLOR-SWIFT-THE-ERAS-TOUR-Concert.mp4",
@@ -10,15 +19,7 @@ let slideSource = [
     modalText : "More...",
     link : "https://www.taylorswift.com/tour-us",
     linkText : "Buy Ticket"    
-  },
-  {
-    src : "img/shakira-healing.jpg",    
-    caption : "Shakira Is Making New Music, Healing",
-    modal : "Global pop superstar Shakira’s unique blend of Latin pop music infused with the dance moves of her Arabic heritage has blazed a trail in the music industry, bringing joy to millions of her fans around the world and heralding the boom in Latin music.",
-    modalText : "More...",
-    link : "https://www.elle.com/culture/celebrities/a41296977/shakira-elle-digital-cover-october-2022",
-    linkText : "Read News"    
-  },
+  },  
   {
     src : "img/AGT2023.jpg",    
     caption : "America's Got Talent 2023",
@@ -29,38 +30,23 @@ let slideSource = [
   }
 ];
 
-// Modal
-function modal(slideNumber){
-  let modal = document.getElementsByClassName("modal")[0];
-  let closeButton = document.getElementsByClassName("modalClose")[0];
-  let modalText = document.getElementById("modalText");  
-  switch (slideNumber) {
-    case 1 :
-      modalText.textContent = "The Eras Tour is the ongoing sixth concert tour by American singer-songwriter Taylor Swift, who described it as a journey through all of her musical 'eras'. An homage to her albums, the Eras Tour is her most expansive tour yet, with 146 dates across five continents.It is her second all-stadium tour after the 2018 Reputation Stadium Tour.";
-      break;
-    case 2 :
-      modalText.textContent = "Global pop superstar Shakira’s unique blend of Latin pop music infused with the dance moves of her Arabic heritage has blazed a trail in the music industry, bringing joy to millions of her fans around the world and heralding the boom in Latin music.";
-      break;
-    case 3 :
-      modalText.textContent = "It showcases winners, finalists, fan favorites, and viral sensations from previous seasons of the mothership series to return to the stage to compete for the All-Star title.";
+// ---------------------------------- Main Function -----------------------------------------
+function makeSlides(slideSource,autoSlide){    
+  for(let i=0;i<slideSource.length;i++){    
+    createSlide(slideSource[i],i+1,slideSource.length);    
   }
-
-  modal.style.display = "block";
-
-  // When the user clicks on <span> (x), close the modal
-  closeButton.addEventListener("click",function(e){
-    modal.style.display = "none";
-  });  
-}
-
-function slideShow(slideSource){    
-  for(let slide of slideSource){    
-    createSlide(slide);    
-  }
+  if(autoSlide) isAutoSlide = true;  
+  showSlides(slideIndex);
 }
 
 // create slide
-function createSlide(slide){
+function createSlide(slide,Number,total){  
+  // Remove Next and Prev icon and Dot, if ww have one slide  
+  if(total === 1) {
+    document.getElementsByClassName("prev")[0].style.display="none";
+    document.getElementsByClassName("next")[0].style.display="none";
+    document.getElementById("dotContainer").style.display="none";
+  }
   const parent = document.getElementsByClassName("slideshow")[0];
   const divContainer = document.createElement("div");
   divContainer.className ="Slides fade";  
@@ -91,11 +77,11 @@ function createSlide(slide){
     divContainer.appendChild(caption);
   }
   if(slide.modal){
-    const modal1 = document.createElement("div");
-    modal1.className = "btnSlide";
-    modal1.textContent = slide.modalText;
-    modal1.onclick = function(e){modal(1);};
-    divContainer.appendChild(modal1);
+    const modal = document.createElement("div");
+    modal.className = "btnSlide";
+    modal.textContent = slide.modalText;
+    modal.onclick = function(e){showModal(slide.modal);};
+    divContainer.appendChild(modal);
   }
   if(slide.link){
     const link = document.createElement("div");
@@ -105,31 +91,29 @@ function createSlide(slide){
     divContainer.appendChild(link);
   }
   parent.appendChild(divContainer);
+
+  // create dot
+  const dotParent = document.getElementById("dotContainer");
+  const dot = document.createElement("span");
+  dot.className = "dot";
+  dot.onclick = function(e){currentSlide(Number)};
+  dotParent.appendChild(dot);
 }
 
-// Add href to every slides
-function openPage(slideNumber){
-  switch (slideNumber) {
-    case 1:
-      document.getElementById("slide1").addEventListener("click",function(e){
-      document.location.href = 
-      "https://www.taylorswift.com/tour-us";
-      });
-      break;
-    case 2:
-      document.getElementById("slide2").addEventListener("click",function(e){
-      document.location.href = 
-      "https://www.elle.com/culture/celebrities/a41296977/shakira-elle-digital-cover-october-2022";
-      });
-      break;
-    case 3:
-      document.getElementById("slide3").addEventListener("click",function(e){
-      document.location.href = 
-      "https://www.nbc.com/americas-got-talent";
-      });
-  }
+// Modal
+function showModal(text){
+  let modal = document.getElementsByClassName("modal")[0];
+  let closeButton = document.getElementsByClassName("modalClose")[0];
+  let modalText = document.getElementById("modalText");  
+  modalText.textContent = text; 
+  modal.style.display = "block";
+  // When the user clicks on <span> (x), close the modal
+  closeButton.addEventListener("click",function(e){
+    modal.style.display = "none";
+  });  
 }
 
+// ---------------------- Navigate Slides  ---------------------- 
 
 // Next/previous controls
 function plusSlides(n) {  
@@ -159,5 +143,9 @@ function showSlides(n) {
 
   // Show the Selected Slide
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " dotActive";
+  dots[slideIndex-1].className += " dotActive";  
+  // Auto Rotate SlideShow
+  if(isAutoSlide){
+    setTimeout(()=>{plusSlides(1);},3000);
+  }
 }
