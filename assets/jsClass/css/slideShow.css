@@ -22,6 +22,10 @@
   width:100%;
 }
 
+#dotContainer{
+  text-align: center;
+}
+
 
 /* Next & previous buttons */
 .prev, .next {
