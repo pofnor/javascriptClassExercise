@@ -23,3 +23,10 @@ function convertPersianToEnglish(){
   }  
   english.value = output; 
 }
+
+function numberSeparately(){
+  const number = document.getElementById("number");
+  const numberSep = document.getElementById("numberSeparately");
+  let test = +(number.value);
+  numberSep.value = test.toLocaleString("en-US"); //number formatted with commas) 
+}
