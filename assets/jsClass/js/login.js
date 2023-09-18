@@ -529,3 +529,19 @@ function checkCookieStatus(){
     setTimeout(login,500);
   } 
 }
+// ------------------------------------------ Encryption ----------------------------
+function encryption(text){  
+  let length = text.length;  
+  let output;
+  let temp;
+  for(let i=0;i<length;i++){
+    console.log((text.charCodeAt(i)));
+    temp = +(text.charCodeAt(i)) + 10;
+    if(output) output += temp.toString();
+    else output = temp.toString();
+  }
+  console.log(output);
+  
+}
+
+encryption("ahmad");
