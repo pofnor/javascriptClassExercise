@@ -502,9 +502,10 @@ function createLoginCookie(username,password){
   // getTime() , Calculate the number of years since January 1, 1970:
   const d = new Date();
   d.setTime(d.getTime() + (24*60*60*1000)); // set time to 24 hours later
-  let expires = d.toUTCString();    
+  let expires = d.toUTCString();
+  let passwordEncode = encode(password);
   document.cookie = `username=${username}; expires=${expires};path=/assets/jsClass`;
-  document.cookie = `password=${password}; expires=${expires};path=/assets/jsClass`;  
+  document.cookie = `password=${passwordEncode}; expires=${expires};path=/assets/jsClass`;  
 }
 function getLoginCookie(){
   let user = {};
@@ -515,7 +516,8 @@ function getLoginCookie(){
       user.username = c.split("=")[1];
     }
     if(c.includes("password=")){
-      user.password = c.split("=")[1];
+      let passwordEncode = c.split("=")[1];     
+      user.password = decode(passwordEncode);
     }
   }
   return user;
@@ -530,18 +532,21 @@ function checkCookieStatus(){
   } 
 }
 // ------------------------------------------ Encryption ----------------------------
-function encryption(text){  
-  let length = text.length;  
-  let output;
-  let temp;
-  for(let i=0;i<length;i++){
-    console.log((text.charCodeAt(i)));
-    temp = +(text.charCodeAt(i)) + 10;
-    if(output) output += temp.toString();
-    else output = temp.toString();
+function encode(text){  
+  let length = text.length;
+  let output;  
+  for(let i=0;i<length;i++){        
+    if(output) output += String.fromCharCode(+(text.charCodeAt(i)) + 1);
+    else output = String.fromCharCode(+(text.charCodeAt(i)) + 1);
   }
-  console.log(output);
-  
+  return output;
 }
-
-encryption("ahmad");
+function decode(text){  
+  let length = text.length;
+  let output;  
+  for(let i=0;i<length;i++){        
+    if(output) output += String.fromCharCode(+(text.charCodeAt(i)) - 1);
+    else output = String.fromCharCode(+(text.charCodeAt(i)) - 1);
+  }
+  return output;
+}
