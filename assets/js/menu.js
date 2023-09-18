@@ -1,6 +1,7 @@
 "use strict";
 
 const menuItem = [  
+  {id:"jsClass"     , href:"map.html"                 , text:"Map"},
   {id:"jsClass"     , href:"login.html"               , text:"Login"},
   {id:"jsClass"     , href:"board.html"               , text:"Board"},
   {id:"jsClass"     , href:"regExp.html"              , text:"RegExp"},
