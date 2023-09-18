@@ -69,7 +69,7 @@ function openCam(){
      return;
   }
   All_mediaDevices.getUserMedia({
-     audio: true,
+     audio: false,
      video: true
   })
   .then(function(vidStream) {
