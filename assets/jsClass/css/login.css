@@ -108,7 +108,7 @@
 
 
  /* ------ responsive ------- */
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1500px) {
   .loginContainer{
     width: 80%;
   }
@@ -117,10 +117,30 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
+  .loginContainer{
+    width: 90%;
+  }
+  .loginContainer:hover{
+    width: 91%;
+  }
   .loginBtn{
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px;
     margin-left: 5px; 
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .loginContainer{
+    width: 99%;
+  }
+  .loginContainer:hover{
+    width: 100%;
+  }
+  .loginBtn{
+    font-size: 10px;
+    padding: 2px;
+    margin-left: 1px; 
   }
 }
