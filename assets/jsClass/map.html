@@ -20,6 +20,7 @@
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/axios/axios.js"></script>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
@@ -42,7 +43,11 @@
       <a id="marker" class="btnGold" onclick="marker()">Marker</a>
       <a id="circle" class="btnGold" onclick="circle()">Circle</a>      
       <p id="address" class="prompt"></p>
-
+      <!-- Loader -->
+      <div id="loader1" style="display:none;margin: auto;text-align: center;" >
+        <div class="loaderIcon"><div></div><div></div><div></div><div></div></div>
+        <p class="loaderText">Loading...</p>              
+      </div>
     </section>
     
     <br><br>
@@ -50,9 +55,9 @@
       <h1>Click the button to get your coordinates.</h1>    
       <a class="btnGold" onclick="getLocation()">Get Your Location</a>
       <!-- Loader -->
-      <div id="loader" style="display:none;margin: auto;text-align: center;">
-        <div id="loaderIcon" class="loaderIcon"><div></div><div></div><div></div><div></div></div>
-        <p id="loaderText" class="loaderText">Loading...</p>              
+      <div id="loader2" style="display:none;margin: auto;text-align: center;">
+        <div class="loaderIcon"><div></div><div></div><div></div><div></div></div>
+        <p class="loaderText">Loading...</p>              
         </div>
         <p id="location" class="prompt"></p>
     </section>
