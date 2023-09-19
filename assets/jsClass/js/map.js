@@ -1,3 +1,6 @@
+let isMarker = false;
+let isCircle = false;
+
 function showMap(){
   var map = L.map('map').setView([35.714183, 51.365204], 11);
     
@@ -26,12 +29,34 @@ function showMap(){
 
     var popup = L.popup();
 
+    // function onMapClick(e) {
+    //   popup
+    //     .setLatLng(e.latlng)
+    //     .setContent("You clicked the map at " + e.latlng.toString())
+    //     .openOn(map);
+    // }
+
     function onMapClick(e) {
+      document.getElementById("address").textContent = e.latlng.toString();
+      if(isMarker){
+        let m = L.marker([e.latitude,e.longitude]).addTo(map);
+        m.bindPopup(e.latlng.toString());        
+      }
+      if(isCircle){
+        let c = L.circle([e.latitude,e.longitude], {
+          color: 'red',
+          fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 500
+          }).addTo(map);          
+        c.bindPopup(e.latlng.toString());
+      } else {      
       popup
-        .setLatLng(e.latlng)
+        .setLatLng(e.latlng) 
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);
     }
+  }
 
     map.on('click', onMapClick);
 
@@ -41,6 +66,7 @@ function showMap(){
 // --------------- Client Location -----------------------
 function getLocation() { 
   if (navigator.geolocation) {
+    showLoader(true);
     navigator.geolocation.getCurrentPosition(showPosition,showError);
   } else { 
     document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
@@ -48,10 +74,12 @@ function getLocation() {
 }
     
 function showPosition(position) {
+  showLoader(false);
   document.getElementById("location").innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
 }
 function showError(error) {
+  showLoader(false);
   switch(error.code) {
     case error.PERMISSION_DENIED:
       document.getElementById("location").innerHTML = "User denied the request for Geolocation."
@@ -66,4 +94,25 @@ function showError(error) {
       document.getElementById("location").innerHTML = "An unknown error occurred."
       break;
   }
+}
+
+
+// --------------------- Hide and Show Loader ------------------------------------------------------
+function showLoader(isShow){
+  if(isShow) document.getElementById("loader").style.display="block"; // Show Loader
+  else document.getElementById("loader").style.display="none"; // Hide Loader
+}
+
+// --------------------- Map Marker ------------------------------------------------------
+function marker(){
+  document.getElementById("marker").style.fontSize = "22px";
+  document.getElementById("circle").style.fontSize = "16px";
+  isMarker = true;
+  isCircle = false;
+}
+function circle(){
+  document.getElementById("circle").style.fontSize = "22px";
+  document.getElementById("marker").style.fontSize = "16px";
+  isCircle = true;
+  isMarker = false;
 }
