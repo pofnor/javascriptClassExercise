@@ -144,11 +144,16 @@
       "keyword": "style.visibility,visibility,hidden,axios,axios.get,get,trim,axios.post,post,async,await,document.location.reload,location.reload,reload,fetch,JSON,validate,Regular Expression,RegEx,RegExp,event.target,target,Toast,Snackbar,document.cookie,cookie,encode,decode,Encryption",
       "href": "assets/jsClass/login.html",
       "description": "<ul> <li> Login and Sign Up with cookie </li> <li> Axios and Fetch with and without Async/Await </li> <ul>"
+    },    
+    {
+      "keyword": "map,geocode,Leaflet,API,Address",
+      "href": "assets/jsClass/map.html",
+      "description": "<ul> <li> Show your coordinates </li> <li> Leaflet Map API </li> <li> Show Address by geocode.maps.co API </li> <ul>"
     },
     {
       "keyword": "axios,fetch",
       "href": "assets/jsClass/jsClassSession9.html",
-      "description": "<ul> <li>  </li> <ul>"
+      "description": "<ul> <li> Axios Vs Fetch </li> <li> Axios Vs Fetch </li> <ul>"
     }
   ],
   "account": [
