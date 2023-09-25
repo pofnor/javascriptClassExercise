@@ -1,4 +1,75 @@
 "use strict";
+
+// ----------------------------------- Lesson --------------------------------------------------
+
+/* -----------------------Remove this for see compare the Axios Vs Fetch
+
+// axios
+const axiosOptions = {
+   url:"http://localhost:3000/account" ,
+   method: "POST",
+   timeout: 4000, // easy === AbortController
+
+   data: {      
+      "id": "100",
+      "name": "AXIOS",
+      "mobile": "09353300330",
+      "username": "axios@axios.com",
+      "password": "Aa@12345"
+   }
+};
+axios(axiosOptions)
+   .then(response => {
+      console.log("axios",response.status);
+});
+
+// fetch
+const url = "http://localhost:3000/account";
+const fetchOptions = {
+   method: "POST",
+   headers: {
+      'Accept': 'application/json',
+      "Content-Type": "application/json"
+   },
+   body: JSON.stringify({
+      "id": "101",
+      "name": "FETCH",
+      "mobile": "09353300330",
+      "username": "fetch@fetch.com",
+      "password": "Ff@12345"
+   })
+};
+fetch(url,fetchOptions)
+   .then(response => {
+      console.log("fetch",response.status);
+   });
+
+// AbortController for fetch
+const controller = new AbortController();
+const options = {
+   method: "POST",
+   signal: controller.signal,
+   headers: {
+      'Accept': 'application/json',
+      "Content-Type": "application/json"
+   },
+   body: JSON.stringify({
+      "id": "102",
+      "name": "FETCH",
+      "mobile": "09353300330",
+      "username": "fetch@abort.com",
+      "password": "Ff@12345"
+   })
+};
+const promise = fetch(url,options);
+const timeoutId = setTimeout(()=>controller.abort(),4000);
+promise
+   .then(response => {console.log("fetch with abort",response.status)})
+   .catch(error => {console.error("timeout exceeded",error.message)});
+
+*/ // ------------------------Remove this for see compare the Axios Vs Fetch
+
+// ----------------------------------- Exercise --------------------------------------------------
 function convertPersianToEnglish(){
   const persian = document.getElementById("persian");
   const english = document.getElementById("english");
