@@ -159,3 +159,38 @@ function openCam(){
       prompt.textContent = e.name + ": " + e.message;
    });
 }
+
+// -------------------------- Class ---------------------------------------
+class Car{
+   constructor(name , year){
+     this.name = name;
+     this.year = year;
+   }
+   print() {
+     return(`The car name is ${this.name} and build on ${this.year}`);
+   }
+   age(){
+     const date = new Date();
+     return (date.getFullYear() - this.year);
+   }
+ }
+ 
+ class Model extends Car{
+   constructor(brand,year,mod){
+     super(brand,year);
+     this.model = mod;
+   }
+   show1(){
+     return this.print() + "and the model is = " + this.model;
+   }
+   get show(){
+     return this.print() + "and the model is = " + this.model;
+   }
+ }
+ 
+ const car = new Car("toyota","2020");
+ console.log("the age of this car = ",car.age());
+ const myCar = new Model("toyota","2020","corolla");
+ console.log("myCar.show1() => ",myCar.show1());
+ console.log("myCar.show => ",myCar.show);
+ console.log("myCar.year => ",myCar.year);
