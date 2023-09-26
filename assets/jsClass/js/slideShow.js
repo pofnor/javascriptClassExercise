@@ -45,6 +45,7 @@ function createSlide(slide,number,total){
   if(total === 1) {
     document.getElementsByClassName("prev")[0].style.display="none";
     document.getElementsByClassName("next")[0].style.display="none";
+    document.getElementsByClassName("slideNumber")[0].style.display="none";
     document.getElementById("dotContainer").style.display="none";
   }
   const parent = document.getElementsByClassName("slideshow")[0];
