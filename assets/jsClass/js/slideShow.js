@@ -41,20 +41,22 @@ function makeSlides(slideSource,autoSlide){
 
 // create slide
 function createSlide(slide,number,total){  
-  // Remove Next and Prev icon and Dot, if ww have one slide  
+  // Remove Next and Prev icon and Dot, when we have one slide  
   if(total === 1) {
     document.getElementsByClassName("prev")[0].style.display="none";
-    document.getElementsByClassName("next")[0].style.display="none";
-    document.getElementsByClassName("slideNumber")[0].style.display="none";
+    document.getElementsByClassName("next")[0].style.display="none";    
     document.getElementById("dotContainer").style.display="none";
   }
   const parent = document.getElementsByClassName("slideshow")[0];
   const divContainer = document.createElement("div");
   divContainer.className ="Slides fade";  
-  const slideNumber = document.createElement("div");
-  slideNumber.className = "slideNumber";
-  slideNumber.textContent = `${number}/${total}`;
-  divContainer.appendChild(slideNumber);  
+  // Don't Create slideNumber when we have one slide  
+  if(total != 1) {
+    const slideNumber = document.createElement("div");
+    slideNumber.className = "slideNumber";
+    slideNumber.textContent = `${number}/${total}`;
+    divContainer.appendChild(slideNumber);
+  }  
   if(slide.isVideo){
     const video = document.createElement("video");
     video.className = "slideImage";    
