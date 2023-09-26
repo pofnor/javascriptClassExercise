@@ -151,9 +151,9 @@
       "description": "<ul> <li> Show your coordinates </li> <li> Leaflet Map API </li> <li> Show Address by geocode.maps.co API </li> <ul>"
     },
     {
-      "keyword": "axios,fetch,WebCam,getUserMedia,navigator.mediaDevices,Regular Expression,RegEx,RegExp,Intl.NumberFormat,NumberFormat,toLocaleString,Convert Persian To English",
+      "keyword": "axios,fetch,WebCam,getUserMedia,navigator.mediaDevices,Regular Expression,RegEx,RegExp,Intl.NumberFormat,NumberFormat,toLocaleString,Convert Persian To English,Class,Date,constructor,super,extends,getFullYear",
       "href": "assets/jsClass/jsClassSession9.html",
-      "description": "<ul> <li> Axios Vs Fetch </li> <li> WebCam </li> <li> Use Comma as Thousand </li> <li> Convert Persian To English </li> <ul>"
+      "description": "<ul> <li> Axios Vs Fetch </li> <li> WebCam </li> <li> Use Comma as Thousand </li> <li> Convert Persian To English </li> <li> Class </li> <ul>"
     }
   ],
   "account": [
