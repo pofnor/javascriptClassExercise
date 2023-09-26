@@ -40,7 +40,7 @@ function makeSlides(slideSource,autoSlide){
 }
 
 // create slide
-function createSlide(slide,Number,total){  
+function createSlide(slide,number,total){  
   // Remove Next and Prev icon and Dot, if ww have one slide  
   if(total === 1) {
     document.getElementsByClassName("prev")[0].style.display="none";
@@ -52,6 +52,7 @@ function createSlide(slide,Number,total){
   divContainer.className ="Slides fade";  
   const slideNumber = document.createElement("div");
   slideNumber.className = "slideNumber";
+  slideNumber.textContent = `${number}/${total}`;
   divContainer.appendChild(slideNumber);  
   if(slide.isVideo){
     const video = document.createElement("video");
@@ -96,7 +97,7 @@ function createSlide(slide,Number,total){
   const dotParent = document.getElementById("dotContainer");
   const dot = document.createElement("span");
   dot.className = "dot";
-  dot.onclick = function(e){currentSlide(Number)};
+  dot.onclick = function(e){currentSlide(number)};
   dotParent.appendChild(dot);
 }
 
